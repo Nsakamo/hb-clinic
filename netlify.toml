@@ -1,0 +1,13 @@
+# Netlify 設定 — 静的サイト（ビルド不要）
+[build]
+  publish = "."
+
+# SPA ではないので特別なリダイレクトは不要
+# 末尾スラッシュ等は Netlify 既定に従う
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
