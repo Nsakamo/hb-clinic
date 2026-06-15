@@ -312,6 +312,20 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;}
 }
 .sticky-cta .btn{flex:1;min-height:50px;padding:14px;font-size:14px;}
 
+/* ---------- お問い合わせフォーム ---------- */
+.form{max-width:600px;margin:28px auto 0;text-align:left;}
+.form-field{margin-bottom:18px;}
+.form-field label{display:block;font-size:13px;font-weight:700;color:var(--c-primary);margin-bottom:6px;}
+.form-field .req{color:#fff;background:var(--c-no);font-size:10px;border-radius:4px;padding:2px 6px;margin-left:6px;font-weight:700;}
+.form-field .opt{color:var(--c-sub);font-size:11px;margin-left:6px;font-weight:500;}
+.form-field input,.form-field textarea{width:100%;padding:14px 16px;border:1px solid var(--c-line);border-radius:var(--radius-sm);font-family:inherit;font-size:15px;background:#fff;color:var(--c-text);transition:border-color .2s;}
+.form-field input:focus,.form-field textarea:focus{outline:none;border-color:var(--c-primary);}
+.form-field textarea{min-height:150px;resize:vertical;}
+.form-hp{position:absolute!important;left:-9999px;top:-9999px;}
+.form [data-netlify-recaptcha]{margin:8px 0 18px;}
+.form .btn{width:100%;}
+.form-note{font-size:12px;color:var(--c-sub);margin-top:16px;line-height:1.7;}
+
 /* ---------- Scroll Reveal（常時表示・ガタつき防止のため演出は最小化） ---------- */
 .reveal{opacity:1;transform:none;}
 .reveal.in{opacity:1;transform:none;}
