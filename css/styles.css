@@ -160,21 +160,23 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;}
 .imgph:has(img){background:#EEE8DF;}
 .imgph:has(img)::after{content:none;}
 
-/* ---------- NO 宣言 (最重要) ---------- */
-.no-section{background:var(--c-primary);color:#fff;padding:var(--s-lg) 0;text-align:center;}
-.no-section .h-sec{color:#fff;}
+/* ---------- NO 宣言 (最重要・明るい上品な見せ方) ---------- */
+.no-section{background:var(--c-bg);padding:var(--s-lg) 0;text-align:center;}
+.no-section .h-sec{color:var(--c-primary);}
 .no-section .h-sec .no-red{color:var(--c-no);}
-.no-lead{color:#cdd7e6;font-size:14px;margin-bottom:40px;}
+.no-lead{color:var(--c-sub);font-size:14px;margin-bottom:44px;}
 .no-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
 .no-card{
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);
-  border-radius:var(--radius);padding:28px 16px;
-  opacity:1;transform:none;
+  background:#fff;border:1px solid var(--c-line);
+  border-radius:var(--radius);padding:36px 18px 30px;
+  box-shadow:var(--shadow);opacity:1;transform:none;
 }
 .no-card.show{opacity:1;transform:none;}
-.no-card .no-word{font-size:30px;font-weight:700;color:var(--c-no);letter-spacing:.08em;line-height:1;margin-bottom:12px;}
-.no-card .no-label{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px;}
-.no-card .no-desc{font-size:12px;color:#aebbce;line-height:1.7;}
+.no-ico{width:46px;height:46px;margin:0 auto 18px;color:var(--c-primary);}
+.no-ico svg{width:46px;height:46px;stroke:currentColor;fill:none;stroke-width:1.6;}
+.no-card .no-word{font-size:30px;font-weight:700;color:var(--c-no);letter-spacing:.1em;line-height:1;margin-bottom:10px;}
+.no-card .no-label{font-size:16px;font-weight:700;color:var(--c-primary);margin-bottom:8px;}
+.no-card .no-desc{font-size:12px;color:var(--c-sub);line-height:1.7;}
 
 /* ---------- 印象比較 ---------- */
 .compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:center;margin-top:28px;}
@@ -182,18 +184,16 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;}
 .compare-arrow{display:none;}
 
 /* ---------- 選ばれる理由 ---------- */
-.reasons{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:32px;}
-.reason{
-  background:#fff;border:1px solid var(--c-line);border-radius:var(--radius-sm);
-  padding:22px 16px;text-align:center;box-shadow:var(--shadow);
-}
+.reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 12px;margin-top:40px;}
+.reason{text-align:center;padding:0 6px;}
 .reason .ico{
-  width:44px;height:44px;margin:0 auto 12px;border-radius:50%;
-  background:var(--c-bg-2);display:flex;align-items:center;justify-content:center;
+  width:56px;height:56px;margin:0 auto 14px;border-radius:50%;
+  background:#fff;border:1px solid var(--c-line);
+  display:flex;align-items:center;justify-content:center;
 }
-.reason .ico svg{width:22px;height:22px;stroke:var(--c-primary);}
-.reason b{display:block;font-size:14px;color:var(--c-primary);font-weight:700;}
-.reason span{font-size:11.5px;color:var(--c-sub);}
+.reason .ico svg{width:26px;height:26px;stroke:var(--c-accent);fill:none;}
+.reason b{display:block;font-size:13.5px;color:var(--c-primary);font-weight:700;margin-bottom:2px;}
+.reason span{font-size:11px;color:var(--c-sub);}
 
 /* ---------- メニュー ---------- */
 .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
@@ -322,8 +322,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;}
   .h-sec{font-size:32px;}
   .hero h1{font-size:40px;}
   .no-grid{grid-template-columns:repeat(4,1fr);gap:20px;}
-  .no-card{padding:36px 18px;}
-  .reasons{grid-template-columns:repeat(3,1fr);gap:18px;}
+  .no-card{padding:40px 18px 34px;}
+  .reasons{grid-template-columns:repeat(6,1fr);gap:18px;}
   .menu-grid{grid-template-columns:repeat(3,1fr);}
   .clinic-grid{grid-template-columns:repeat(3,1fr);}
   .access-grid{grid-template-columns:repeat(2,1fr);}
