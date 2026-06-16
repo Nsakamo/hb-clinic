@@ -1,6 +1,6 @@
 /* =========================================================
    歯と美容のクリニック — main.js
-   ハンバーガー / FAQアコーディオン / NO順番表示 / Scroll Reveal
+   ハンバーガー / FAQアコーディオン / 軽いスクロール演出 / アンカー補正
    ========================================================= */
 (function () {
   'use strict';
@@ -28,7 +28,6 @@
     if (!q || !a) return;
     q.addEventListener('click', function () {
       var isOpen = item.classList.contains('open');
-      // 同じグループ内を閉じる（任意：1つだけ開く挙動）
       var group = item.closest('[data-faq]');
       group.querySelectorAll('.faq-item.open').forEach(function (other) {
         if (other !== item) {
@@ -46,40 +45,37 @@
     });
   });
 
-  /* ---- IntersectionObserver: Scroll Reveal + NO順番表示 ---- */
-  var supportIO = 'IntersectionObserver' in window;
+  /* ---- スクロール演出（軽いフェードアップ・絶対に消えたままにしない） ---- */
+  var reveals = [].slice.call(document.querySelectorAll('.reveal'));
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (supportIO) {
-    var revealIO = new IntersectionObserver(function (entries, obs) {
+  function showAll() { reveals.forEach(function (el) { el.classList.add('in'); }); }
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    showAll();
+  } else {
+    var io = new IntersectionObserver(function (entries, obs) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          obs.unobserve(e.target);
+        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.04, rootMargin: '0px 0px -4% 0px' });
+
+    reveals.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      // 初期表示時にすでに見えている/上にある要素は即表示（チラつき防止）
+      if (r.top < window.innerHeight * 0.92) { el.classList.add('in'); }
+      else { io.observe(el); }
+    });
+
+    // 保険：1.4秒後、画面付近にある未表示要素を表示（空白を残さない）
+    setTimeout(function () {
+      reveals.forEach(function (el) {
+        if (!el.classList.contains('in')) {
+          var r = el.getBoundingClientRect();
+          if (r.top < window.innerHeight * 1.3) el.classList.add('in');
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-    document.querySelectorAll('.reveal').forEach(function (el) { revealIO.observe(el); });
-
-    /* NO宣言：カードを順番にフェードイン */
-    var noGrid = document.getElementById('noGrid');
-    if (noGrid) {
-      var cards = noGrid.querySelectorAll('.no-card');
-      var noIO = new IntersectionObserver(function (entries, obs) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) {
-            cards.forEach(function (card, i) {
-              setTimeout(function () { card.classList.add('show'); }, i * 220);
-            });
-            obs.disconnect();
-          }
-        });
-      }, { threshold: 0.3 });
-      noIO.observe(noGrid);
-    }
-  } else {
-    /* フォールバック：演出なしで全表示 */
-    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
-    document.querySelectorAll('.no-card').forEach(function (el) { el.classList.add('show'); });
+    }, 1400);
   }
 
   /* ---- アンカーリンクのヘッダー分オフセット補正 ---- */
