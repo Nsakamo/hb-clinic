@@ -18,3 +18,66 @@
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+
+# 旧 .html URL を .html なしの正規URLへ 301 リダイレクト
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/home-whitening.html"
+  to = "/home-whitening"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/thedente.html"
+  to = "/thedente"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/aboutus.html"
+  to = "/aboutus"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shohosen.html"
+  to = "/shohosen"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/thanks.html"
+  to = "/thanks"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/privacy.html"
+  to = "/privacy"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/terms.html"
+  to = "/terms"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tokushoho.html"
+  to = "/tokushoho"
+  status = 301
+  force = true
+
