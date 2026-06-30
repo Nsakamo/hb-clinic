@@ -844,6 +844,11 @@ html{overflow-x:clip;}
 .opal-hl{width:100%;max-width:100%;box-sizing:border-box;}
 .opal-body{min-width:0;box-sizing:border-box;}
 .opal-highlights{padding:0 10px;}
+@media(max-width:767px){
+  /* スマホは黄色い囲い（背景・枠）をやめてアイコン+テキストのみ */
+  .opal-highlights{padding:0;gap:18px;margin:6px 0 22px;}
+  .opal-hl{background:none;border:0;border-radius:0;padding:0;gap:12px;}
+}
 @media(min-width:768px){.opal-highlights{grid-template-columns:1fr 1fr;}}
 @media(min-width:768px){
   .opal-card{grid-template-columns:1fr 1.05fr;align-items:stretch;}
