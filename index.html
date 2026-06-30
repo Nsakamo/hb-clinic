@@ -1,59 +1,1138 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>安心の医療ホワイトニング｜歯と美容のクリニック（銀座）</title>
-<meta name="description" content="国家資格を持つプロ集団による安心の医療ホワイトニング。60分たっぷり照射9,900円。おとり広告・高額契約・押し売り・不透明会計はしません。銀座本院／銀座7丁目院。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="canonical" href="https://hb-clinic.com/">
+<style>
+:root{
+  --c-primary:#0B2D5C;
+  --c-primary-d:#081f40;
+  --c-accent:#C89B16;
+  --c-accent-d:#a8810f;
+  --c-no:#D93838;
+  --c-bg:#FAF8F5;
+  --c-bg-2:#F2EEE7;
+  --c-white:#FFFFFF;
+  --c-text:#1A1A1A;
+  --c-sub:#666666;
+  --c-line:#E5DFD5;
+  --s-lg:80px;
+  --s-md:48px;
+  --s-sm:24px;
+  --radius:24px;
+  --radius-sm:14px;
+  --shadow:0 6px 24px rgba(11,45,92,.06);
+  --shadow-hover:0 10px 32px rgba(11,45,92,.10);
+  --maxw:1120px;
+  --header-h:64px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+/* sticky header fix: DCホストを実コンテンツ高さにして position:sticky を全長で効かせる */
+html,body{height:auto!important;}
+#dc-root,.sc-host{height:auto!important;min-height:100vh;overflow:visible!important;}
+body{
+  font-family:"Noto Sans JP",system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  color:var(--c-text);
+  background:var(--c-bg);
+  font-weight:400;
+  line-height:1.8;
+  letter-spacing:.02em;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul,li{list-style:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+.num{font-weight:600;font-feature-settings:"tnum";}
+.container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+.section{padding:60px 0;}
+.section--tight{padding:40px 0;}
+.bg-alt{background:var(--c-bg-2);}
+.bg-navy{background:var(--c-primary);color:#fff;}
+.center{text-align:center;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.26em;
+  color:var(--c-accent);text-transform:uppercase;margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:currentColor;opacity:.6;}
+.center .eyebrow,.no-section .eyebrow,.final-cta .eyebrow{justify-content:center;}
+.h-sec{
+  font-size:27px;font-weight:700;line-height:1.48;letter-spacing:.02em;color:var(--c-primary);
+  margin-bottom:16px;
+}
+.h-sec .accent{color:var(--c-accent);}
+.lead{color:var(--c-sub);font-size:15px;line-height:1.9;max-width:34em;}
+.center .lead{margin-left:auto;margin-right:auto;}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-weight:700;font-size:16px;line-height:1;text-align:center;
+  padding:18px 32px;border-radius:999px;transition:.25s ease;
+  min-height:56px;
+}
+.btn--primary{background:var(--c-primary);color:#fff;box-shadow:var(--shadow);}
+.btn--primary:hover{background:var(--c-primary-d);box-shadow:var(--shadow-hover);transform:translateY(-1px);}
+.btn--gold{background:var(--c-accent);color:#fff;}
+.btn--gold:hover{background:var(--c-accent-d);}
+.btn--line{background:#06C755;color:#fff;}
+.btn--line:hover{filter:brightness(.95);}
+.btn--ghost{background:#fff;color:var(--c-primary);border:1.5px solid var(--c-line);}
+.btn--ghost:hover{border-color:var(--c-primary);}
+.btn--block{width:100%;}
+.btn .sub{font-size:11px;font-weight:500;opacity:.85;}
+.site-header{
+  position:sticky;top:0;z-index:100;background:rgba(250,248,245,.92);
+  backdrop-filter:saturate(120%) blur(6px);
+  border-bottom:1px solid var(--c-line);
+}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;height:var(--header-h);}
+.brand{display:flex;flex-direction:column;line-height:1.2;gap:4px;}
+.brand b{font-size:16px;font-weight:700;color:var(--c-primary);letter-spacing:.04em;}
+.brand span{font-size:10px;color:var(--c-sub);letter-spacing:.18em;}
+.nav{display:none;gap:22px;align-items:center;}
+.nav a{font-size:14px;font-weight:500;color:var(--c-text);transition:.2s;white-space:nowrap;letter-spacing:.01em;}
+.nav a:hover{color:var(--c-accent);}
+.header-cta{display:none;}
+.header-actions{display:flex;align-items:center;gap:10px;}
+.order-cta{background:#fff;color:var(--c-accent-d);border:1.5px solid var(--c-accent);min-height:44px;padding:12px 18px;font-size:14px;font-weight:700;border-radius:999px;white-space:nowrap;}
+.order-cta:hover{background:var(--c-accent);color:#fff;}
+.nav-toggle{display:flex;flex-direction:column;gap:5px;padding:8px;}
+.nav-toggle span{width:24px;height:2px;background:var(--c-primary);display:block;}
+.mobile-nav{
+  display:none;position:fixed;inset:var(--header-h) 0 0;z-index:99;
+  background:var(--c-bg);padding:28px 24px calc(72px + env(safe-area-inset-bottom));
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
+}
+.mobile-nav.open{display:block;animation:mnFade .26s ease both;}
+@keyframes mnFade{from{opacity:0;}to{opacity:1;}}
+.mobile-nav.open > *{animation:mnItem .42s cubic-bezier(.22,.61,.36,1) both;}
+.mobile-nav.open > *:nth-child(1){animation-delay:.04s;}
+.mobile-nav.open > *:nth-child(2){animation-delay:.09s;}
+.mobile-nav.open > *:nth-child(3){animation-delay:.14s;}
+.mobile-nav.open > *:nth-child(4){animation-delay:.19s;}
+.mobile-nav.open > *:nth-child(5){animation-delay:.24s;}
+.mobile-nav.open > *:nth-child(6){animation-delay:.29s;}
+.mobile-nav.open > *:nth-child(7){animation-delay:.34s;}
+@keyframes mnItem{from{opacity:0;transform:translateX(-16px);}to{opacity:1;transform:none;}}
+.mobile-nav .mn-clinics{padding:2px 0 0;}
+.mobile-nav .mn-clinics-label{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--c-accent-d);padding:16px 0 2px;}
+.mobile-nav a.clinic-link{font-size:14px;font-weight:500;padding:13px 0;color:var(--c-sub);}
+.mobile-nav a.clinic-link:hover{color:var(--c-accent);}
+.mobile-nav a{display:block;padding:18px 0;font-size:18px;font-weight:500;border-bottom:1px solid var(--c-line);}
+.mobile-nav .btn{margin-top:28px;}
+.mobile-nav a.btn--primary{color:#fff!important;}
+.mn-close{position:absolute;top:12px;right:14px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#fff;border:1px solid var(--c-line);color:var(--c-primary);box-shadow:var(--shadow);padding:0;z-index:2;}
+.mn-close:hover{background:var(--c-bg-2);}
+.hero--full{position:relative;background:var(--c-bg);overflow:hidden;}
+.hero--full .hero-media{width:100%;aspect-ratio:4/3;background:#EEE8DF;position:relative;}
+.hero--full .hero-media img{width:100%;height:100%;object-fit:cover;object-position:72% center;display:block;}
+.hero--full .hero-inner{padding:32px 0 44px;}
+@media(min-width:1024px){
+  .hero--full .hero-media{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;}
+  .hero--full .hero-media img{object-position:72% center;}
+  .hero--full .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(250,248,245,.94) 0%,rgba(250,248,245,.78) 28%,rgba(250,248,245,.25) 50%,rgba(250,248,245,0) 64%);pointer-events:none;}
+  .hero--full .hero-inner{min-height:min(88vh,820px);display:flex;align-items:center;position:relative;z-index:2;padding:80px 0;}
+  .hero--full .hero-copy{max-width:520px;}
+}
+.hero{position:relative;overflow:hidden;}
+.hero-grid{display:grid;gap:28px;align-items:center;}
+.hero-copy .eyebrow{margin-bottom:18px;}
+.hero--full .hero-copy .eyebrow{
+  color:var(--c-primary);font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:none;gap:10px;
+}
+.hero--full .hero-copy .eyebrow::before{background:currentColor;opacity:1;width:26px;height:2px;}
+@media(min-width:768px){
+  .hero--full .hero-copy .eyebrow{font-size:15px;}
+}
+.hero h1{
+  font-size:30px;font-weight:700;line-height:1.45;color:var(--c-primary);
+  margin-bottom:20px;
+}
+.hero h1 small{display:block;font-size:15px;font-weight:500;color:var(--c-sub);margin-bottom:10px;letter-spacing:.04em;}
+.hero h1 .hl{display:block;font-size:.48em;font-weight:700;color:var(--c-accent-d);letter-spacing:.06em;line-height:1.5;margin-bottom:12px;}
+.hero h1 .main{display:block;font-size:1.12em;font-weight:800;line-height:1.2;letter-spacing:.01em;}
+.price-tag{display:flex;align-items:baseline;gap:8px;margin:8px 0 4px;flex-wrap:wrap;}
+.price-tag .label{font-size:13px;color:var(--c-sub);font-weight:500;}
+.price-tag .yen{font-size:44px;font-weight:600;color:var(--c-primary);font-feature-settings:"tnum";line-height:1;}
+.price-tag .unit{font-size:16px;font-weight:600;color:var(--c-primary);}
+.price-note{font-size:12px;color:var(--c-sub);margin-bottom:24px;}
+.hero-cta{display:flex;flex-direction:column;gap:12px;}
+.hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
+.hero-badges .badge{
+  font-size:12px;font-weight:600;color:var(--c-primary);
+  background:#fff;border:1px solid var(--c-line);border-radius:999px;padding:7px 14px;
+}
+/* === スマホ専用ヒーロー：写真と文字を一体化 === */
+@keyframes heroKenBurns{from{transform:scale(1.1);}to{transform:scale(1);}}
+@media(max-width:767px){
+  .hero--full .hero-media{aspect-ratio:4/5;}
+  .hero--full .hero-media img{animation:heroKenBurns 9s ease-out both;}
+  .hero--full .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(250,248,245,0) 0%,rgba(250,248,245,0) 44%,rgba(250,248,245,.42) 66%,rgba(250,248,245,.9) 87%,var(--c-bg) 97%);pointer-events:none;}
+  .hero--full .hero-inner{position:relative;z-index:2;margin-top:-104px;padding:0 0 8px;}
+  .hero--full .hero-copy{padding-top:0;}
+  .hero--full .hero-copy .eyebrow{margin-bottom:10px;}
+  .hv-label{white-space:nowrap;font-size:16px;}
+  .hv-formula{flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:6px 6px;background:#fff;border:1px solid var(--c-line);border-radius:14px;padding:16px 12px;box-shadow:var(--shadow);}
+  .hv-formula .term{font-size:14px;background:var(--c-bg-2);min-width:0;padding:12px 9px;gap:7px;}
+  .hv-formula .result{min-width:0;}
+  .hv-formula .fx-ico{width:34px;height:34px;}
+  .hv-formula .op:first-of-type{font-size:18px;color:var(--c-accent-d);}
+  .hv-formula .op:last-of-type{display:flex;flex-basis:100%;justify-content:center;align-items:flex-start;height:26px;margin:12px 0 2px;font-size:0;animation:spmBounce 1.4s ease-in-out infinite;}
+  .hv-formula .op:last-of-type::before{content:"";width:16px;height:16px;border-right:3px solid var(--c-accent);border-bottom:3px solid var(--c-accent);border-radius:0 0 3px 0;transform:rotate(45deg);}
+  .hv-formula .result{flex-basis:100%;margin-top:8px;text-align:center;font-size:18px;padding:14px;}
+  .opal-price{flex-wrap:wrap;align-items:baseline;gap:2px 6px;}
+  .opal-price .qty{flex-basis:100%;font-size:15px;margin:0 0 4px;}
+  .opal-price .yen{font-size:50px;}
+}
+.imgph{
+  position:relative;border-radius:var(--radius);overflow:hidden;
+  background:linear-gradient(135deg,#EEE8DF 0%,#E3DACB 100%);
+  display:flex;align-items:center;justify-content:center;
+  color:#b7a992;font-size:13px;font-weight:600;letter-spacing:.1em;text-align:center;padding:8px;
+  aspect-ratio:4/5;
+}
+.imgph[data-ratio="16/9"]{aspect-ratio:16/9;}
+.imgph[data-ratio="1/1"]{aspect-ratio:1/1;}
+.imgph[data-ratio="3/2"]{aspect-ratio:3/2;}
+.imgph::after{content:attr(data-label);}
+.imgph.navy{background:linear-gradient(135deg,#13355f,#0B2D5C);color:#6f86a8;}
+.imgph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+.imgph:has(img){background:#EEE8DF;}
+.imgph:has(img)::after{content:none;}
+.no-section{background:var(--c-bg);padding:var(--s-lg) 0;text-align:center;}
+.no-section .h-sec{color:var(--c-primary);}
+.no-title{font-size:30px;font-weight:800;color:var(--c-primary);line-height:1.35;margin-bottom:14px;letter-spacing:.02em;}
+.no-title .t-num{color:var(--c-no);font-size:1.3em;font-weight:900;}
+.no-title .t-no{display:inline-block;color:#fff;background:var(--c-no);border-radius:12px;padding:.04em .24em;font-size:1.02em;font-weight:900;margin:0 .14em;box-shadow:0 8px 20px color-mix(in srgb,var(--c-no) 30%,transparent);}
+.no-lead{color:var(--c-sub);font-size:14px;margin-bottom:44px;}
+.no-grid{display:grid;grid-template-columns:1fr;gap:16px;max-width:760px;margin:0 auto;}
+.no-card{
+  position:relative;text-align:center;background:#fff;border:1px solid var(--c-line);
+  border-radius:var(--radius);padding:36px 24px 26px;
+  box-shadow:var(--shadow);opacity:1;transform:none;overflow:hidden;
+}
+.no-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--c-no);}
+.no-card.show{opacity:1;transform:none;}
+.no-badge{width:96px;height:96px;margin:0 auto 14px;}
+.no-badge img{width:100%;height:100%;object-fit:contain;display:block;}
+.no-card .no-num{position:absolute;top:16px;right:18px;font-size:13px;font-weight:800;color:var(--c-line);font-feature-settings:"tnum";letter-spacing:.06em;}
+.no-card .no-label{font-size:19px;font-weight:800;color:var(--c-primary);margin-bottom:8px;}
+.no-card .no-label .nt{color:var(--c-no);font-weight:900;font-size:1.7em;line-height:1;margin-right:.18em;vertical-align:-.06em;letter-spacing:.01em;}
+.no-card .no-desc{font-size:13px;color:var(--c-sub);line-height:1.8;max-width:22em;margin:0 auto;}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:center;margin-top:28px;}
+.compare .imgph{aspect-ratio:4/3;}
+.compare-arrow{display:none;}
+.reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 12px;margin-top:40px;}
+.reason{text-align:center;padding:0 6px;}
+.reason .ico{
+  width:56px;height:56px;margin:0 auto 14px;border-radius:50%;
+  background:#fff;border:1px solid var(--c-line);
+  display:flex;align-items:center;justify-content:center;
+}
+.reason .ico svg{width:26px;height:26px;stroke:var(--c-accent);fill:none;}
+.reason b{display:block;font-size:13.5px;color:var(--c-primary);font-weight:700;margin-bottom:2px;}
+.reason span{font-size:11px;color:var(--c-sub);}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.menu-card{
+  background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);
+  padding:18px;box-shadow:var(--shadow);position:relative;display:flex;flex-direction:column;
+}
+.menu-card .tag{
+  position:absolute;top:14px;right:14px;font-size:10px;font-weight:700;
+  color:#fff;background:var(--c-accent);border-radius:999px;padding:4px 10px;letter-spacing:.06em;
+}
+.menu-card .tag.pop{background:var(--c-no);}
+.menu-card .imgph{aspect-ratio:3/2;margin-bottom:14px;}
+.menu-card h3{font-size:15px;color:var(--c-primary);font-weight:700;margin-bottom:2px;}
+.menu-card .desc{font-size:11.5px;color:var(--c-sub);margin-bottom:10px;flex:1;}
+.menu-card .price{display:flex;align-items:baseline;gap:3px;}
+.menu-card .price .yen{font-size:24px;font-weight:600;color:var(--c-primary);font-feature-settings:"tnum";}
+.menu-card .price .tax{font-size:11px;color:var(--c-sub);}
+.flow{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin:28px 0;}
+.flow-item{text-align:center;}
+.flow-item .imgph{width:130px;aspect-ratio:1/1;margin:0 auto 8px;}
+.flow-item b{font-size:13px;color:var(--c-primary);font-weight:700;}
+.flow-op{font-size:26px;color:var(--c-accent);font-weight:700;}
+.flow-result{
+  background:var(--c-accent);color:#fff;border-radius:var(--radius-sm);
+  padding:10px 18px;font-weight:700;font-size:14px;
+}
+.feature-list{margin-top:20px;display:grid;gap:12px;}
+.feature-list li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--c-text);}
+.feature-list li::before{
+  content:"";flex:0 0 20px;height:20px;margin-top:2px;border-radius:50%;
+  background:var(--c-accent);
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/></svg>") center/14px no-repeat;
+          mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/></svg>") center/14px no-repeat;
+}
+.ptable{width:100%;border-collapse:collapse;margin-top:24px;background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+.ptable th,.ptable td{padding:14px 12px;text-align:center;font-size:13px;border-bottom:1px solid var(--c-line);}
+.ptable thead th{background:var(--c-primary);color:#fff;font-weight:700;}
+.ptable thead th.ours{background:var(--c-accent);}
+.ptable td:first-child{text-align:left;color:var(--c-sub);font-weight:500;}
+.ptable .ours{color:var(--c-no);font-weight:700;}
+.ptable tr:last-child td{border-bottom:none;}
+.clinic-grid{display:grid;gap:16px;margin-top:28px;}
+.clinic-card{background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+.clinic-card .imgph{aspect-ratio:16/9;border-radius:0;}
+.clinic-card .body{padding:20px;}
+.clinic-card h3{font-size:16px;color:var(--c-primary);margin-bottom:6px;}
+.clinic-card p{font-size:12.5px;color:var(--c-sub);margin-bottom:14px;}
+.clinic-card.dente{background:#15110d;color:#e8ddca;border-color:#2a2118;}
+.clinic-card.dente h3{color:#cBae74;letter-spacing:.08em;}
+.clinic-card.dente p{color:#9b9079;}
+.clinic-card.dente .imgph{background:linear-gradient(135deg,#241b12,#15110d);color:#c8ae74;font-size:19px;letter-spacing:.3em;font-weight:500;}
+.steps{display:grid;gap:14px;margin-top:28px;}
+.step{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius-sm);padding:18px;}
+.step .n{flex:0 0 38px;height:38px;border-radius:50%;background:var(--c-primary);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-feature-settings:"tnum";}
+.step .step-thumb{flex:0 0 76px;width:76px;height:76px;border-radius:12px;overflow:hidden;background:var(--c-bg-2);}
+.step .step-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.step b{display:block;font-size:14px;color:var(--c-primary);margin-bottom:2px;}
+.step span{font-size:12.5px;color:var(--c-sub);}
+.faq{margin-top:24px;border-top:1px solid var(--c-line);}
+.faq-item{border-bottom:1px solid var(--c-line);}
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;text-align:left;padding:20px 4px;font-size:14.5px;font-weight:500;color:var(--c-text);}
+.faq-q .mark{flex:0 0 auto;width:20px;height:20px;position:relative;transition:.3s;}
+.faq-q .mark::before,.faq-q .mark::after{content:"";position:absolute;background:var(--c-accent);top:50%;left:50%;transform:translate(-50%,-50%);}
+.faq-q .mark::before{width:14px;height:2px;}
+.faq-q .mark::after{width:2px;height:14px;transition:.3s;}
+.faq-item.open .faq-q .mark::after{transform:translate(-50%,-50%) scaleY(0);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.faq-a div{padding:0 4px 22px;font-size:13.5px;color:var(--c-sub);}
+.access-grid{display:grid;gap:18px;margin-top:28px;grid-template-columns:repeat(auto-fit,minmax(278px,1fr));}
+.access-card{background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+.access-card .map{width:100%;border:0;aspect-ratio:16/9;display:block;background:var(--c-bg-2);}
+.access-card .body{padding:20px;}
+.access-card h3{font-size:16px;color:var(--c-primary);margin-bottom:10px;}
+.access-card dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:12.5px;}
+.access-card dt{color:var(--c-sub);font-weight:500;}
+.access-card .btn{margin-top:16px;}
+.ca-grid{display:grid;gap:18px;margin-top:28px;}
+.ca-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+.ca-card .imgph{aspect-ratio:16/9;border-radius:0;}
+.ca-card .ca-body{padding:20px;display:flex;flex-direction:column;gap:14px;flex:1;}
+.ca-card .ca-info{display:flex;flex-direction:column;gap:14px;flex:1;}
+.ca-card h3{font-size:17px;color:var(--c-primary);}
+.ca-card .ca-lead{font-size:12.5px;color:var(--c-sub);line-height:1.7;}
+.ca-card dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:12.5px;margin:0;}
+.ca-card dt{color:var(--c-sub);font-weight:500;}
+.ca-card dd{margin:0;}
+.ca-card .map{width:100%;border:0;aspect-ratio:16/9;display:block;background:var(--c-bg-2);border-radius:var(--radius-sm);}
+.ca-card .ca-btns{display:flex;flex-direction:column;gap:10px;}
+.ca-card.dente{background:#15110d;color:#e8ddca;border-color:#2a2118;}
+.ca-card.dente h3{color:#c8ae74;letter-spacing:.06em;}
+.ca-card.dente .ca-lead{color:#9b9079;}
+.ca-card.dente dt{color:#8a7f68;}
+.ca-card.dente dd{color:#cfc4ac;}
+.ca-card.dente .imgph{background:linear-gradient(135deg,#241b12,#15110d);color:#c8ae74;font-size:19px;letter-spacing:.3em;font-weight:500;}
+@media(min-width:768px){.ca-grid{grid-template-columns:repeat(3,1fr);}}
+.final-cta{background:var(--c-primary);color:#fff;text-align:center;padding:var(--s-lg) 0;}
+.final-cta .price-tag{justify-content:center;}
+.final-cta .price-tag .yen,.final-cta .price-tag .unit{color:#fff;}
+.final-cta .price-tag .label{color:#cdd7e6;}
+.final-cta h2{font-size:24px;font-weight:700;margin-bottom:8px;}
+.final-cta .ftc-btns{display:flex;flex-direction:column;gap:12px;max-width:360px;margin:26px auto 0;}
+.site-footer{background:var(--c-primary-d);color:#aebbce;padding:48px 0 110px;font-size:12.5px;}
+.site-footer .container{display:grid;gap:24px;}
+.site-footer .f-brand b{color:#fff;font-size:16px;display:block;margin-bottom:6px;}
+.site-footer nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.site-footer nav a{color:#aebbce;padding:4px 0;}
+.site-footer nav a:hover{color:#fff;}
+.site-footer .copy{border-top:1px solid rgba(255,255,255,.12);padding-top:18px;font-size:11px;color:#7e8ba1;}
+.site-footer .legal-links{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:11px;}
+.site-footer .legal-links a{color:#9aa7bc;}
+.site-footer .legal-links a:hover{color:#fff;}
+.site-footer .f-notes{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.12);padding-top:22px;display:grid;gap:22px;}
+.f-notes h4{color:#cdd7e6;font-size:12px;font-weight:700;letter-spacing:.04em;margin-bottom:9px;}
+.f-notes ul{list-style:none;display:grid;gap:6px;}
+.f-notes ul li{position:relative;padding-left:14px;font-size:11px;line-height:1.75;color:#9aa7bc;}
+.f-notes ul li::before{content:"";position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:50%;background:#6f7d93;}
+.f-notes .ld-intro{font-size:11px;color:#9aa7bc;margin-bottom:4px;}
+.f-notes .ld{display:grid;gap:4px;}
+.f-notes .ld p{margin:0;font-size:10.5px;line-height:1.6;color:#828fa5;}
+.f-notes .ld p b{color:#b6c1d3;font-weight:600;}
+.f-notes .ld a{color:#aebbce;text-decoration:underline;word-break:break-all;}
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:90;
+  display:flex;gap:8px;padding:10px 14px;
+  background:rgba(255,255,255,.96);backdrop-filter:blur(6px);
+  border-top:1px solid var(--c-line);box-shadow:0 -4px 20px rgba(11,45,92,.08);
+}
+.sticky-cta .btn{flex:1;min-height:50px;padding:14px;font-size:14px;}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);}
+.reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1!important;transform:none!important;transition:none;}
+}
+/* ヘッダー：デュアル強調 */
+.nav a.nav-dual{position:relative;color:var(--c-accent-d);font-weight:700;}
+.nav a.nav-dual:hover{color:var(--c-accent);}
+.nav-badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;color:#fff;background:var(--c-accent);border-radius:999px;padding:2px 7px;margin-left:5px;line-height:1.2;vertical-align:middle;}
+.nav a.nav-dual .nav-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);margin-left:0;white-space:nowrap;box-shadow:0 3px 8px rgba(200,155,22,.35);}
+.mobile-nav a.nav-dual{color:var(--c-accent-d);}
+
+/* ヒーロー：価格の強調（シンプル） */
+.hero-value{position:relative;margin:20px 0 26px;background:var(--c-white);border:1px solid var(--c-line);border-radius:16px;padding:22px 24px;box-shadow:0 12px 32px rgba(11,45,92,.09);max-width:460px;}
+.tsubu-stamp{position:absolute;top:-18px;right:12px;width:90px;height:90px;border-radius:50%;background:var(--c-accent);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 10px 22px rgba(200,155,22,.38);border:2.5px solid #fff;transform:rotate(-9deg);z-index:4;}
+.tsubu-stamp b{font-size:19px;font-weight:900;line-height:1.12;letter-spacing:.02em;}
+.tsubu-stamp span{font-size:10px;font-weight:700;letter-spacing:.14em;margin-top:3px;opacity:.95;}
+@media(min-width:768px){.tsubu-stamp{width:106px;height:106px;top:-24px;right:-12px;}.tsubu-stamp b{font-size:22px;}.tsubu-stamp span{font-size:11px;}}
+.hv-label{display:inline-block;font-size:18px;font-weight:800;color:var(--c-primary);letter-spacing:.02em;margin-bottom:8px;padding:4px 12px;border-radius:6px;background:color-mix(in srgb,var(--c-primary) 12%,transparent);}
+.hv-label b{color:var(--c-accent-d);}
+.hv-big{display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 10px;}
+.hv-big .hv-time{color:var(--c-primary);font-size:26px;font-weight:700;line-height:1;white-space:nowrap;}
+.hv-big .hv-time .num{font-size:56px;}
+.hv-big .hv-x{font-size:18px;font-weight:600;color:var(--c-sub);}
+.hv-big .hv-price{color:var(--c-accent-d);font-size:24px;font-weight:700;line-height:1;white-space:nowrap;}
+.hv-big .hv-price .num{font-size:52px;}
+.hv-big .hv-price small{font-size:13px;color:var(--c-sub);font-weight:500;margin-left:4px;}
+.hv-sub{font-size:14px;color:var(--c-sub);margin-top:10px;line-height:1.7;font-weight:500;}
+.hv-sub b{color:var(--c-primary);font-weight:700;}
+@media(min-width:768px){.hv-sub{font-size:15px;}}
+.hv-note{margin-top:18px;padding-top:18px;border-top:1px dashed var(--c-line);}
+.hv-note-cap{display:flex;align-items:center;justify-content:center;gap:11px;font-size:12px;font-weight:700;color:var(--c-accent-d);letter-spacing:.16em;margin-bottom:14px;}
+.hv-note-cap span{white-space:nowrap;}
+.hv-note-cap::before,.hv-note-cap::after{content:"";height:1px;flex:0 0 30px;background:linear-gradient(90deg,transparent,var(--c-accent));}
+.hv-note-cap::after{background:linear-gradient(90deg,var(--c-accent),transparent);}
+.hv-formula{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.hv-formula .term{padding:9px 15px;border-radius:10px;background:var(--c-bg-2);font-size:16px;font-weight:800;color:var(--c-primary);line-height:1.1;}
+.hv-formula .op{font-size:20px;font-weight:800;color:var(--c-sub);}
+.hv-formula .result{padding:9px 16px;border-radius:10px;background:var(--c-primary);color:var(--c-white);font-size:16px;font-weight:800;line-height:1.1;box-shadow:0 6px 16px color-mix(in srgb,var(--c-primary) 26%,transparent);}
+@media(min-width:768px){
+  .hv-formula .term,.hv-formula .result{font-size:18px;padding:11px 18px;}
+  .hv-formula .op{font-size:24px;}
+  .hv-note-cap{font-size:13px;}
+}
+.hv-formula .term,.hv-formula .result{display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 16px;min-width:98px;}
+.hv-formula .fx-ico{width:44px;height:44px;flex:0 0 auto;}
+.hv-formula .term span,.hv-formula .result span{line-height:1.15;}
+@media(min-width:768px){
+  .hv-formula .term,.hv-formula .result{min-width:118px;padding:18px 16px;gap:10px;}
+  .hv-formula .fx-ico{width:54px;height:54px;}
+}
+@media(min-width:768px){
+  .hv-big .hv-time .num{font-size:72px;}
+  .hv-big .hv-price .num{font-size:64px;}
+  .hv-label{font-size:22px;}
+}
+
+/* ===== モーション ===== */
+@keyframes kenburns{from{transform:scale(1);}to{transform:scale(1.09);}}
+@keyframes badgeGlow{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--c-accent) 0%,transparent);}50%{box-shadow:0 0 0 6px color-mix(in srgb,var(--c-accent) 14%,transparent);}}
+@keyframes resultSheen{0%{background-position:-120% 0;}55%,100%{background-position:220% 0;}}
+
+.hero--full .hero-media img{animation:kenburns 22s ease-out forwards;}
+
+/* ヒーロー登場：transition駆動（停止時も最終状態=表示が保証される） */
+.hero-copy > *{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1);}
+.hero-copy.fx-in > *{opacity:1;transform:none;}
+.hero-copy.fx-in > *:nth-child(1){transition-delay:.05s;}
+.hero-copy.fx-in > *:nth-child(2){transition-delay:.16s;}
+.hero-copy.fx-in > *:nth-child(3){transition-delay:.28s;}
+.hero-copy.fx-in > *:nth-child(4){transition-delay:.42s;}
+.hero-copy.fx-in > *:nth-child(5){transition-delay:.54s;}
+
+.hv-label{animation:badgeGlow 3.2s ease-in-out 1s infinite;}
+
+.hv-formula .term,.hv-formula .result,.hv-formula .op{opacity:0;transform:translateY(10px) scale(.9);transition:opacity .5s cubic-bezier(.22,.61,.36,1),transform .5s cubic-bezier(.22,.61,.36,1);}
+.hero-value.formula-in .hv-formula .term,
+.hero-value.formula-in .hv-formula .result,
+.hero-value.formula-in .hv-formula .op{opacity:1;transform:none;}
+.hero-value.formula-in .hv-formula > *:nth-child(1){transition-delay:.0s;}
+.hero-value.formula-in .hv-formula > *:nth-child(2){transition-delay:.09s;}
+.hero-value.formula-in .hv-formula > *:nth-child(3){transition-delay:.18s;}
+.hero-value.formula-in .hv-formula > *:nth-child(4){transition-delay:.27s;}
+.hero-value.formula-in .hv-formula > *:nth-child(5){transition-delay:.36s;}
+.hv-formula .result{position:relative;overflow:hidden;}
+.hv-formula .result::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,color-mix(in srgb,#fff 45%,transparent) 50%,transparent 70%);background-size:220% 100%;animation:resultSheen 3.6s ease-in-out 1.6s infinite;}
+
+@media (prefers-reduced-motion: reduce){
+  .hero--full .hero-media img,.hv-label,.hv-formula .result::after{animation:none!important;}
+  .hero-copy > *,.hv-formula .term,.hv-formula .result,.hv-formula .op{opacity:1!important;transform:none!important;transition:none!important;}
+}
+/* 数式：薬剤の質 × 照射時間 = 歯の白さ を常に1行で表示 */
+.hv-formula{flex-wrap:nowrap!important;justify-content:center;align-items:stretch;gap:5px!important;background:linear-gradient(180deg,#fff,#FBF7EE)!important;border:1px solid var(--c-line)!important;border-radius:16px!important;padding:16px 12px!important;box-shadow:0 8px 24px rgba(11,45,92,.07)!important;}
+.hv-formula .term,.hv-formula .result{min-width:0!important;flex:0 1 auto;padding:11px 7px!important;gap:6px!important;font-size:14px!important;}
+.hv-formula .fx-ico{width:34px!important;height:34px!important;}
+.hv-formula .term span,.hv-formula .result span{white-space:nowrap;}
+.hv-formula .op{font-size:16px!important;color:var(--c-accent-d)!important;align-self:center;}
+.hv-formula .op:last-of-type{flex-basis:auto!important;width:auto!important;height:auto!important;margin:0!important;font-size:16px!important;animation:none!important;text-align:center;}
+.hv-formula .op:last-of-type::before{content:none!important;}
+@media(min-width:768px){
+  .hv-formula .term,.hv-formula .result{padding:13px 10px!important;font-size:15px!important;gap:7px!important;}
+  .hv-formula .fx-ico{width:40px!important;height:40px!important;}
+  .hv-formula .op{font-size:19px!important;}
+  .hv-formula .op:last-of-type{font-size:19px!important;}
+}
+
+.menu-card,.clinic-card,.access-card,.ca-card,.reason{transition:transform .35s ease,box-shadow .35s ease;}
+.menu-card:hover,.clinic-card:hover,.access-card:hover,.ca-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover);}
+.ca-card:hover .imgph img{transform:scale(1.045);}
+.reason:hover{transform:translateY(-4px);}
+.imgph img{transition:transform .7s cubic-bezier(.22,.61,.36,1);}
+.menu-card:hover .imgph img,.clinic-card:hover .imgph img{transform:scale(1.045);}
+.no-card{transition:transform .35s ease,box-shadow .35s ease;}
+.no-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);}
+@media(min-width:768px){
+  :root{--header-h:72px;}
+  .section{padding:96px 0;}
+  .section--tight{padding:66px 0;}
+  .h-sec{font-size:33px;}
+  .hero h1{font-size:40px;}
+  .no-grid{grid-template-columns:1fr 1fr;gap:18px;}
+  .no-title{font-size:42px;}
+  .no-card{padding:40px 28px 32px;}
+  .no-badge{width:108px;height:108px;}
+  .no-card .no-label{font-size:21px;}
+  .no-card .no-desc{font-size:13.5px;}
+  .reasons{grid-template-columns:repeat(6,1fr);gap:18px;}
+  .menu-grid{grid-template-columns:repeat(3,1fr);}
+  .clinic-grid{grid-template-columns:repeat(3,1fr);}
+  .steps{grid-template-columns:repeat(2,1fr);}
+  .compare{max-width:860px;gap:20px;margin-left:auto;margin-right:auto;}
+  .sticky-cta{display:none;}
+  .site-footer{padding-bottom:48px;}
+  .site-footer .container{grid-template-columns:1.4fr 1fr;}
+}
+@media(min-width:1024px){
+  .nav{display:flex;}
+  .header-cta:not(.order-cta){display:inline-flex;}
+  .nav-toggle{display:none;}
+  .hero-grid{grid-template-columns:1.05fr .95fr;gap:48px;}
+  .hero-cta{flex-direction:row;}
+  .hero h1{font-size:46px;}
+  .price-tag .yen{font-size:56px;}
+  .menu-grid{grid-template-columns:repeat(3,1fr);gap:20px;}
+  .final-cta .ftc-btns{flex-direction:row;max-width:520px;}
+}
+@media(min-width:1180px){
+  .nav{gap:26px;}
+  .header-cta.order-cta{display:inline-flex;}
+}
+
+/* ===================== v3：参考LP構成 ===================== */
+/* 悩み（Concerns） */
+.concerns{background:var(--c-primary);color:#fff;text-align:center;}
+.concerns .h-sec{color:#fff;}
+.concerns .lead{color:#cdd7e6;}
+.concern-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:660px;margin:26px auto 0;}
+.concern-chips span{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);
+  color:#fff;font-size:13px;font-weight:600;border-radius:999px;padding:10px 18px;backdrop-filter:blur(2px);
+}
+.concern-bridge{margin-top:34px;font-size:18px;font-weight:700;line-height:1.7;}
+.concern-bridge .accent{color:var(--c-accent);}
+.concern-marquee{display:none;}
+.cm-row{overflow:hidden;}
+.cm-row + .cm-row{margin-top:10px;}
+.cm-track{display:flex;gap:10px;width:max-content;animation:cmScroll 26s linear infinite;}
+.cm-track.cm-rev{animation-duration:30s;animation-direction:reverse;}
+.cm-track span{flex:0 0 auto;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:13px;font-weight:600;border-radius:999px;padding:10px 18px;white-space:nowrap;}
+@keyframes cmScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.sp-br{display:none;}
+#noGrid .no-card{transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1),box-shadow .35s ease;}
+#noGrid .no-card:nth-child(2){transition-delay:.07s;}
+#noGrid .no-card:nth-child(3){transition-delay:.14s;}
+#noGrid .no-card:nth-child(4){transition-delay:.21s;}
+#noGrid .no-card:hover{transition-delay:0s;}
+@media(max-width:767px){
+  .concerns .concern-chips{display:none;}
+  .concerns-grid{grid-template-columns:minmax(0,1fr);}
+  .concern-copy,.concern-figure{min-width:0;}
+  .concerns .h-sec{white-space:nowrap;font-size:24px;}
+  .concern-marquee{display:block;margin:24px 0 0;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
+  .sp-br{display:inline;}
+}
+@media (prefers-reduced-motion: reduce){.cm-track{animation:none;}}
+.concerns-grid{display:grid;gap:28px;align-items:center;}
+.concern-figure{position:relative;width:100%;max-width:340px;margin:0 auto;aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;background:linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.16);box-shadow:0 18px 44px rgba(0,0,0,.24);}
+.concern-figure img{width:100%;height:100%;object-fit:cover;display:block;}
+@media(min-width:768px){.concern-chips span{font-size:15px;padding:12px 22px;}.concern-bridge{font-size:24px;}
+.concerns-grid{grid-template-columns:.82fr 1.18fr;gap:48px;text-align:left;}
+.concern-figure{margin:0;max-width:none;}
+.concern-copy .eyebrow{justify-content:flex-start;}
+.concerns .concern-chips{justify-content:flex-start;margin-left:0;margin-right:0;max-width:none;}}
+
+/* What 比較表（医療 vs セルフ） */
+.what-intro{display:grid;gap:14px;margin-top:24px;}
+.compare-table{width:100%;border-collapse:separate;border-spacing:0;margin-top:26px;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+.compare-table th,.compare-table td{padding:16px 12px;text-align:center;font-size:13.5px;border-bottom:1px solid var(--c-line);vertical-align:middle;}
+.compare-table thead th{font-weight:700;font-size:13px;letter-spacing:.02em;}
+.compare-table thead th.ours{background:var(--c-primary);color:#fff;}
+.compare-table thead th.ours small{display:block;font-size:10px;font-weight:600;color:var(--c-accent);letter-spacing:.14em;margin-bottom:3px;}
+.compare-table thead th.theirs{background:var(--c-bg-2);color:var(--c-sub);border-left:1px solid var(--c-line);}
+.compare-table .axis{background:var(--c-primary);color:#fff;font-weight:700;font-size:12px;width:64px;letter-spacing:.04em;}
+.compare-table td.ours{color:var(--c-primary);font-weight:700;font-size:14.5px;}
+.compare-table td.theirs{color:var(--c-sub);font-size:13px;border-left:1px solid var(--c-line);}
+.compare-table tr:last-child td,.compare-table tr:last-child th{border-bottom:none;}
+.compare-table thead th .ch-ic{display:block;width:26px;height:26px;margin:0 auto 6px;}
+.compare-table thead th .ch-ic svg{width:26px;height:26px;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.compare-table thead th.ours .ch-ic svg{stroke:#fff;}
+.compare-table thead th.theirs{background:#eceae6;color:#9c968c;}
+.compare-table thead th.theirs .ch-ic svg{stroke:#b0aaa0;}
+.compare-table td.theirs{color:#6e6960;background:#f6f4f1;}
+.compare-table td.ours::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--c-accent);margin-right:7px;vertical-align:middle;}
+.compare-table td.theirs::before{content:"";display:inline-block;width:10px;height:2px;border-radius:2px;background:#bcb6ac;margin-right:7px;vertical-align:middle;}
+@media(min-width:768px){.compare-table th,.compare-table td{padding:20px 16px;font-size:15px;}.compare-table td.ours{font-size:17px;}.compare-table .axis{width:88px;font-size:14px;}}
+
+/* 3つのPOINT */
+.points{display:grid;gap:22px;margin-top:36px;}
+.point{
+  position:relative;display:grid;grid-template-columns:1fr;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);
+  box-shadow:var(--shadow);overflow:hidden;align-items:stretch;
+}
+.point-figure{position:relative;min-height:220px;background:var(--c-bg-2);overflow:hidden;}
+.point-figure img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.22,.61,.36,1);}
+.point:hover .point-figure img{transform:scale(1.045);}
+.point-badge{position:absolute;top:16px;left:16px;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.92);backdrop-filter:blur(3px);border-radius:999px;padding:7px 14px 7px 10px;box-shadow:0 4px 14px rgba(11,45,92,.12);}
+.point-badge .pn{font-size:22px;font-weight:800;color:transparent;-webkit-text-stroke:1.5px var(--c-accent);font-feature-settings:"tnum";line-height:1;}
+.point-badge .pl{font-size:10px;font-weight:700;letter-spacing:.18em;color:var(--c-accent-d);}
+.point-inner{padding:28px 24px;}
+.point-head{display:flex;align-items:flex-start;gap:18px;}
+.point-num{font-size:54px;font-weight:800;line-height:.9;color:transparent;-webkit-text-stroke:2px var(--c-accent);font-feature-settings:"tnum";flex:0 0 auto;}
+.point-num small{display:block;-webkit-text-stroke:0;color:var(--c-accent);font-size:11px;font-weight:700;letter-spacing:.24em;margin-bottom:4px;}
+.point-claim{font-size:21px;font-weight:800;color:var(--c-primary);line-height:1.4;}
+.point-claim .accent{color:var(--c-accent-d);}
+.point-pills{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:16px 0 14px;}
+.point-pills .pill{background:var(--c-primary);color:#fff;font-size:14px;font-weight:700;border-radius:8px;padding:8px 16px;}
+.point-pills .x{color:var(--c-accent);font-size:18px;font-weight:800;}
+.point-body{font-size:14px;color:var(--c-sub);line-height:1.85;}
+.point-body b{color:var(--c-primary);}
+.point-checks{display:grid;gap:10px;margin-top:16px;}
+.point-checks li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--c-text);font-weight:500;}
+.point-checks li::before{
+  content:"";flex:0 0 20px;height:20px;margin-top:2px;border-radius:50%;background:var(--c-accent);
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/></svg>") center/13px no-repeat;
+          mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/></svg>") center/13px no-repeat;
+}
+.point-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;}
+.point-tags .t{font-size:12px;font-weight:700;color:var(--c-primary);background:var(--c-bg-2);border-radius:999px;padding:6px 14px;}
+.point-free{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;}
+.point-free .ff{text-align:center;background:var(--c-bg);border:1px dashed var(--c-line);border-radius:var(--radius-sm);padding:16px 8px;}
+.point-free .ff .ic{width:34px;height:34px;margin:0 auto 8px;color:var(--c-primary);}
+.point-free .ff .ic svg{width:34px;height:34px;stroke:currentColor;fill:none;stroke-width:1.5;}
+.point-free .ff b{display:block;font-size:12.5px;color:var(--c-primary);font-weight:700;}
+.point-free .ff span{font-size:10.5px;color:var(--c-no);font-weight:700;}
+@media(min-width:768px){
+  .points{grid-template-columns:1fr;gap:26px;}
+  .point{grid-template-columns:1.05fr 1fr;}
+  .point-figure{min-height:340px;}
+  .point:nth-child(even) .point-figure{order:2;}
+  .point-inner{padding:40px 44px;}
+  .point-num{font-size:72px;-webkit-text-stroke:2.5px var(--c-accent);}
+  .point-claim{font-size:28px;}
+  .point-pills .pill{font-size:16px;padding:10px 20px;}
+}
+@media(max-width:767px){
+  .point-inner{padding:24px 20px 28px;}
+  .point-body{display:none;}
+  .point-head{margin-bottom:6px;}
+  .point-claim{line-height:1.55;}
+  .point-checks{gap:14px;margin-top:16px;}
+  .point-checks li{font-size:14px;line-height:1.7;}
+  .point-figure{min-height:200px;}
+}
+
+/* 歯の色シミュレーション（シェードチャート） */
+.shade{margin-top:30px;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 18px 22px;}
+.shade-row{display:flex;align-items:flex-end;gap:4px;overflow-x:auto;padding-bottom:6px;}
+.shade-tooth{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:6px;}
+.shade-tooth .chip{width:30px;height:46px;border-radius:5px 5px 9px 9px;border:1px solid rgba(0,0,0,.06);box-shadow:inset 0 -3px 6px rgba(0,0,0,.06);}
+.shade-tooth .lab{font-size:10px;color:var(--c-sub);font-weight:600;}
+.shade-tooth.bleach .chip{border-color:var(--c-accent);box-shadow:inset 0 -3px 6px rgba(0,0,0,.04),0 0 0 1px rgba(200,155,22,.25);}
+.shade-tooth.mark .chip{outline:2px solid var(--c-no);outline-offset:2px;}
+.shade-tooth.goal .chip{outline:2px solid var(--c-primary);outline-offset:2px;}
+.shade-tooth.mark .lab,.shade-tooth.goal .lab{font-weight:800;color:var(--c-primary);}
+.shade-legend{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:18px;font-size:12px;color:var(--c-sub);}
+.shade-legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;}
+.shade-cap{text-align:center;font-size:13px;color:var(--c-sub);margin-top:6px;}
+@media(min-width:768px){.shade-tooth .chip{width:42px;height:62px;}.shade-tooth .lab{font-size:12px;}.shade-row{justify-content:center;}}
+
+/* シェード：写真主役レイアウト */
+.shade-stack{max-width:760px;margin:32px auto 0;}
+.shade-steps{display:grid;gap:14px;margin-top:26px;}
+.sstep{display:grid;grid-template-columns:auto 1fr;column-gap:14px;row-gap:2px;align-items:center;text-align:left;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);}
+.sstep .sn{grid-row:1 / span 2;align-self:center;font-size:26px;font-weight:800;color:transparent;-webkit-text-stroke:1.5px var(--c-accent);font-feature-settings:"tnum";line-height:1;}
+.sstep b{display:block;font-size:15.5px;color:var(--c-primary);font-weight:800;}
+.sstep span{font-size:13px;color:var(--c-sub);line-height:1.7;}
+.sstep .ssi{grid-row:1 / span 2;align-self:center;width:48px;height:48px;border-radius:50%;background:var(--c-bg-2);display:flex;align-items:center;justify-content:center;}
+.sstep .ssi svg{width:24px;height:24px;fill:none;stroke:var(--c-accent-d);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.sstep .ssn{font-style:normal;font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--c-accent-d);margin-left:8px;}
+.shade-scale{text-align:center;}
+.shade-scale img{width:100%;max-width:880px;margin:0 auto;border-radius:var(--radius);box-shadow:var(--shadow);display:block;background:var(--c-bg-2);}
+.shade-scale figcaption{font-size:13px;color:var(--c-sub);margin-top:14px;line-height:1.8;}
+/* シェードスケール（白さの目安グラフィック） */
+.shadebar{position:relative;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px 18px 22px;margin:0 auto;max-width:100%;text-align:center;}
+.shadebar-badge{display:inline-block;background:var(--c-accent);color:#fff;border-radius:999px;padding:9px 22px;font-size:15px;font-weight:800;letter-spacing:.02em;box-shadow:0 8px 22px rgba(200,155,22,.3);line-height:1.25;margin-bottom:46px;}
+.shadebar-badge small{display:block;font-size:10px;font-weight:600;opacity:.92;margin-top:1px;letter-spacing:.03em;}
+.shadebar-track{display:flex;align-items:flex-end;gap:4px;}
+.sb-tooth{position:relative;flex:1 1 0;display:flex;flex-direction:column;align-items:center;gap:7px;}
+.sb-chip{width:100%;aspect-ratio:3/4;border-radius:6px 6px 12px 12px;border:1px solid rgba(0,0,0,.05);box-shadow:inset 0 -5px 8px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.05);}
+.sb-lab{font-size:9.5px;font-weight:600;color:var(--c-sub);}
+.sb-tooth.is-now .sb-chip{outline:2.5px dashed #8a8276;outline-offset:3px;}
+.sb-tooth.is-goal .sb-chip{outline:3px solid var(--c-primary);outline-offset:3px;}
+.sb-tooth.is-now .sb-lab,.sb-tooth.is-goal .sb-lab{font-weight:800;color:var(--c-primary);}
+.sb-flag{position:absolute;bottom:calc(100% + 12px);left:50%;transform:translateX(-50%);font-size:10px;font-weight:700;white-space:nowrap;padding:3px 9px;border-radius:999px;z-index:2;}
+.sb-flag::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;}
+.sb-flag--now{background:#fff;color:var(--c-sub);border:1.5px solid #9a9183;}
+.sb-flag--now::after{border-top-color:#9a9183;}
+.sb-flag--goal{background:var(--c-primary);color:#fff;}
+.sb-flag--goal::after{border-top-color:var(--c-primary);}
+.shadebar-axis{display:flex;align-items:center;gap:10px;margin-top:15px;font-size:11px;font-weight:700;color:var(--c-sub);}
+.shadebar-axis .line{flex:1 1 auto;height:2px;background:var(--c-accent);position:relative;border-radius:2px;}
+.shadebar-axis .line::after{content:"";position:absolute;right:-2px;top:50%;transform:translateY(-50%);border:6px solid transparent;border-left-color:var(--c-accent);border-right:0;}
+.shadebar-axis .bright{color:var(--c-accent-d);}
+@media(min-width:768px){.shadebar{padding:30px 26px 26px;max-width:760px;}.shadebar-badge{font-size:18px;padding:10px 26px;}.shadebar-badge small{font-size:11px;}.sb-lab{font-size:11px;}.sb-flag{font-size:12px;padding:4px 11px;}.shadebar-axis{font-size:12px;}}
+@media(min-width:768px){
+  .shade-steps{grid-template-columns:repeat(3,1fr);gap:16px;}
+  .sstep{align-content:start;}
+  .sstep .sn{font-size:28px;}
+  .sstep b{font-size:16px;}
+}
+
+/* What：セルフ vs 医療 のビジュアル */
+.what-cards{display:grid;grid-template-columns:1fr;gap:14px;margin-top:30px;align-items:stretch;}
+.what-card{background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);padding:26px 22px;text-align:center;box-shadow:var(--shadow);}
+.what-card.medical{background:var(--c-primary);border-color:var(--c-primary);color:#fff;}
+.what-card .wc-ic{width:58px;height:58px;margin:0 auto 14px;border-radius:50%;background:var(--c-bg-2);display:flex;align-items:center;justify-content:center;}
+.what-card.medical .wc-ic{background:rgba(255,255,255,.12);}
+.what-card .wc-ic svg{width:30px;height:30px;stroke:var(--c-primary);fill:none;stroke-width:1.6;}
+.what-card.medical .wc-ic svg{stroke:var(--c-accent);}
+.what-card .wc-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--c-accent-d);margin-bottom:8px;}
+.what-card.medical .wc-tag{color:var(--c-accent);}
+.what-card b{display:block;font-size:17px;font-weight:800;color:var(--c-primary);margin-bottom:6px;}
+.what-card.medical b{color:#fff;}
+.what-card .wc-photo{width:100%;aspect-ratio:16/10;border-radius:14px;overflow:hidden;margin-bottom:16px;background:var(--c-bg-2);}
+.what-card .wc-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.what-card.self .wc-photo img{filter:grayscale(.55) contrast(.96);}
+.what-card p{font-size:13px;color:var(--c-sub);line-height:1.8;}
+.what-card.medical p{color:#cdd7e6;}
+.what-vs{display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--c-sub);letter-spacing:.1em;}
+@media(min-width:768px){
+  .what-cards{grid-template-columns:1fr auto 1fr;gap:20px;align-items:stretch;}
+  .what-card{padding:36px 28px;display:flex;flex-direction:column;justify-content:center;}
+}
+
+/* 薬剤セクション（ネイビー） */
+.agent{background:var(--c-primary);color:#fff;}
+.agent .h-sec{color:#fff;}
+.agent .lead{color:#cdd7e6;}
+.agent-inner{display:grid;gap:28px;align-items:center;margin-top:34px;}
+.agent-photo{border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;color:#7e93b3;font-size:13px;font-weight:600;letter-spacing:.08em;text-align:center;padding:12px;}
+.agent-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.agent-points{display:grid;gap:16px;margin-top:6px;}
+.ap{display:flex;gap:15px;align-items:flex-start;}
+.ap .ap-ic{flex:0 0 46px;width:46px;height:46px;border-radius:12px;background:rgba(200,155,22,.16);display:flex;align-items:center;justify-content:center;}
+.ap .ap-ic svg{width:24px;height:24px;stroke:var(--c-accent);fill:none;stroke-width:1.7;}
+.ap b{display:block;font-size:16px;color:#fff;font-weight:800;margin-bottom:3px;}
+.ap span{font-size:13px;color:#cdd7e6;line-height:1.75;}
+.ap span b{color:#fff;font-weight:700;}
+.agent-note{font-size:12px;color:#9fb0c8;margin-top:18px;}
+@media(min-width:768px){
+  .agent-inner{grid-template-columns:.9fr 1.1fr;gap:46px;}
+  .ap b{font-size:17px;}
+}
+
+/* ビフォーアフター */
+.ba{margin-top:30px;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;}
+.ba-imgs{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;}
+.ba-fig{position:relative;border-radius:var(--radius-sm);overflow:hidden;aspect-ratio:4/3;background:var(--c-bg-2);}
+.ba-fig img{width:100%;height:100%;object-fit:cover;display:block;}
+.ba-fig .tag{position:absolute;top:10px;left:10px;font-size:12px;font-weight:800;color:#fff;background:rgba(11,45,92,.82);border-radius:6px;padding:5px 12px;letter-spacing:.04em;}
+.ba-fig.after .tag{background:var(--c-accent-d);}
+.ba-arrow{font-size:26px;color:var(--c-accent);font-weight:800;}
+.ba-toneup{text-align:center;margin-top:20px;font-size:22px;font-weight:800;color:var(--c-primary);}
+.ba-toneup b{color:var(--c-accent-d);font-size:1.25em;}
+.ba-note{text-align:center;font-size:12px;color:var(--c-sub);margin-top:10px;line-height:1.7;}
+@media(min-width:768px){.ba{padding:34px;}.ba-arrow{font-size:34px;}.ba-toneup{font-size:28px;}}
+
+/* 料金プラン（ティアカード） */
+.plans{display:grid;gap:16px;margin-top:30px;}
+.plan{
+  position:relative;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:26px 24px;display:flex;flex-direction:column;
+}
+.plan.featured{border-color:var(--c-accent);box-shadow:0 12px 32px rgba(200,155,22,.18);}
+.plan .ribbon{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--c-no);color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:5px 18px;white-space:nowrap;letter-spacing:.04em;}
+.plan .plan-for{font-size:13px;color:var(--c-sub);font-weight:600;margin-bottom:6px;}
+.plan .plan-name{font-size:20px;font-weight:800;color:var(--c-primary);margin-bottom:4px;}
+.plan .plan-meta{font-size:12px;color:var(--c-sub);margin-bottom:16px;}
+.plan .plan-price{display:flex;align-items:baseline;gap:4px;margin-top:auto;}
+.plan .plan-price .yen{font-size:44px;font-weight:700;color:var(--c-accent-d);font-feature-settings:"tnum";line-height:1;}
+.plan .plan-price .u{font-size:15px;font-weight:700;color:var(--c-accent-d);}
+.plan .plan-price .tax{font-size:12px;color:var(--c-sub);margin-left:4px;}
+.plans-note{text-align:center;font-size:13px;color:var(--c-sub);margin-top:20px;line-height:1.8;}
+.plans-note b{color:var(--c-primary);}
+@media(min-width:768px){.plans{grid-template-columns:repeat(3,1fr);align-items:stretch;}.plan .plan-name{font-size:22px;}.plan .plan-price .yen{font-size:50px;}}
+
+/* 体験の流れ（Flow） */
+.flow-steps{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:40px;}
+.fstep{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--c-line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;}
+.fstep .fthumb{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--c-bg-2);}
+.fstep .fthumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.fstep .fstep-no{position:absolute;top:12px;left:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;width:50px;height:50px;border-radius:50%;background:var(--c-primary);color:#fff;line-height:1;box-shadow:0 4px 12px rgba(11,45,92,.25);}
+.fstep .fstep-no i{font-size:8px;font-style:normal;font-weight:800;letter-spacing:.12em;color:var(--c-accent);margin-bottom:3px;}
+.fstep .fstep-no b{font-size:20px;font-weight:800;font-feature-settings:"tnum";}
+.fstep .fbody{padding:16px 18px 20px;}
+.fstep .fbody b{display:block;font-size:16px;color:var(--c-primary);font-weight:800;margin-bottom:6px;}
+.fstep .fbody span{font-size:13px;color:var(--c-sub);line-height:1.7;}
+@media(min-width:768px){
+  .flow-steps{grid-template-columns:repeat(4,1fr);gap:24px;}
+  .fstep .fstep-no{width:58px;height:58px;}
+  .fstep .fstep-no b{font-size:23px;}
+  .fstep .fbody{padding:20px 20px 24px;}
+  .fstep .fbody b{font-size:18px;}
+  .fstep .fbody span{font-size:14px;}
+}
+@media(max-width:767px){
+  .flow-steps{grid-template-columns:1fr;gap:32px;}
+  .fstep{position:relative;}
+  .fstep:not(:last-child)::after{content:"";position:absolute;left:50%;bottom:-25px;width:14px;height:14px;border-right:3px solid var(--c-accent);border-bottom:3px solid var(--c-accent);border-radius:0 0 3px 0;transform:translateX(-50%) rotate(45deg);}
+}
+
+/* 体験者の声（Voice） */
+.voices{display:grid;gap:16px;margin-top:30px;}
+.voice-card{background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;}
+.voice-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;}
+.voice-stars{color:var(--c-accent);font-size:15px;letter-spacing:2px;}
+.voice-stars b{color:var(--c-primary);font-size:14px;margin-left:6px;}
+.voice-who{font-size:12px;color:var(--c-sub);font-weight:600;}
+.voice-card h4{font-size:16px;color:var(--c-primary);font-weight:800;margin-bottom:8px;}
+.voice-card p{font-size:13.5px;color:var(--c-sub);line-height:1.85;}
+.voice-note{text-align:center;font-size:11.5px;color:var(--c-sub);margin-top:14px;}
+@media(min-width:768px){.voices{grid-template-columns:repeat(3,1fr);}}
+
+/* 全額ではなく安心保証ボックス */
+.assure{margin-top:26px;background:var(--c-bg-2);border-radius:var(--radius);padding:26px 24px;text-align:center;}
+.assure h3{font-size:19px;font-weight:800;color:var(--c-primary);letter-spacing:.04em;margin-bottom:8px;}
+.assure p{font-size:13.5px;color:var(--c-sub);line-height:1.85;max-width:36em;margin:0 auto;}
+@media(min-width:768px){.assure h3{font-size:22px;}}
+/* オパールエッセンス（目玉） */
+.opal{background:var(--c-bg-2);}
+.opal-card{display:grid;grid-template-columns:1fr;gap:0;background:#fff;border:2px solid var(--c-accent);border-radius:var(--radius);box-shadow:0 18px 44px rgba(11,45,92,.10);overflow:hidden;margin-top:30px;}
+.opal-photo{background:#FDFCFA;aspect-ratio:4/3;padding:20px;display:flex;align-items:center;justify-content:center;}
+.opal-photo img{width:100%;height:100%;object-fit:contain;display:block;}
+.opal-body{padding:30px 26px;}
+.opal-tag{display:inline-block;background:var(--c-no);color:#fff;font-size:12px;font-weight:800;border-radius:999px;padding:6px 14px;letter-spacing:.05em;margin-bottom:14px;}
+.opal-name{font-size:13px;font-weight:700;color:var(--c-accent-d);letter-spacing:.08em;margin-bottom:6px;}
+.opal-h{font-size:23px;font-weight:800;color:var(--c-primary);line-height:1.45;margin-bottom:18px;}
+.opal-price{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:20px;}
+.opal-price .qty{font-size:20px;font-weight:800;color:var(--c-primary);margin-right:4px;}
+.opal-price .yen{font-size:56px;font-weight:800;color:var(--c-accent-d);font-feature-settings:"tnum";line-height:.9;}
+.opal-price .u{font-size:18px;font-weight:800;color:var(--c-accent-d);}
+.opal-price .tax{font-size:13px;color:var(--c-sub);margin-left:4px;}
+.opal-feats{display:grid;gap:10px;margin-bottom:24px;}
+.opal-feats li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--c-text);}
+.opal-feats li::before{content:"";flex:0 0 20px;height:20px;margin-top:2px;border-radius:50%;background:var(--c-accent);-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/></svg>") center/14px no-repeat;mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/></svg>") center/14px no-repeat;}
+.opal-note{font-size:12px;color:var(--c-sub);margin-top:14px;line-height:1.7;}
+.opal-highlights{display:grid;gap:10px;margin:0 0 22px;}
+.opal-hl{display:flex;align-items:center;gap:13px;background:color-mix(in srgb,var(--c-accent) 12%,#fff);border:1px solid color-mix(in srgb,var(--c-accent) 38%,transparent);border-radius:12px;padding:12px 16px;}
+.opal-hl .hl-ic{flex:0 0 36px;width:36px;height:36px;border-radius:9px;background:var(--c-accent);display:flex;align-items:center;justify-content:center;}
+.opal-hl .hl-ic svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;}
+.opal-hl b{display:block;font-size:15px;font-weight:800;color:var(--c-primary);line-height:1.3;}
+.opal-hl small{font-size:11.5px;color:var(--c-sub);font-weight:600;}
+@media(min-width:768px){.opal-highlights{grid-template-columns:1fr 1fr;}}
+@media(min-width:768px){
+  .opal-card{grid-template-columns:1fr 1.05fr;align-items:stretch;}
+  .opal-photo{aspect-ratio:auto;min-height:400px;padding:28px;}
+  .opal-body{padding:46px 42px;align-self:center;}
+  .opal-h{font-size:27px;}
+  .opal-price .yen{font-size:70px;}
+}
+/* デュアル強訴求セクション */
+.dual2 .lead{margin-left:auto;margin-right:auto;}
+.dual-why{display:grid;grid-template-columns:1fr;gap:14px;margin-top:34px;align-items:stretch;}
+.dw-card{background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);padding:24px 22px;box-shadow:var(--shadow);text-align:left;}
+.dw-card.strong{border-color:var(--c-accent);background:color-mix(in srgb,var(--c-accent) 6%,#fff);}
+.dw-tag{display:inline-block;font-size:12px;font-weight:800;color:var(--c-sub);margin-bottom:10px;letter-spacing:.02em;background:var(--c-bg-2);border-radius:999px;padding:5px 12px;}
+.dw-card.strong .dw-tag{color:#fff;background:var(--c-accent-d);}
+.dw-card p{font-size:14px;color:var(--c-text);line-height:1.85;}
+.dw-card p b{color:var(--c-primary);}
+.dw-arrow{display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--c-accent-d);}
+@media(min-width:768px){.dual-why{grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;}}
+
+.dual-eq{display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;gap:12px;margin:30px 0;}
+.de-item,.de-result{flex:1 1 200px;max-width:260px;text-align:center;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius-sm);padding:18px 14px;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center;}
+.de-item b,.de-result b{display:block;font-size:16px;font-weight:800;color:var(--c-primary);}
+.de-item span,.de-result span{font-size:12px;color:var(--c-sub);margin-top:2px;}
+.de-result{background:var(--c-primary);border-color:var(--c-primary);box-shadow:0 10px 26px color-mix(in srgb,var(--c-primary) 26%,transparent);}
+.de-result b,.de-result span{color:#fff;}
+.de-op{display:flex;align-items:center;font-size:24px;font-weight:800;color:var(--c-accent);}
+@media(max-width:600px){.dual-eq{flex-direction:column;}.de-item,.de-result{max-width:none;width:100%;}.de-op{justify-content:center;}}
+
+.dual-price{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:28px;}
+.dp-card{position:relative;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);padding:26px 22px;text-align:center;box-shadow:var(--shadow);}
+.dp-card.feat{border:2px solid var(--c-accent);box-shadow:0 14px 34px rgba(200,155,22,.16);}
+.dp-cap{display:block;font-size:13px;font-weight:700;color:var(--c-sub);margin-bottom:10px;line-height:1.5;}
+.dp-amt{font-size:16px;font-weight:800;color:var(--c-accent-d);line-height:1;}
+.dp-amt .dp-pre{font-size:13px;font-weight:700;color:var(--c-primary);margin-right:6px;}
+.dp-amt .num{font-size:42px;}
+.dp-amt small{font-size:12px;color:var(--c-sub);font-weight:600;margin-left:4px;}
+.dp-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--c-no);color:#fff;font-size:11px;font-weight:800;border-radius:999px;padding:5px 14px;white-space:nowrap;}
+@media(min-width:768px){.dual-price{grid-template-columns:1fr 1.25fr;align-items:center;}.dp-amt .num{font-size:50px;}}
+.plan .plan-note{font-size:11.5px;color:var(--c-sub);margin-top:12px;line-height:1.6;padding-top:10px;border-top:1px dashed var(--c-line);}
+.plan.featured .plan-note{border-top-color:color-mix(in srgb,var(--c-accent) 40%,transparent);}
+.dual-callout{display:flex;gap:15px;align-items:flex-start;background:var(--c-primary);color:#fff;border-radius:var(--radius);padding:20px 22px;margin:28px 0 4px;}
+.dual-callout .dc-ic{flex:0 0 auto;width:44px;height:44px;border-radius:12px;background:rgba(200,155,22,.2);display:flex;align-items:center;justify-content:center;}
+.dual-callout .dc-ic svg{width:24px;height:24px;fill:var(--c-accent);}
+.dual-callout p{font-size:14px;line-height:1.75;color:#eaf0f8;}
+.dual-callout p b{color:#fff;}
+.dual-callout .acc{color:var(--c-accent);font-weight:800;}
+@media(min-width:768px){.dual-callout{align-items:center;padding:22px 26px;}.dual-callout p{font-size:15px;}}
+.dual-compare{margin:14px 0 4px;}
+.dual-compare h3{font-size:18px;font-weight:800;color:var(--c-primary);text-align:center;margin-bottom:6px;line-height:1.45;}
+.dual-compare h3 .acc{color:var(--c-accent-d);}
+.dual-compare .dc-cap{font-size:13px;color:var(--c-sub);text-align:center;margin:0 auto 24px;line-height:1.7;max-width:620px;}
+.dcards{display:grid;grid-template-columns:1fr;gap:16px;}
+.dcard{position:relative;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;}
+.dcard.best{border:2px solid var(--c-accent);box-shadow:0 18px 44px rgba(11,45,92,.10);z-index:1;}
+.dcard .imgph{aspect-ratio:3/2;}
+.dcard-flag{position:absolute;top:0;left:0;z-index:2;background:var(--c-accent);color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.06em;padding:7px 16px;border-bottom-right-radius:14px;}
+.dcard-body{padding:18px 18px 22px;display:flex;flex-direction:column;gap:11px;flex:1;}
+.dcard-tag{font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--c-accent-d);}
+.dcard.best .dcard-tag{color:var(--c-accent);}
+.dcard-name{font-size:18px;font-weight:800;color:var(--c-primary);line-height:1.3;}
+.dcard-name small{display:block;font-size:11.5px;font-weight:700;color:var(--c-sub);margin-top:3px;}
+.meter{display:flex;align-items:center;gap:12px;}
+.meter .ml{flex:0 0 48px;font-size:11.5px;font-weight:800;color:var(--c-sub);}
+.seg{display:flex;gap:4px;flex:1;}
+.seg span{flex:1;height:9px;border-radius:3px;background:#E7E0D2;}
+.seg span.on{background:var(--c-accent);}
+.dcard.best .seg span.on{background:var(--c-accent);}
+.dcard-note{font-size:12.5px;color:var(--c-text);line-height:1.75;margin-top:2px;}
+.dcard.best .dcard-note{color:var(--c-primary);}
+.dcard-note b{color:var(--c-accent-d);}
+.dcard-price{margin-top:auto;padding-top:16px;border-top:1px dashed var(--c-line);}
+.dcard.best .dcard-price{border-top-color:color-mix(in srgb,var(--c-accent) 40%,transparent);}
+.dcard-pmeta{font-size:11.5px;color:var(--c-sub);font-weight:700;margin-bottom:7px;}
+.dprice{display:flex;align-items:baseline;gap:4px;}
+.dprice .yen{font-size:40px;font-weight:700;color:var(--c-accent-d);font-feature-settings:"tnum";line-height:1;}
+.dcard.best .dprice .yen{color:var(--c-accent);}
+.dprice .u{font-size:14px;font-weight:700;color:var(--c-accent-d);}
+.dcard.best .dprice .u{color:var(--c-accent);}
+.dprice .tax{font-size:11.5px;color:var(--c-sub);margin-left:4px;}
+.dual-compare .dg-note{text-align:center;font-size:11.5px;color:var(--c-sub);margin-top:14px;}
+/* Office + Home ペア行 */
+.pair-row{display:grid;grid-template-columns:1fr;gap:16px;align-items:stretch;}
+.pair-plus{display:flex;align-items:center;justify-content:center;}
+.pair-plus svg{width:40px;height:40px;color:var(--c-accent);}
+/* デュアル大ボックス */
+.dual-hero{margin-top:22px;background:linear-gradient(135deg,#fff,#FBF6EC);border:2px solid var(--c-accent);border-radius:var(--radius);box-shadow:0 20px 50px rgba(11,45,92,.12);padding:30px 24px;position:relative;scroll-margin-top:90px;}
+.dual-hero-flag{position:absolute;top:-22px;left:50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,#E8BC45,var(--c-accent),var(--c-accent-d));color:#fff;font-size:17px;font-weight:800;letter-spacing:.04em;padding:13px 30px;border-radius:999px;box-shadow:0 12px 28px rgba(200,155,22,.42);white-space:nowrap;border:2px solid #fff;}
+.dual-hero-flag::before,.dual-hero-flag::after{content:"";width:16px;height:16px;background:#fff;flex:0 0 auto;-webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2l2.4 6.3L21 9l-5 4 1.7 6.5L12 16l-5.7 3.5L8 13 3 9l6.6-.7z"/></svg>') center/contain no-repeat;mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2l2.4 6.3L21 9l-5 4 1.7 6.5L12 16l-5.7 3.5L8 13 3 9l6.6-.7z"/></svg>') center/contain no-repeat;}
+.dual-hero-head{text-align:center;margin:8px 0 0;}
+.dual-hero-banner{margin:18px 0 6px;border-radius:16px;overflow:hidden;box-shadow:0 12px 30px rgba(11,45,92,.14);position:relative;}
+.dual-hero-banner img{width:100%;display:block;aspect-ratio:16/7;object-fit:cover;}
+.dual-hero-banner .bnr-cap{position:absolute;left:0;right:0;bottom:0;padding:14px 18px;background:linear-gradient(0deg,rgba(11,45,92,.78),rgba(11,45,92,0));color:#fff;font-size:15px;font-weight:800;letter-spacing:.02em;text-align:center;}
+.dual-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:18px 0 4px;}
+.dual-chip{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1.5px solid var(--c-accent);border-radius:999px;padding:8px 16px;font-size:13.5px;font-weight:800;color:var(--c-primary);}
+.dual-chip svg{width:17px;height:17px;color:var(--c-accent);flex:0 0 auto;}
+.dual-hero-head .dcard-tag{display:inline-block;}
+.dual-hero-head h3{font-size:26px;color:var(--c-primary);margin:8px 0 6px;font-weight:800;}
+.dual-hero-head p{font-size:14px;color:var(--c-sub);line-height:1.8;max-width:560px;margin:0 auto;}
+.dual-incl{display:grid;grid-template-columns:1fr;gap:14px;align-items:stretch;margin-top:18px;}
+.incl-item{background:#fff;border:1px solid var(--c-line);border-radius:14px;padding:18px;display:flex;gap:16px;align-items:center;box-shadow:var(--shadow);}
+.incl-item img{flex:0 0 auto;width:88px;height:88px;object-fit:contain;background:var(--c-bg-2);border-radius:12px;padding:6px;}
+.incl-imgs{flex:0 0 auto;display:flex;flex-direction:column;gap:8px;}
+.incl-imgs figure{margin:0;width:88px;}
+.incl-imgs img{width:88px;height:64px;object-fit:cover;background:var(--c-bg-2);border-radius:10px;display:block;}
+.incl-imgs.contain img{object-fit:contain;padding:5px;box-sizing:border-box;}
+.incl-imgs figcaption{font-size:10px;color:var(--c-sub);text-align:center;margin-top:2px;font-weight:700;}
+.incl-tag{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--c-accent-d);}
+.incl-item b{display:block;font-size:16px;color:var(--c-primary);font-weight:800;margin:2px 0 4px;line-height:1.4;}
+.incl-item p{font-size:13px;color:var(--c-sub);line-height:1.7;margin:0;}
+.incl-plus{text-align:center;font-size:28px;font-weight:800;color:var(--c-accent);line-height:1;}
+.dual-foot{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;margin-top:22px;padding-top:20px;border-top:1px dashed var(--c-line);}
+.dual-foot .meters{display:grid;gap:10px;flex:1 1 240px;min-width:220px;max-width:340px;}
+.dual-foot .dprice{justify-content:flex-end;}
+@media(min-width:768px){
+  .dcards{grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch;}
+  .dual-compare h3{font-size:22px;}
+  .pair-row{grid-template-columns:1fr auto 1fr;gap:0;}
+  .pair-plus{padding:0 22px;}
+  .dual-incl{grid-template-columns:1fr auto 1fr;gap:0;align-items:center;}
+  .incl-plus{padding:0 18px;}
+}
+/* === デュアル リデザイン v4 ：余白UP・解説強化・動き === */
+.dcard-body{gap:13px;padding:24px 22px 26px;}
+.dcard-note{margin-top:0;}
+.dcard-feats{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;}
+.dcard-feats li{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;line-height:1.55;color:var(--c-text);font-weight:700;}
+.dcard-feats li svg{flex:0 0 auto;width:16px;height:16px;margin-top:1px;color:var(--c-accent);}
+.meters-mini{display:grid;gap:10px;margin-top:4px;}
+.lv{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--c-bg-2);border-radius:10px;padding:9px 13px;}
+.lv .lv-l{font-size:12.5px;font-weight:800;color:var(--c-sub);}
+.lv .lv-track{display:none;}
+.lv .lv-tag{font-size:14px;font-weight:800;color:var(--c-accent-d);}
+.dual-foot .lv{background:#fff;border:1px solid var(--c-line);}
+.gel-gift{position:relative;display:flex;align-items:center;gap:16px;background:linear-gradient(135deg,#fff,#FBF6EC);border:2px solid var(--c-accent);border-radius:16px;padding:14px 18px;box-shadow:0 10px 26px rgba(200,155,22,.18);flex:1 1 360px;min-width:260px;overflow:hidden;}
+.dual-foot .gg-price{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:6px;background:linear-gradient(135deg,var(--c-accent),var(--c-accent-d));border-radius:16px;padding:16px 24px;box-shadow:0 10px 26px rgba(200,155,22,.22);}
+.dual-foot .gg-price .dcard-pmeta{color:rgba(255,255,255,.9);margin:0;}
+.dual-foot .gg-price .dprice{justify-content:flex-end;align-items:baseline;}
+.dual-foot .gg-price .dprice .yen{font-size:52px;color:#fff;}
+.dual-foot .gg-price .dprice .u{font-size:18px;color:#fff;}
+.dual-foot .gg-price .dprice .tax{color:rgba(255,255,255,.85);}
+.gel-gift::before{content:"GIFT";position:absolute;top:13px;right:-32px;transform:rotate(45deg);background:var(--c-accent);color:#fff;font-size:10px;font-weight:800;padding:3px 38px;letter-spacing:.12em;}
+.gel-gift img{width:84px;height:84px;object-fit:contain;background:#fff;border-radius:12px;padding:6px;flex:0 0 auto;box-shadow:0 4px 14px rgba(11,45,92,.1);}
+.gel-gift .gg-t{display:flex;flex-direction:column;gap:3px;}
+.gel-gift .gg-tag{font-size:11px;font-weight:800;color:var(--c-accent-d);letter-spacing:.1em;}
+.gel-gift b{font-size:17px;font-weight:800;color:var(--c-primary);line-height:1.35;}
+.gel-gift .gg-sub{font-size:12px;color:var(--c-sub);font-weight:600;line-height:1.5;}
+/* === スマホ専用：3種類の医療ホワイトニング === */
+.dual-sp{display:grid;gap:13px;margin-top:24px;}
+.dual-pc{display:none;}
+.dual-sp .spc{position:relative;display:grid;grid-template-columns:92px 1fr;gap:14px;align-items:center;background:#fff;border:1px solid var(--c-line);border-radius:16px;box-shadow:var(--shadow);padding:13px;}
+.dual-sp .spc-img{width:92px;height:92px;border-radius:12px;overflow:hidden;background:var(--c-bg-2);}
+.dual-sp .spc-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.dual-sp .spc-tag{font-size:10px;font-weight:800;letter-spacing:.1em;color:var(--c-accent-d);}
+.dual-sp .spc-name{font-size:15.5px;font-weight:800;color:var(--c-primary);margin:3px 0 5px;line-height:1.3;}
+.dual-sp .spc-desc{font-size:12.5px;color:var(--c-sub);line-height:1.65;}
+.dual-sp .spc-price{margin-top:9px;color:var(--c-primary);font-weight:800;}
+.dual-sp .spc-price .y{font-size:23px;font-feature-settings:"tnum";}
+.dual-sp .spc-price .u{font-size:11.5px;color:var(--c-sub);font-weight:700;margin-left:3px;}
+.dual-sp .spc.best{border:2px solid var(--c-accent);box-shadow:0 12px 30px rgba(200,155,22,.2);}
+.dual-sp .spc-flag{position:absolute;top:0;right:0;background:var(--c-accent);color:#fff;font-size:10px;font-weight:800;letter-spacing:.05em;padding:4px 12px;border-bottom-left-radius:12px;}
+.dual-sp .sp-merge{display:flex;flex-direction:column;align-items:center;gap:7px;margin:8px 0 2px;}
+.dual-sp .spm-eq{display:flex;align-items:center;gap:9px;font-weight:800;color:var(--c-primary);font-size:15px;}
+.dual-sp .spm-eq span{background:var(--c-bg-2);border-radius:999px;padding:7px 16px;}
+.dual-sp .spm-eq i{font-style:normal;color:var(--c-accent-d);font-size:17px;}
+.dual-sp .spm-cap{font-size:12.5px;font-weight:700;color:var(--c-sub);}
+.dual-sp .spm-arrow{color:var(--c-accent);animation:spmBounce 1.4s ease-in-out infinite;}
+.dual-sp .spm-arrow svg{width:38px;height:38px;display:block;}
+@keyframes spmBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(9px);}}
+@media(min-width:768px){.dual-sp{display:none;}.dual-pc{display:block;}}
+.spec-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;}
+.spec-badge{display:inline-flex;align-items:center;gap:11px;background:linear-gradient(135deg,var(--c-accent),var(--c-accent-d));color:#fff;font-weight:800;padding:13px 22px;border-radius:16px;box-shadow:0 8px 20px rgba(200,155,22,.3);letter-spacing:.02em;}
+.spec-badge svg{width:24px;height:24px;fill:#fff;flex:0 0 auto;}
+.spec-badge .sb-t{display:flex;flex-direction:column;line-height:1.2;}
+.spec-badge .sb-t b{font-size:18px;font-weight:800;}
+.spec-badge .sb-t small{font-size:11.5px;font-weight:700;opacity:.92;margin-top:2px;}
+.spec-badge.alt{background:linear-gradient(135deg,var(--c-primary),#16386b);box-shadow:0 8px 20px rgba(11,45,92,.3);}
+.dual-merge{position:relative;height:118px;margin:14px 0 26px;display:flex;align-items:flex-end;justify-content:center;}
+.dual-merge svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;}
+.dual-merge .dm-path{fill:none;stroke:var(--c-accent);stroke-width:3.5;stroke-linecap:round;stroke-dasharray:8 10;animation:dmFlow 1.1s linear infinite;}
+@keyframes dmFlow{to{stroke-dashoffset:-36;}}
+.dm-label{position:relative;z-index:1;display:inline-flex;flex-direction:column;align-items:center;gap:3px;background:linear-gradient(135deg,#16386b,var(--c-primary));color:#fff;font-size:18px;font-weight:800;padding:15px 34px;border-radius:18px;box-shadow:0 14px 30px rgba(11,45,92,.3);margin-bottom:2px;letter-spacing:.02em;border:1.5px solid color-mix(in srgb,var(--c-accent) 55%,transparent);}
+.dm-label small{font-size:11.5px;font-weight:800;letter-spacing:.18em;color:var(--c-accent);}
+@media(prefers-reduced-motion:reduce){.dual-merge .dm-path{animation:none;}}
+/* OFFICE：トーンが一気に明るくなる動くバー */
+.shade-box{background:var(--c-bg-2);border-radius:12px;padding:12px;margin-top:2px;}
+.shade-bar{display:flex;gap:4px;}
+.shade-bar i{flex:1;height:15px;border-radius:4px;background:linear-gradient(90deg,#c7a463,#fff);background-size:320% 100%;background-position:0 0;animation:shadeBrighten 3.4s cubic-bezier(.45,0,.25,1) infinite;}
+.shade-bar i:nth-child(2){animation-delay:.16s;}
+.shade-bar i:nth-child(3){animation-delay:.32s;}
+.shade-bar i:nth-child(4){animation-delay:.48s;}
+.shade-bar i:nth-child(5){animation-delay:.64s;}
+.shade-bar i:nth-child(6){animation-delay:.8s;}
+@keyframes shadeBrighten{0%,12%{background-position:0 0;}55%,100%{background-position:100% 0;}}
+.shade-cap{display:flex;justify-content:space-between;font-size:10.5px;font-weight:800;color:var(--c-sub);margin-top:7px;letter-spacing:.02em;}
+.shade-cap .hi{color:var(--c-accent-d);}
+/* HOME：色戻りをブロックしてキープ */
+.keep-box{background:var(--c-bg-2);border-radius:12px;padding:12px;margin-top:2px;}
+.keep-bar{display:flex;gap:4px;}
+.keep-bar i{flex:1;height:15px;border-radius:4px;background:#fff;border:1px solid color-mix(in srgb,var(--c-accent) 32%,#fff);}
+.keep-cap{display:flex;align-items:center;justify-content:center;gap:7px;font-size:10.5px;font-weight:800;color:var(--c-accent-d);margin-top:7px;letter-spacing:.02em;}
+.keep-cap .dot{width:8px;height:8px;border-radius:50%;background:var(--c-accent);animation:keepPulse 1.8s ease-in-out infinite;flex:0 0 auto;}
+@keyframes keepPulse{0%,100%{opacity:.3;transform:scale(.75);}50%{opacity:1;transform:scale(1.25);}}
+/* デュアルボックス：余白UP・フラグ脈動 */
+.dual-hero{padding:34px 24px 36px;margin-top:44px;}
+.dual-hero-flag{animation:flagPulse 2.6s ease-in-out infinite;}
+@keyframes flagPulse{0%,100%{box-shadow:0 12px 28px rgba(200,155,22,.42);}50%{box-shadow:0 14px 36px rgba(200,155,22,.66);}}
+.dual-hero-head p{font-size:14.5px;line-height:1.85;max-width:580px;}
+.dual-hero-head p b{color:var(--c-accent-d);}
+/* 3つのベネフィット（旧チップを刷新） */
+.dual-bens{display:grid;grid-template-columns:1fr;gap:13px;margin:24px 0 8px;}
+@media(min-width:600px){.dual-bens{grid-template-columns:repeat(3,1fr);}}
+.ben{position:relative;background:#fff;border:1.5px solid color-mix(in srgb,var(--c-accent) 34%,#fff);border-radius:18px;padding:22px 16px;text-align:center;overflow:hidden;box-shadow:0 8px 24px rgba(11,45,92,.07);animation:benRise .6s both;}
+.ben:nth-child(2){animation-delay:.12s;}
+.ben:nth-child(3){animation-delay:.24s;}
+.ben::after{content:"";position:absolute;top:0;left:0;width:60%;height:100%;background:linear-gradient(110deg,transparent,rgba(255,255,255,.7),transparent);transform:translateX(-180%);animation:benShine 5s ease-in-out infinite;}
+.ben:nth-child(2)::after{animation-delay:1.6s;}
+.ben:nth-child(3)::after{animation-delay:3.2s;}
+@keyframes benShine{0%{transform:translateX(-180%);}22%,100%{transform:translateX(280%);}}
+@keyframes benRise{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+.ben-ic{width:50px;height:50px;margin:0 auto 12px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--c-accent) 15%,#fff);}
+.ben-ic svg{width:26px;height:26px;fill:var(--c-accent-d);}
+.ben b{display:block;font-size:16px;font-weight:800;color:var(--c-primary);margin-bottom:5px;letter-spacing:.01em;}
+.ben span{display:block;font-size:11.5px;color:var(--c-sub);line-height:1.65;font-weight:600;}
+.incl-item{padding:22px;gap:18px;}
+.incl-item p{font-size:13px;line-height:1.75;}
+.dual-incl{gap:16px;margin-top:24px;}
+.dual-foot{margin-top:26px;padding-top:24px;}
+@media(min-width:768px){.dual-hero{padding:42px 40px 44px;}}
+@media(prefers-reduced-motion:reduce){.shade-bar i,.keep-cap .dot,.ben,.ben::after,.dual-hero-flag{animation:none!important;}.shade-bar i{background-position:100% 0;}}
+</style>
 </head>
 <body>
-
-<!-- ===== Header ===== -->
 <header class="site-header">
   <div class="container">
     <a href="index.html" class="brand"><b>歯と美容のクリニック</b><span>MEDICAL WHITENING · GINZA</span></a>
     <nav class="nav">
-      <a href="#menu">メニュー</a>
-      <a href="#reason">選ばれる理由</a>
-      <a href="dual-whitening.html">デュアル</a>
-      <a href="home-whitening.html">ホーム</a>
+      
+      <a href="home-whitening.html">ホームホワイトニング</a>
+      <a href="#price" class="nav-dual">デュアルホワイトニング<span class="nav-badge">白さを目指すなら</span></a>
       <a href="#faq">よくある質問</a>
       <a href="#access">アクセス</a>
     </nav>
-    <a href="#reserve" class="btn btn--primary header-cta" style="min-height:44px;padding:12px 22px;font-size:14px;">今すぐ予約</a>
+    <div class="header-actions">
+      <a href="https://hb-clinic.online/" target="_blank" rel="noopener" class="btn order-cta header-cta">ジェルを注文</a>
+      <a href="#reserve" class="btn btn--primary header-cta" style="min-height:44px;padding:12px 22px;font-size:14px;">今すぐ予約</a>
+    </div>
     <button class="nav-toggle" aria-label="メニュー" id="navToggle"><span></span><span></span><span></span></button>
   </div>
 </header>
 <div class="mobile-nav" id="mobileNav">
-  <a href="#menu">メニュー</a>
-  <a href="#reason">選ばれる理由</a>
-  <a href="dual-whitening.html">デュアルホワイトニング</a>
+  <button class="mn-close" type="button" aria-label="メニューを閉じる"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+  
   <a href="home-whitening.html">ホームホワイトニング</a>
+  <a href="#price" class="nav-dual">デュアルホワイトニング<span class="nav-badge">白さを目指すなら</span></a>
   <a href="#faq">よくある質問</a>
   <a href="#access">アクセス</a>
+  <div class="mn-clinics">
+    <span class="mn-clinics-label">医院一覧</span>
+    <a class="clinic-link" href="#access">銀座本院</a>
+    <a class="clinic-link" href="#access">銀座7丁目院</a>
+    <a class="clinic-link" href="thedente.html">銀座歯科 THE DENTE</a>
+  </div>
   <a href="#reserve" class="btn btn--primary btn--block">今すぐWEBで予約する</a>
+  <a href="https://hb-clinic.online/" target="_blank" rel="noopener" class="btn order-cta btn--block" style="margin-top:12px;">ホームホワイトニングジェルを注文</a>
 </div>
 
-<!-- ===== Section01 Hero ===== -->
 <section class="hero hero--full" id="top">
-  <div class="hero-media"><img src="img/hero2.jpg" alt="国家資格者による医療ホワイトニング"></div>
+  <div class="hero-media"><img src="img/hero.jpg" alt="医療ホワイトニングを受ける女性"></div>
   <div class="container">
     <div class="hero-inner">
       <div class="hero-copy">
-        <span class="eyebrow">国家資格を持つプロ集団</span>
-        <h1><small>国家資格を持つプロ集団による</small>安心の<br>医療ホワイトニング</h1>
-        <div class="price-tag">
-          <span class="label">60分たっぷり照射</span>
-          <span class="yen num">9,900</span><span class="unit">円</span>
+        
+        <span class="eyebrow">歯科医師 / 歯科衛生士</span>
+        <h1><span class="hl">国家資格を持つプロ集団による</span><span class="main">医療ホワイトニング</span></h1>
+        <div class="hero-value">
+          <div class="tsubu-stamp"><b>都度払い</b></div>
+          <p class="hv-sub" style="margin-top:0;margin-bottom:6px;">1照射あたり <b>10分</b></p>
+          <div class="hv-big">
+            <span class="hv-time"><b class="num">1</b>回照射</span>
+            <span class="hv-x">で</span>
+            <span class="hv-price"><b class="num">1,990</b><span class="kara">円〜</span><small>税込</small></span>
+          </div>
+          <div class="hv-label" style="margin-top:12px;margin-bottom:0;">対象の歯 <b>16〜20本</b>をまるごと照射</div>
+          <div class="hv-note">
+            <p class="hv-note-cap"><span>白さを決めるのは</span></p>
+            <div class="hv-formula">
+              <div class="term"><svg class="fx-ico" viewBox="0 0 24 24" fill="none" stroke="var(--c-accent-d)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="3.4" rx="1"></rect><path d="M7 6.5c0-.6.4-1.1 1-1.1h8c.6 0 1 .5 1 1.1V20a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2z"></path><path d="M7 12.3h10"></path><path d="M7.4 12.4h9.2V20a2 2 0 0 1-2 2H9.4a2 2 0 0 1-2-2z" fill="rgba(200,155,22,.2)" stroke="none"></path></svg><span>薬剤の質</span></div>
+              <span class="op">×</span>
+              <div class="term"><svg class="fx-ico" viewBox="0 0 24 24" fill="none" stroke="var(--c-accent-d)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8.2"></circle><path d="M12 8.4V13l3.1 2"></path><path d="M9 2.4h6"></path><path d="M12 2.4v2.4"></path></svg><span>照射時間</span></div>
+              <span class="op">=</span>
+              <div class="result"><svg class="fx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c-2 0-3 1.1-4.4 1.1S5.4 4.2 4.6 5.4C3.6 6.9 4 9 4.7 11.3c.6 2 .8 7 2.6 7 1.4 0 1-3.6 2.7-3.6s1.3 3.6 2.7 3.6c1.8 0 2-5 2.6-7 .7-2.3 1.1-4.4.1-5.9-.8-1.2-1.6-.3-3-.3S14 4 12 4z"></path><path d="M19.3 3l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7z" fill="currentColor" stroke="none"></path></svg><span>歯の白さ</span></div>
+            </div>
+          </div>
         </div>
-        <p class="price-note">税込／対象歯面：見える部分を白くする16〜20歯</p>
         <div class="hero-cta">
           <a href="#reserve" class="btn btn--primary">今すぐWEBで予約する</a>
-          <a href="#menu" class="btn btn--ghost">メニューを見る</a>
+          <a href="#price" class="btn btn--ghost">料金を見る</a>
         </div>
         <div class="hero-badges">
           <span class="badge">歯科医師・歯科衛生士が在籍</span>
@@ -65,186 +1144,435 @@
   </div>
 </section>
 
-<!-- ===== Section02 NO宣言（最重要） ===== -->
+<section class="section opal reveal" id="home">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">Home Whitening</span>
+      <p class="h-sec">自宅で続ける、<br>本格ホームホワイトニング。</p>
+    </div>
+    <div class="opal-card">
+      <div class="opal-photo"><img src="img/opalescence-cut.png" alt="オパールエッセンス ホームホワイトニング"></div>
+      <div class="opal-body">
+        <span class="opal-tag">ホームホワイトニング</span>
+        <p class="opal-name">Opalescence ／ オパールエッセンス</p>
+        <p class="opal-h">ホームホワイトニング用ジェルが、<br>お得な<b style="color:var(--c-accent-d);">4本セット</b>。</p>
+        <div class="opal-price"><span class="qty">4本セット</span><span class="yen num">3,990</span><span class="u">円〜</span><span class="tax">税込</span></div>
+        <div class="opal-highlights">
+          <div class="opal-hl"><div class="hl-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"></path></svg></div><div><b>無料オンライン診療</b><small>日本全国どこからでも受診OK</small></div></div>
+          <div class="opal-hl"><div class="hl-ic"><svg viewBox="0 0 24 24"><rect x="1.5" y="6" width="13" height="10" rx="1"></rect><path d="M14.5 9h4l3 3v4h-7z"></path><circle cx="6.5" cy="18" r="1.8"></circle><circle cx="18" cy="18" r="1.8"></circle></svg></div><div><b>送料無料</b><small>ご自宅までお届け</small></div></div>
+        </div>
+        <ul class="opal-feats">
+          <li>自宅で好きなタイミングにケアできる</li>
+          <li>カスタムマウスピースと合わせて本格ケア</li>
+          <li>医院ケアとの併用（デュアル）にもおすすめ</li>
+        </ul>
+        <a href="home-whitening.html" class="btn btn--primary">詳しく見る</a>
+        <p class="opal-note">※ご購入には当院での無料オンライン診察が必要です。送料無料で全国へお届けします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section concerns reveal">
+  <div class="container concerns-grid">
+    <div class="concern-figure">
+      <img src="img/concern.jpg" alt="ホワイトニングに不安を感じている女性">
+    </div>
+    <div class="concern-copy">
+    <span class="eyebrow" style="color:var(--c-accent);">Worries</span>
+    <p class="h-sec">ホワイトニング、<br>こんな不安はありませんか？</p>
+    <div class="concern-chips">
+      <span>費用が高そう</span>
+      <span>痛そう・しみそう</span>
+      <span>本当に白くなる？</span>
+      <span>続けづらい</span>
+      <span>ムラが出そう</span>
+      <span>すぐ戻りそう</span>
+      <span>知覚過敏が不安</span>
+      <span>通うのが大変</span>
+    </div>
+    <div class="concern-marquee" aria-hidden="true">
+      <div class="cm-row"><div class="cm-track">
+        <span>費用が高そう</span><span>痛そう・しみそう</span><span>本当に白くなる？</span><span>続けづらい</span>
+        <span>費用が高そう</span><span>痛そう・しみそう</span><span>本当に白くなる？</span><span>続けづらい</span>
+      </div></div>
+      <div class="cm-row"><div class="cm-track cm-rev">
+        <span>ムラが出そう</span><span>すぐ戻りそう</span><span>知覚過敏が不安</span><span>通うのが大変</span>
+        <span>ムラが出そう</span><span>すぐ戻りそう</span><span>知覚過敏が不安</span><span>通うのが大変</span>
+      </div></div>
+    </div>
+    <p class="concern-bridge">歯と美容のクリニックは、<br><span class="accent">その不安に、ていねいに寄り添います。</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">What</span>
+      <p class="h-sec">医療ホワイトニングとは？</p>
+      <p class="lead">歯みがきやセルフケアでは届きにくい、歯そのものの着色にアプローチ。歯科医院だからこそ行える医療ホワイトニングです。</p>
+    </div>
+    <div class="what-cards">
+      <div class="what-card medical">
+        <div class="wc-photo"><img src="img/what-medical.png" alt="歯科医院での医療ホワイトニング"></div>
+        <span class="wc-tag">MEDICAL</span>
+        <b>医療ホワイトニング</b>
+        <p>歯科医院だからこそ、歯そのものの着色にアプローチできます。</p>
+      </div>
+      <div class="what-vs">VS</div>
+      <div class="what-card self">
+        <div class="wc-photo"><img src="img/what-esthe.png" alt="セルフ・サロンでのホワイトニング"></div>
+        <span class="wc-tag">SALON / ESTHE</span>
+        <b>サロンやエステ</b>
+        <p>歯の表面の汚れ・着色を落とすケアが中心です。</p>
+      </div>
+    </div>
+    <p class="h-sec" style="font-size:20px;text-align:center;margin-top:44px;">サロン・エステとの違い</p>
+    <table class="compare-table">
+      <thead>
+        <tr><th class="axis"></th><th class="ours"><span class="ch-ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9.3 12.2l2 2 3.6-3.7"></path></svg></span><small>医療ホワイトニング</small>歯と美容のクリニック</th><th class="theirs"><span class="ch-ic"><svg viewBox="0 0 24 24"><path d="M12 3.5l1.7 4.6L18.5 9l-4.8 1 -1.7 4.5-1.7-4.5L5.5 9l4.8-.9z"></path></svg></span>サロンやエステ</th></tr>
+      </thead>
+      <tbody>
+        <tr><th class="axis">施術</th><td class="ours">歯科医師・歯科衛生士が担当</td><td class="theirs">自分で行う</td></tr>
+        <tr><th class="axis">薬剤</th><td class="ours">歯科医院でしか扱えない薬剤を使用</td><td class="theirs">歯を漂白する薬剤は使えない</td></tr>
+        <tr><th class="axis">アプローチ</th><td class="ours">歯そのものの着色にアプローチ</td><td class="theirs">表面の汚れ落としが中心</td></tr>
+        <tr><th class="axis">実感<span style="font-size:.7em;">※</span></th><td class="ours">1回でも変化を感じる方が多い</td><td class="theirs">回数を重ねることが多い</td></tr>
+      </tbody>
+    </table>
+    <p class="price-note" style="text-align:center;margin-top:12px;">※感じ方には個人差があります。</p>
+  </div>
+</section>
+
+<section class="section agent reveal">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow" style="color:var(--c-accent);justify-content:center;">Whitening Agent</span>
+      <p class="h-sec">歯科医院だけの、<br>歯を「漂白」できる薬剤。</p>
+    </div>
+    <div class="agent-inner">
+      <div class="agent-photo"><img src="img/agent.jpg" alt="医療ホワイトニング専用の薬剤（ホワイトニングジェル）"></div>
+      <div>
+        <p class="lead" style="margin:0 0 22px;">当院は、歯そのものを漂白する<b style="color:#fff;">過酸化水素ベース</b>の薬剤を使用。サロンやエステでは扱えない、医療機関だけの薬剤です。</p>
+        <div class="agent-points">
+          <div class="ap"><div class="ap-ic"><svg viewBox="0 0 24 24"><path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z"></path></svg></div><div><b>歯そのものを漂白</b><span>表面の汚れ落としではなく、歯の内部の着色を分解して白くします。</span></div></div>
+          <div class="ap"><div class="ap-ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9.5 12l2 2 3.5-3.5"></path></svg></div><div><b>歯科医院でしか使えない</b><span>過酸化水素による漂白は歯科医師の管理下のみ。<b>サロンやエステでは使用できません。</b></span></div></div>
+          <div class="ap"><div class="ap-ic"><svg viewBox="0 0 24 24"><path d="M12 20s-6.5-4.3-6.5-9A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 6.5 3c0 4.7-6.5 9-6.5 9z"></path></svg></div><div><b>しみ・痛みに配慮した薬剤</b><span>できるだけしみ・痛みを抑えるよう配慮した薬剤を使用しています。</span></div></div>
+        </div>
+        <p class="agent-note">※薬剤の作用や、しみ・痛みの感じ方には個人差があります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-alt reveal">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">Our Strength</span>
+      <p class="h-sec">選ばれる3つのポイント</p>
+    </div>
+    <div class="points">
+      <div class="point">
+        <div class="point-figure"><img src="img/treatment.jpg" alt="LED照射によるホワイトニング施術"><div class="point-badge"><span class="pn">01</span><span class="pl">POINT</span></div></div>
+        <div class="point-inner">
+          <div class="point-head">
+            <div>
+              <div class="point-claim">白さを左右するのは、<br><span class="accent" style="display:inline-block;margin-top:7px;font-size:1.18em;font-weight:800;background:linear-gradient(transparent 60%,color-mix(in srgb,var(--c-accent) 30%,transparent) 60%);padding:0 3px;">薬剤と照射時間。</span></div>
+              <div class="point-pills"><span class="pill">薬剤の質</span><span class="x">×</span><span class="pill">照射時間</span></div>
+            </div>
+          </div>
+          <p class="point-body">ホワイトニングの仕上がりは、<b>使う薬剤</b>と<b>しっかり照射する時間</b>で変わります。当院は対象の歯 <b>16〜20本をまるごと照射</b>。続けやすい価格でご提供します。</p>
+          <ul class="point-checks">
+            <li>対象の歯を、まるごと照射</li>
+            <li>目指す白さに合わせて照射時間を調整</li>
+            <li>1照射あたり約10分。無理なく続けやすい</li>
+          </ul>
+        </div>
+      </div>
+      <div class="point">
+        <div class="point-figure"><img src="img/counseling.jpg" alt="国家資格者によるカウンセリング・施術"><div class="point-badge"><span class="pn">02</span><span class="pl">POINT</span></div></div>
+        <div class="point-inner">
+          <div class="point-head">
+            <div>
+              <div class="point-claim"><span class="accent">休憩がてら、</span>気軽に通える。</div>
+              <div class="point-tags"><span class="t">すきま時間でOK</span><span class="t">駅近・通いやすい</span><span class="t">歯科医師・歯科衛生士</span></div>
+            </div>
+          </div>
+          <p class="point-body">ランチや買い物のついで、仕事の合間に。<b>ちょっとした休憩のような感覚</b>で立ち寄れます。施術はすべて<b>国家資格を持つプロ</b>が担当するので、気軽さと安心を両立できます。</p>
+          <ul class="point-checks">
+            <li>すきま時間に、サッと立ち寄れる</li>
+            <li>ランチや仕事の合間に、ふらっと立ち寄れる</li>
+            <li>施術は国家資格を持つプロが担当</li>
+          </ul>
+        </div>
+      </div>
+      <div class="point">
+        <div class="point-figure"><img src="https://hb-clinic-web.netlify.app/img/clinic-honin.jpg" alt="明朗会計・安心のクリニック"><div class="point-badge"><span class="pn">03</span><span class="pl">POINT</span></div></div>
+        <div class="point-inner">
+          <div class="point-head">
+            <div>
+              <div class="point-claim">わかりやすい、<span class="accent">リーズナブルな価格。</span></div>
+              <div class="point-tags"><span class="t">明朗会計</span><span class="t">都度払い中心</span><span class="t">追加料金なし</span></div>
+            </div>
+          </div>
+          <p class="point-body">表示価格と実際の費用に差はありません。<b>高額な回数券や、無理な勧誘は一切なし。</b>お会計前に総額をご提示する、明朗会計です。</p>
+          <ul class="point-checks">
+            <li>表示価格以外の追加料金は頂きません</li>
+            <li>高額な回数券・コースの強制はなし</li>
+            <li>都度払い中心で、必要なときだけ</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="no-section" id="no">
   <div class="container">
     <span class="eyebrow">Our Promise</span>
-    <p class="h-sec">4つの<span class="no-red">NO</span>をお約束します</p>
+    <h2 class="no-title"><span class="t-num">4</span>つの<span class="t-no">NO</span><br class="sp-br">をお約束します</h2>
     <p class="no-lead">わかりやすい価格で、必要なものだけ。無理な営業はいたしません。</p>
     <div class="no-grid" id="noGrid">
-      <div class="no-card">
-        <div class="no-ico"><svg viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h2l4 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15 8a4 4 0 0 1 0 8"/></svg></div>
-        <div class="no-word">NO</div><div class="no-text"><div class="no-label">おとり広告</div><p class="no-desc">表示価格と実際の費用に差はありません。</p></div>
-      </div>
-      <div class="no-card">
-        <div class="no-ico"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div>
-        <div class="no-word">NO</div><div class="no-text"><div class="no-label">高額契約</div><p class="no-desc">高額な回数券・コースの強制はありません。</p></div>
-      </div>
-      <div class="no-card">
-        <div class="no-ico"><svg viewBox="0 0 24 24"><path d="M9 11V6a1.5 1.5 0 0 1 3 0v4M12 10V5a1.5 1.5 0 0 1 3 0v5M15 10V7a1.5 1.5 0 0 1 3 0v7a6 6 0 0 1-6 6h-1a6 6 0 0 1-5-2.7L4 16a1.6 1.6 0 0 1 2.6-1.8L9 17"/></svg></div>
-        <div class="no-word">NO</div><div class="no-text"><div class="no-label">押し売り</div><p class="no-desc">必要のない物販や追加施術はおすすめしません。</p></div>
-      </div>
-      <div class="no-card">
-        <div class="no-ico"><svg viewBox="0 0 24 24"><path d="M6 2h9l3 3v17l-2-1-2 1-2-1-2 1-2-1-2 1V4a2 2 0 0 1 2-2z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></div>
-        <div class="no-word">NO</div><div class="no-text"><div class="no-label">不透明会計</div><p class="no-desc">明朗会計。お会計前に総額をご提示します。</p></div>
-      </div>
+      <div class="no-card reveal"><div class="no-num">01</div><div class="no-badge"><img src="img/no-01.png" alt="おとり広告はしません"></div><div class="no-label"><span class="nt">NO</span>おとり広告</div><p class="no-desc">表示価格と実際の費用に差はありません。</p></div>
+      <div class="no-card reveal"><div class="no-num">02</div><div class="no-badge"><img src="img/no-02.png" alt="高額契約はありません"></div><div class="no-label"><span class="nt">NO</span>高額契約</div><p class="no-desc">高額な回数券・コースの強制はありません。</p></div>
+      <div class="no-card reveal"><div class="no-num">03</div><div class="no-badge"><img src="img/no-03.png" alt="押し売りはしません"></div><div class="no-label"><span class="nt">NO</span>押し売り</div><p class="no-desc">必要のない物販や追加施術はおすすめしません。</p></div>
+      <div class="no-card reveal"><div class="no-num">04</div><div class="no-badge"><img src="img/no-04.png" alt="不透明会計はしません"></div><div class="no-label"><span class="nt">NO</span>不透明会計</div><p class="no-desc">明朗会計。お会計前に総額をご提示します。</p></div>
     </div>
   </div>
 </section>
 
-<!-- ===== Section03 印象比較 ===== -->
-<section class="section center reveal">
-  <div class="container">
-    <span class="eyebrow">First Impression</span>
-    <p class="h-sec">歯の色で、<br>あなたの印象は変わります</p>
-    <div class="compare">
-      <div class="imgph" data-ratio="3/2"><img src="img/compare-before.jpg" alt="歯が黄ばんでいるイメージ"></div>
-      <div class="imgph" data-ratio="3/2"><img src="img/compare-after.jpg" alt="歯が白いイメージ"></div>
-    </div>
-    <p class="price-note" style="margin-top:14px;">※イメージ画像です</p>
-  </div>
-</section>
-
-<!-- ===== Section03.5 信頼バナー（国家資格者） ===== -->
-<section class="section bg-navy reveal">
-  <div class="container hero-grid">
-    <div class="imgph" data-ratio="16/9"><img src="img/staff.jpg" alt="国家資格を持つ歯科医師・歯科衛生士"></div>
-    <div>
-      <span class="eyebrow" style="color:var(--c-accent);">National License</span>
-      <p class="h-sec" style="color:#fff;">国家資格を持つプロが、<br>あなたの歯を白く。</p>
-      <p class="lead" style="color:#cdd7e6;">歯科医師・歯科衛生士が在籍。一人ひとりの歯の状態を確認したうえで、安心の医療ホワイトニングを、わかりやすい価格でご提供します。</p>
-      <div class="hero-badges" style="margin-top:20px;">
-        <span class="badge">歯科医師</span>
-        <span class="badge">歯科衛生士</span>
-        <span class="badge">医療ホワイトニング</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Section04 選ばれる理由 ===== -->
-<section class="section bg-alt reveal" id="reason">
-  <div class="container">
-    <div class="center">
-      <span class="eyebrow">Why we are chosen</span>
-      <p class="h-sec">当院が選ばれる理由</p>
-    </div>
-    <div class="reasons">
-      <div class="reason"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg></div><b>国家資格者が施術</b><span>歯科医師・歯科衛生士</span></div>
-      <div class="reason"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div><b>追加料金なし</b><span>明朗な料金体系</span></div>
-      <div class="reason"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 10h18M6 14h4"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg></div><b>都度払い中心</b><span>その都度のお会計で安心</span></div>
-      <div class="reason"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M8 10h8M8 14h5"/><rect x="4" y="4" width="16" height="16" rx="2"/></svg></div><b>丁寧な説明</b><span>カウンセリング重視</span></div>
-      <div class="reason"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M11 18h2"/></svg></div><b>24時間WEB予約</b><span>いつでもネット予約OK</span></div>
-      <div class="reason"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21c5-4 7-7 7-11a7 7 0 10-14 0c0 4 2 7 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><b>駅近・通いやすい</b><span>銀座エリア3院</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Section05 メニュー ===== -->
-<section class="section reveal" id="menu">
-  <div class="container">
-    <div class="center">
-      <span class="eyebrow">Menu</span>
-      <p class="h-sec">メニュー一覧</p>
-    </div>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <span class="tag pop">人気No.1</span>
-        <div class="imgph" data-ratio="3/2"><img src="img/treat-60min.jpg" alt="60分ホワイトニング照射"></div>
-        <h3>60分ホワイトニング</h3>
-        <p class="desc">しっかり明るく。たっぷり60分照射。</p>
-        <div class="price"><span class="yen num">9,900</span><span class="tax">円（税込）</span></div>
-      </div>
-      <div class="menu-card">
-        <span class="tag pop">一番人気</span>
-        <div class="imgph" data-ratio="3/2"><img src="img/treat-scene.jpg" alt="ホワイトニング施術"></div>
-        <h3>30分ホワイトニング</h3>
-        <p class="desc">コツコツ明るく。30分照射。</p>
-        <div class="price"><span class="yen num">5,970</span><span class="tax">円（税込）</span></div>
-      </div>
-      <div class="menu-card">
-        <span class="tag">おすすめ</span>
-        <div class="imgph" data-ratio="3/2"><img src="img/home-use.jpg" alt="デュアルホワイトニング"></div>
-        <h3>デュアルホワイトニング</h3>
-        <p class="desc">医院＋ホームで徹底アプローチ。コミコミ。</p>
-        <div class="price"><span class="yen num">18,000</span><span class="tax">円（税込）</span></div>
-      </div>
-      <div class="menu-card">
-        <div class="imgph" data-ratio="3/2"><img src="img/treat-60min.jpg" alt="20分ホワイトニング"></div>
-        <h3>20分ホワイトニング</h3>
-        <p class="desc">今の白さをキープ。20分照射。</p>
-        <div class="price"><span class="yen num">3,980</span><span class="tax">円（税込）</span></div>
-      </div>
-      <div class="menu-card">
-        <div class="imgph" data-ratio="3/2"><img src="img/treat-scene.jpg" alt="10分ホワイトニング"></div>
-        <h3>10分ホワイトニング</h3>
-        <p class="desc">まずはお試し。10分照射。</p>
-        <div class="price"><span class="yen num">1,990</span><span class="tax">円（税込）</span></div>
-      </div>
-      <div class="menu-card">
-        <div class="imgph" data-ratio="3/2"><img src="img/counseling.jpg" alt="2ステップクリーニング"></div>
-        <h3>2ステップクリーニング</h3>
-        <p class="desc">ホワイトニング前の歯面クリーニング。</p>
-        <div class="price"><span class="yen num">2,200</span><span class="tax">円（税込）</span></div>
-      </div>
-    </div>
-    <div class="center" style="margin-top:28px;"><a href="#reserve" class="btn btn--ghost">すべてのメニューを見る</a></div>
-  </div>
-</section>
-
-<!-- ===== Section06 デュアル（大きく） ===== -->
-<section class="section bg-alt reveal">
-  <div class="container center">
-    <span class="eyebrow">Most Recommended</span>
-    <p class="h-sec">デュアルホワイトニング<br><span class="accent">最もおすすめ</span></p>
-    <p class="lead">医院での施術とご自宅でのケアを組み合わせ、白さを早く・長くキープ。</p>
-    <div class="flow">
-      <div class="flow-item"><div class="imgph" data-ratio="1/1"><img src="img/treat-60min.jpg" alt="医院ホワイトニング"></div><b>医院ホワイトニング</b></div>
-      <div class="flow-op">＋</div>
-      <div class="flow-item"><div class="imgph" data-ratio="1/1"><img src="img/home-use.jpg" alt="ホームホワイトニング"></div><b>ホームホワイトニング</b></div>
-      <div class="flow-op">→</div>
-      <div class="flow-result">デュアル</div>
-    </div>
-    <a href="dual-whitening.html" class="btn btn--primary">詳しく見る</a>
-  </div>
-</section>
-
-<!-- ===== Section07 ホームホワイトニング ===== -->
 <section class="section reveal">
-  <div class="container hero-grid">
-    <div>
-      <span class="eyebrow">Home Whitening</span>
-      <p class="h-sec">ホームホワイトニング</p>
-      <p class="lead">オパールエッセンス対応のカスタムマウスピースで、ご自宅で本格ケア。オンライン診療にも対応しています。</p>
-      <ul class="feature-list">
-        <li>自宅で好きなタイミングでケア</li>
-        <li>カスタムマウスピース 5,500円〜</li>
-        <li>オンライン診療で受診可能</li>
-        <li>白さを長くキープしたい方に</li>
-      </ul>
-      <a href="home-whitening.html" class="btn btn--primary" style="margin-top:24px;">詳しく見る（商品ページへ）</a>
-    </div>
-    <div class="imgph"><img src="img/home-use.jpg" alt="ホームホワイトニング使用イメージ"></div>
-  </div>
-</section>
-
-<!-- ===== Section08 医院紹介 ===== -->
-<section class="section bg-alt reveal" id="clinic">
   <div class="container">
-    <div class="center"><span class="eyebrow">Our Clinics</span><p class="h-sec">医院紹介</p></div>
-    <div class="clinic-grid">
-      <div class="clinic-card"><div class="imgph" data-ratio="16/9"><img src="img/clinic-honin.jpg" alt="銀座本院"></div><div class="body"><h3>銀座本院</h3><p>アクセス良好。落ち着いた空間でホワイトニングを。</p><a href="#access" class="btn btn--ghost btn--block">詳しく見る</a></div></div>
-      <div class="clinic-card"><div class="imgph" data-ratio="16/9"><img src="img/clinic-7chome.jpg" alt="銀座7丁目院"></div><div class="body"><h3>銀座7丁目院</h3><p>通いやすい立地。丁寧なカウンセリングが好評。</p><a href="#access" class="btn btn--ghost btn--block">詳しく見る</a></div></div>
-      <div class="clinic-card dente"><div class="imgph dente-brand" data-label="THE DENTE" data-ratio="16/9"></div><div class="body"><h3>銀座歯科 THE DENTE</h3><p>ワンランク上の上質な空間で特別な体験を。</p><a href="thedente.html" class="btn btn--gold btn--block">特設ページへ</a></div></div>
+    <div class="center">
+      <span class="eyebrow">Shade</span>
+      <p class="h-sec"><span style="display:block;font-size:.62em;color:var(--c-accent-d);margin-bottom:6px;">― 1dayホワイトニングの場合 ―</span>なりたい白さを、選べる。</p>
+      <p class="lead">目指したい歯の色を選び、それに合わせてホワイトニングを行えます。今の色から、なりたい白さへ。</p>
+    </div>
+    <div class="shade-stack">
+    <figure class="shade-scale">
+      <div class="shadebar">
+        <span class="shadebar-badge">4〜6シェード UP<small>1day（60分照射）の場合の目安</small></span>
+        <div class="shadebar-track">
+          <div class="sb-tooth"><div class="sb-chip" style="background:#c9a87a;"></div><span class="sb-lab">A4</span></div>
+          <div class="sb-tooth"><div class="sb-chip" style="background:#d4b88c;"></div><span class="sb-lab">A3.5</span></div>
+          <div class="sb-tooth is-now"><span class="sb-flag sb-flag--now">今の色（例）</span><div class="sb-chip" style="background:#dcc39a;"></div><span class="sb-lab">A3</span></div>
+          <div class="sb-tooth"><div class="sb-chip" style="background:#e3cea9;"></div><span class="sb-lab">D2</span></div>
+          <div class="sb-tooth"><div class="sb-chip" style="background:#e9d6b6;"></div><span class="sb-lab">A2</span></div>
+          <div class="sb-tooth"><div class="sb-chip" style="background:#eee0c6;"></div><span class="sb-lab">C1</span></div>
+          <div class="sb-tooth"><div class="sb-chip" style="background:#f2e8d5;"></div><span class="sb-lab">B1</span></div>
+          <div class="sb-tooth is-goal"><span class="sb-flag sb-flag--goal">なりたい白さ</span><div class="sb-chip" style="background:#f6efe2;"></div><span class="sb-lab">A1</span></div>
+          <div class="sb-tooth"><div class="sb-chip" style="background:#fbf8f3;"></div><span class="sb-lab">BL1</span></div>
+        </div>
+        <div class="shadebar-axis"><span>今の色</span><span class="line"></span><span class="bright">白く →</span></div>
+      </div>
+      <figcaption>丸印は「今の歯の色（例）」から「なりたい白さ」までのイメージです。1day（60分照射）で4〜6シェード上がるのが目安。<br>※色味・上がり方には個人差があります。実際の目標はカウンセリングで決めていきます。</figcaption>
+    </figure>
+      <div class="shade-steps">
+        <div class="sstep"><span class="ssi"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.2-4.2"></path></svg></span><b>今の色を確認 <i class="ssn">STEP 01</i></b><span>色見本で、今の歯の色をチェック。</span></div>
+        <div class="sstep"><span class="ssi"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"></rect><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"></rect><rect x="8.5" y="13.5" width="7" height="7" rx="1.6"></rect></svg></span><b>なりたい白さを選ぶ <i class="ssn">STEP 02</i></b><span>目指す白さを一緒に決定。</span></div>
+        <div class="sstep"><span class="ssi"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.4"></circle><path d="M12 3v2.4M12 18.6V21M3 12h2.4M18.6 12H21M5.6 5.6l1.7 1.7M16.7 16.7l1.7 1.7M16.7 7.3l1.7-1.7M5.6 18.4l1.7-1.7"></path></svg></span><b>その白さへ照射 <i class="ssn">STEP 03</i></b><span>目標に合わせて照射プランをご提案。</span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="section reveal" id="price">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">Recommended</span>
+      <p class="h-sec">3種類の<br class="sp-br">医療ホワイトニング</p>
+      <p class="lead">オフィス・デュアル・ホームの3つから、目的に合わせて。すべて税込・明朗会計でご案内します。</p>
+    </div>
+    <div class="dual-sp">
+      <div class="spc">
+        <div class="spc-img"><img src="img/care-office.png" alt="オフィスホワイトニング"></div>
+        <div>
+          <div class="spc-tag">OFFICE</div>
+          <div class="spc-name">オフィスホワイトニング</div>
+          <div class="spc-desc">医院の専用LEDで、１回の施術で一気に白さを引き上げ。</div>
+          <div class="spc-price"><span class="y">12,000</span><span class="u">円～　税込</span></div>
+        </div>
+      </div>
+      <div class="spc">
+        <div class="spc-img"><img src="img/care-home.png" alt="ホームホワイトニング"></div>
+        <div>
+          <div class="spc-tag">HOME</div>
+          <div class="spc-name">ホームホワイトニング</div>
+          <div class="spc-desc">専用マウスピースで自宅ケア。色戻りを抑えて長くキープ。</div>
+          <div class="spc-price"><span class="y">5,500</span><span class="u">円＋薬剤　税込</span></div>
+        </div>
+      </div>
+      <div class="sp-merge">
+        <div class="spm-eq"><span>オフィス</span><i>＋</i><span>ホーム</span></div>
+        <div class="spm-cap">を合わせた“いいとこどり”が</div>
+        <div class="spm-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15"></path><path d="M5 12l7 7 7-7"></path></svg></div>
+      </div>
+      <div class="spc best">
+        <div class="spc-flag">白さを目指すなら</div>
+        <div class="spc-img"><img src="img/care-dual.png" alt="デュアルホワイトニング"></div>
+        <div>
+          <div class="spc-tag">DUAL ・ いちおし</div>
+          <div class="spc-name">デュアルホワイトニング</div>
+          <div class="spc-desc">医院の照射＋自宅ケアのいいとこどり。短期間で白く、長くキープ。ホーム用ジェル1本付き。</div>
+          <div class="spc-price"><span class="y">18,000</span><span class="u">円　税込</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="dual-pc">
+    <div class="dual-callout">
+      <div class="dc-ic"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.7 6.2 6.8.6-5.1 4.5 1.5 6.6L12 17.5 6.1 21l1.5-6.6L2.5 9.9l6.8-.6z"></path></svg></div>
+      <p>白さを<b>長くキープ</b>するなら、オフィス＋ホームの<span class="acc">〈デュアル〉が最もおすすめ</span>。医院だけでは維持が難しい白さも、自宅ケアの併用でしっかり保てます。</p>
+    </div>
+    <div class="dual-compare">
+      <h3>明るくなる<span class="acc">“早さ”</span>も、色戻りしない<span class="acc">“持続”</span>も。</h3>
+      <p class="dc-cap">医院（オフィス）と自宅（ホーム）を組み合わせる〈デュアル〉なら、白くなる早さも持続力も最大に。</p>
+      <div class="pair-row">
+        <div class="dcard">
+          <div class="imgph" data-ratio="3/2"><img src="img/care-office.png" alt="医院でのオフィスホワイトニング（LED照射）"></div>
+          <div class="dcard-body">
+            <span class="dcard-tag">OFFICE</span>
+            <b class="dcard-name">オフィスホワイトニング<small>医院での集中ケア</small></b>
+            <p class="dcard-note">医院の専用LEDライトで薬剤を活性化。<b>1回の施術で歯のトーンを一気に引き上げ</b>、短期間で白さを実感できます。大切な予定の前にもおすすめ。</p>
+            <div class="shade-box">
+              <div class="shade-bar"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="shade-cap"><span>今の歯の色</span><span class="hi">一気に明るく →</span></div>
+            </div>
+            <ul class="dcard-feats">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>約60分の集中照射でスピード重視</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>1回でも白さの変化を実感しやすい</li>
+            </ul>
+            <div class="spec-badges">
+              <span class="spec-badge"><svg viewBox="0 0 24 24"><path d="M13 2L4.5 13.5H11l-1 8.5L19.5 10H12.5z"></path></svg><span class="sb-t"><b>スピード</b><small>すぐに白く</small></span></span>
+            </div>
+            <div class="dcard-price">
+              <div class="dcard-pmeta">医院で1day照射</div>
+              <div class="dprice"><span class="yen num">12,000</span><span class="u">円</span><span class="tax">税込</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="pair-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></div>
+        <div class="dcard">
+          <div class="imgph" data-ratio="3/2"><img src="img/care-home.png" alt="自宅でのホームホワイトニング"></div>
+          <div class="dcard-body">
+            <span class="dcard-tag">HOME</span>
+            <b class="dcard-name">ホームホワイトニング<small>自宅でじっくりケア</small></b>
+            <p class="dcard-note">専用マウスピースに薬剤を入れて自宅でケア。歯の内側からじっくり白くし、白くなりにくい<b>歯の付け根まで</b>しっかり届きます。<b>色戻りを抑えて</b>白さをキープ。</p>
+            <div class="keep-box">
+              <div class="keep-bar"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="keep-cap"><span class="dot"></span>色戻りをブロックして白さを維持</div>
+            </div>
+            <ul class="dcard-feats">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>自分のペースで毎日続けられる</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>色戻りを防いで白さを長くキープ</li>
+            </ul>
+            <div class="spec-badges">
+              <span class="spec-badge alt"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 10.4V6h-2v7l5.2 3.1 1-1.7z"></path></svg><span class="sb-t"><b>持続性</b><small>白さを長くキープ</small></span></span>
+            </div>
+            <div class="dcard-price">
+              <div class="dcard-pmeta">専用マウスピース ＋ 薬剤</div>
+              <div class="dprice"><span class="yen num">5,500</span><span class="u">円 ＋ 薬剤</span><span class="tax">税込</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dual-merge">
+        <svg viewBox="0 0 600 92" preserveAspectRatio="none" aria-hidden="true">
+          <defs><marker id="dmHead" markerWidth="9" markerHeight="9" refX="4.5" refY="4.5" orient="auto"><path d="M0 0L8 4.5L0 9z" fill="var(--c-accent)"></path></marker></defs>
+          <path class="dm-path" d="M150 2 C150 52, 290 42, 298 74" marker-end="url(#dmHead)"></path>
+          <path class="dm-path" d="M450 2 C450 52, 310 42, 302 74" marker-end="url(#dmHead)"></path>
+        </svg>
+        <span class="dm-label"><small>OFFICE × HOME</small>この2つを合わせたのが…</span>
+      </div>
+
+      <div class="dual-hero" id="dual">
+        <div class="dual-hero-flag">白さを目指すなら、これ。</div>
+        <div class="dual-hero-head">
+          <span class="dcard-tag">DUAL</span>
+          <h3>デュアルホワイトニング</h3>
+          <p>オフィスで<b>一気に明るく</b>、ホームで<b>色戻りを防いでキープ</b>。「白くなる早さ」と「持続力」の“いいとこどり”だから、短期間でしっかり白く、その白さを長く保てます。当院のいちばんおすすめのコースです。</p>
+        </div>
+        <div class="dual-hero-banner">
+          <img src="img/care-dual.png" alt="オフィス照射とホームケアを組み合わせたデュアルホワイトニング">
+          <div class="bnr-cap">医院の照射 ＋ 自宅のケアで、納得の白さへ。</div>
+        </div>
+        <div class="dual-bens">
+          <div class="ben">
+            <div class="ben-ic"><svg viewBox="0 0 24 24"><path d="M13 2L4.5 13.5H11l-1 8.5L19.5 10H12.5z"></path></svg></div>
+            <b>短期間で白く</b>
+            <span>オフィス照射で<br>一気にトーンアップ</span>
+          </div>
+          <div class="ben">
+            <div class="ben-ic"><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V5z" opacity=".18"></path><path d="M12 2l8 3v6c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V5l8-3zm-1.2 13.2l5-5-1.4-1.4-3.6 3.6-1.8-1.8L7.6 12z"></path></svg></div>
+            <b>色戻りを防ぐ</b>
+            <span>ホームケアで<br>戻りをブロック</span>
+          </div>
+          <div class="ben">
+            <div class="ben-ic"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.3L21 9l-5 4 1.7 6.5L12 16l-5.7 3.5L8 13 3 9l6.6-.7z"></path></svg></div>
+            <b>白さを長くキープ</b>
+            <span>続けるほど<br>安定した白さに</span>
+          </div>
+        </div>
+        <div class="dual-incl">
+          <div class="incl-item">
+            <img src="img/care-office.png" alt="医院でのオフィスホワイトニング">
+            <div>
+              <span class="incl-tag">OFFICE</span>
+              <b>1dayホワイトニング<br>（60分照射）</b>
+              <p>専用LEDで薬剤を活性化し、医院で一気に白く。集中照射で、白さの土台を1日でつくります。</p>
+            </div>
+          </div>
+          <div class="incl-plus">＋</div>
+          <div class="incl-item">
+            <div class="incl-imgs">
+              <figure><img src="img/care-home.png" alt="専用マウスピース"><figcaption>マウスピース</figcaption></figure>
+              <figure class="contain-fig"><img src="img/home-gel.png" alt="ホームホワイトニング用ジェル" style="object-fit:contain;padding:5px;box-sizing:border-box;"><figcaption>ホーム用ジェル</figcaption></figure>
+            </div>
+            <div>
+              <span class="incl-tag">HOME</span>
+              <b>ホームホワイトニング</b>
+              <p>専用マウスピースの作成 ＋ ホームホワイトニングジェル1本。自宅で白さをじっくりキープ。</p>
+            </div>
+          </div>
+        </div>
+        <div class="dual-foot">
+          <div class="gel-gift">
+            <img src="img/home-gel.png" alt="ホームホワイトニング用ジェル">
+            <div class="gg-t">
+              <span class="gg-tag">SPECIAL</span>
+              <b>ホームホワイトニングジェル付き</b>
+              <span class="gg-sub">ご自宅ケア用のジェル1本をセットでお渡しします。</span>
+            </div>
+          </div>
+          <div class="dcard-price gg-price">
+            <div class="dcard-pmeta">1dayホワイトニング ＋ ホーム 総額</div>
+            <div class="dprice"><span class="yen num">18,000</span><span class="u">円</span><span class="tax">税込</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="dg-note">※イメージです。白さの変化・持続には個人差があります。</p>
+    </div>
+    </div>
+    <p class="plans-note">ほかに <b>10分 1,990円</b>／<b>20分 3,980円</b>／<b>30分 5,970円</b> もご用意。<br>実施コースは当日ご相談しながらお選びいただけます。</p>
+  </div>
+</section>
+
+<section class="section bg-alt reveal">
+  <div class="container">
+    <div class="center"><span class="eyebrow">Flow</span><p class="h-sec">ご来院から施術までの流れ</p></div>
+    <div class="flow-steps">
+      <div class="fstep"><div class="fthumb"><img src="img/reception.png" alt="ご来院・受付"><span class="fstep-no"><i>STEP</i><b>01</b></span></div><div class="fbody"><b>ご来院・受付</b><span>WEBまたはLINEでご予約のうえ、ご来院ください。</span></div></div>
+      <div class="fstep"><div class="fthumb"><img src="img/shade-compare.jpg" alt="口内・歯の色チェック"><span class="fstep-no"><i>STEP</i><b>02</b></span></div><div class="fbody"><b>口内・歯の色チェック</b><span>施術前に、お口の状態と今の歯の色を確認します。</span></div></div>
+      <div class="fstep"><div class="fthumb"><img src="img/counseling.jpg" alt="カウンセリング・プラン選び"><span class="fstep-no"><i>STEP</i><b>03</b></span></div><div class="fbody"><b>カウンセリング・プラン選び</b><span>目指す白さをご相談のうえ、最適なプランをご提案します。</span></div></div>
+      <div class="fstep"><div class="fthumb"><img src="img/treatment.jpg" alt="施術（薬剤塗布・照射）"><span class="fstep-no"><i>STEP</i><b>04</b></span></div><div class="fbody"><b>施術（薬剤塗布・照射）</b><span>下準備から照射、仕上げまで、丁寧に仕上げます。</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- ===== Section09 FAQ ===== -->
 <section class="section reveal" id="faq">
   <div class="container">
     <div class="center"><span class="eyebrow">FAQ</span><p class="h-sec">よくある質問</p></div>
-    <div class="faq" data-faq>
+    <div class="faq" data-faq="">
       <div class="faq-item"><button class="faq-q">ホワイトニングは痛いですか？<span class="mark"></span></button><div class="faq-a"><div>多くの方は問題なく受けられます。しみやすい方には知覚過敏ケアもご用意しています。</div></div></div>
       <div class="faq-item"><button class="faq-q">何回くらいで白くなりますか？<span class="mark"></span></button><div class="faq-a"><div>歯の状態や目標の白さによって異なりますが、1回でも変化を感じる方が多くいらっしゃいます。継続でより白さをキープできます。</div></div></div>
       <div class="faq-item"><button class="faq-q">効果はどのくらい続きますか？<span class="mark"></span></button><div class="faq-a"><div>個人差がありますが、数ヶ月程度が目安です。デュアルやホームの併用で長持ちします。</div></div></div>
@@ -259,45 +1587,71 @@
   </div>
 </section>
 
-<!-- ===== Section10 アクセス ===== -->
 <section class="section bg-alt reveal" id="access">
   <div class="container">
-    <div class="center"><span class="eyebrow">Access</span><p class="h-sec">アクセス</p></div>
-    <div class="access-grid">
-      <div class="access-card">
-        <div class="map">地図（銀座本院）</div>
-        <div class="body">
-          <h3>銀座本院</h3>
-          <dl><dt>住所</dt><dd>東京都中央区銀座1-5-1 Holon Ginza2 703号室</dd><dt>最寄</dt><dd>銀座一丁目駅 徒歩30秒／有楽町駅 徒歩5分</dd><dt>診療時間</dt><dd>Googleマップ参照</dd></dl>
-          <a href="https://maps.app.goo.gl/2czdCaW7rx7T2WYr7" target="_blank" rel="noopener" class="btn btn--ghost btn--block">Googleマップで見る</a>
+    <div class="center"><span class="eyebrow">Clinics &amp; Access</span><p class="h-sec">医院紹介・アクセス</p></div>
+    <div class="ca-grid">
+      <div class="ca-card">
+        <div class="imgph" data-ratio="16/9"><img src="https://hb-clinic-web.netlify.app/img/clinic-honin.jpg" alt="銀座本院"></div>
+        <div class="ca-body">
+          <div class="ca-info">
+            <h3>銀座本院</h3>
+            <p class="ca-lead">アクセス良好。落ち着いた空間でホワイトニングを。</p>
+            <dl><dt>住所</dt><dd>東京都中央区銀座1-5-1 Holon Ginza2 703号室</dd><dt>最寄</dt><dd>銀座一丁目駅 徒歩30秒／有楽町駅 徒歩5分</dd></dl>
+          </div>
+          <iframe class="map" src="https://maps.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E9%8A%80%E5%BA%A71-5-1%20Holon%20Ginza2&amp;z=16&amp;hl=ja&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="銀座本院 地図"></iframe>
+          <div class="ca-btns"><a href="https://maps.app.goo.gl/2czdCaW7rx7T2WYr7" target="_blank" rel="noopener" class="btn btn--ghost btn--block">Googleマップで見る</a></div>
         </div>
       </div>
-      <div class="access-card">
-        <div class="map">地図（銀座7丁目院）</div>
-        <div class="body">
-          <h3>銀座7丁目院</h3>
-          <dl><dt>住所</dt><dd>東京都中央区銀座7-13-6 パップス銀座ビル2階</dd><dt>最寄</dt><dd>東銀座駅 徒歩3分／新橋駅 徒歩7分</dd><dt>診療時間</dt><dd>Googleマップ参照</dd></dl>
-          <a href="https://maps.app.goo.gl/Ud7nAbYeFL6k3FAv9" target="_blank" rel="noopener" class="btn btn--ghost btn--block">Googleマップで見る</a>
+      <div class="ca-card">
+        <div class="imgph" data-ratio="16/9"><img src="https://hb-clinic-web.netlify.app/img/clinic-7chome.jpg" alt="銀座7丁目院"></div>
+        <div class="ca-body">
+          <div class="ca-info">
+            <h3>銀座7丁目院</h3>
+            <p class="ca-lead">通いやすい立地。丁寧なカウンセリングが好評。</p>
+            <dl><dt>住所</dt><dd>東京都中央区銀座7-13-6 パップス銀座ビル2階</dd><dt>最寄</dt><dd>東銀座駅 徒歩3分／新橋駅 徒歩7分</dd></dl>
+          </div>
+          <iframe class="map" src="https://maps.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E9%8A%80%E5%BA%A77-13-6%20%E3%83%91%E3%83%83%E3%83%97%E3%82%B9%E9%8A%80%E5%BA%A7%E3%83%93%E3%83%AB&amp;z=17&amp;hl=ja&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="銀座7丁目院 地図"></iframe>
+          <div class="ca-btns"><a href="https://maps.app.goo.gl/Ud7nAbYeFL6k3FAv9" target="_blank" rel="noopener" class="btn btn--ghost btn--block">Googleマップで見る</a></div>
         </div>
       </div>
-      <div class="access-card">
-        <div class="map">地図（THE DENTE）</div>
-        <div class="body">
-          <h3>銀座歯科 THE DENTE</h3>
-          <dl><dt>住所</dt><dd>東京都中央区銀座2-2-19 藤間ビル9階</dd><dt>最寄</dt><dd>銀座一丁目駅 徒歩10秒／有楽町駅 徒歩3分</dd><dt>診療時間</dt><dd>Googleマップ参照</dd></dl>
-          <a href="thedente.html" class="btn btn--ghost btn--block">THE DENTE 特設ページ</a>
+      <div class="ca-card dente">
+        <div class="imgph dente-brand" data-label="THE DENTE" data-ratio="16/9"></div>
+        <div class="ca-body">
+          <div class="ca-info">
+            <h3>銀座歯科 THE DENTE</h3>
+            <p class="ca-lead">ワンランク上の上質な空間で特別な体験を。</p>
+            <dl><dt>住所</dt><dd>東京都中央区銀座2-2-19 藤間ビル9階</dd><dt>最寄</dt><dd>銀座一丁目駅 徒歩10秒／有楽町駅 徒歩3分</dd></dl>
+          </div>
+          <iframe class="map" src="https://maps.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E9%8A%80%E5%BA%A72-2-19%20%E8%97%A4%E9%96%93%E3%83%93%E3%83%AB&amp;z=16&amp;hl=ja&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="銀座歯科 THE DENTE 地図"></iframe>
+          <div class="ca-btns"><a href="thedente.html" class="btn btn--gold btn--block">THE DENTE 特設ページ</a></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== Section11 最終CTA ===== -->
+<section class="section reveal" id="risk">
+  <div class="container">
+    <div style="max-width:760px;margin:0 auto;color:var(--c-sub);font-size:13.5px;line-height:1.95;">
+      <p class="h-sec" style="font-size:20px;text-align:left;margin-bottom:16px;">リスク・副作用</p>
+      <ul style="display:grid;gap:9px;">
+        <li style="position:relative;padding-left:17px;"><span style="position:absolute;left:3px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--c-accent);display:block;"></span>ホワイトニングの効果には個人差があり、白さ・持続期間を保証するものではありません。時間の経過により色戻りが起こります。</li>
+        <li style="position:relative;padding-left:17px;"><span style="position:absolute;left:3px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--c-accent);display:block;"></span>施術中・施術後に、知覚過敏や歯のしみ、歯ぐき・粘膜の一時的な痛みや刺激が生じることがあります。多くは数日で自然に治まります。</li>
+        <li style="position:relative;padding-left:17px;"><span style="position:absolute;left:3px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--c-accent);display:block;"></span>詰め物・被せ物・差し歯などの人工歯、変色の原因によっては白くならない場合があります。</li>
+        <li style="position:relative;padding-left:17px;"><span style="position:absolute;left:3px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--c-accent);display:block;"></span>むし歯・歯周病がある場合は、先に治療をおすすめする場合があります。妊娠中・授乳中の方、無カタラーゼ症の方は施術をお控えいただきます。</li>
+        <li style="position:relative;padding-left:17px;"><span style="position:absolute;left:3px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--c-accent);display:block;"></span>本診療は自由診療です。公的医療保険はご利用いただけません。費用はすべて税込価格で表示しています。</li>
+        <li style="position:relative;padding-left:17px;"><span style="position:absolute;left:3px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--c-accent);display:block;"></span>ホームホワイトニング用ジェルには一部未承認の医療機器が含まれます。リスク・副作用および限定解除要件に関する表示は<a href="home-whitening.html#risk" style="color:var(--c-accent-d);text-decoration:underline;">ホームホワイトニングのページ</a>をご確認ください。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <section class="final-cta" id="reserve">
   <div class="container">
     <span class="eyebrow" style="color:var(--c-accent);">Reservation</span>
     <h2>安心の医療ホワイトニングを、今すぐ。</h2>
-    <div class="price-tag"><span class="label">60分たっぷり照射</span><span class="yen num">9,900</span><span class="unit">円</span></div>
+    <div class="price-tag"><span class="label">1回照射</span><span class="yen num">1,990</span><span class="unit">円〜</span></div>
     <p class="price-note" style="color:#cdd7e6;">税込／国家資格者が施術します</p>
     <div class="ftc-btns">
       <a href="https://hb-clinic.kalonade.com/hb-clinic/reservation/menu_section_categories" target="_blank" rel="noopener" class="btn btn--gold btn--block">今すぐWEBで予約する</a>
@@ -306,32 +1660,178 @@
   </div>
 </section>
 
-<!-- ===== Footer ===== -->
 <footer class="site-footer">
   <div class="container">
     <div class="f-brand">
       <b>歯と美容のクリニック</b>
-      国家資格を持つプロ集団による、安心の医療ホワイトニング。銀座本院／銀座7丁目院。
+      国家資格を持つプロ集団による、安心の医療ホワイトニング。銀座本院／銀座7丁目院／銀座歯科 THE DENTE。
     </div>
     <nav>
-      <a href="#menu">メニュー</a>
-      <a href="dual-whitening.html">デュアルホワイトニング</a>
+      
       <a href="home-whitening.html">ホームホワイトニング</a>
+      <a href="#price" class="nav-dual">デュアルホワイトニング</a>
       <a href="#faq">よくある質問</a>
       <a href="#access">アクセス</a>
       <a href="#reserve">WEB予約</a>
       <a href="contact.html">お問い合わせ</a>
+      <a href="shohosen.html">指示書について</a>
     </nav>
-    <p class="copy">運営：一般社団法人SmileMedi ｜ © 歯と美容のクリニック All Rights Reserved.</p>
+    <div class="f-notes">
+      <div class="f-note">
+        <h4>ご利用にあたって</h4>
+        <ul>
+          <li>お支払いは現金不可です。各種キャッシュレス決済のみのご対応となります。</li>
+          <li>お電話でのお問い合わせ・ご予約は承っておりません。WEBまたはLINEよりお願いいたします。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal-links">
+      <a href="terms.html">利用規約</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="tokushoho.html">特定商取引法に基づく表記</a>
+      <a href="aboutus.html">当院について</a>
+    </div>
+    <p class="copy">© 歯と美容のクリニック All Rights Reserved.</p>
   </div>
 </footer>
 
-<!-- ===== スマホ固定CTA ===== -->
 <div class="sticky-cta">
-  <a href="https://lin.ee/PFnoLi7" target="_blank" rel="noopener" class="btn btn--line">LINE予約</a>
-  <a href="#reserve" class="btn btn--primary">WEB予約</a>
+  <a href="https://hb-clinic.online/" target="_blank" rel="noopener" class="btn order-cta" style="padding-left:8px;padding-right:8px;"><span style="font-size:11px;line-height:1.32;text-align:center;font-weight:700;">ホームホワイトニング<br>ジェルを注文</span></a>
+  <a href="https://hb-clinic.kalonade.com/hb-clinic/reservation/menu_section_categories" target="_blank" rel="noopener" class="btn btn--primary">来院予約</a>
 </div>
+<script>
+class DCLogic{}
+class Component extends DCLogic {
+  componentDidMount() {
+    const root = document;
 
-<script src="js/main.js"></script>
+    // モバイルメニュー
+    const toggle = root.getElementById('navToggle');
+    const mobileNav = root.getElementById('mobileNav');
+    if (toggle && mobileNav) {
+      toggle.addEventListener('click', () => {
+        mobileNav.classList.toggle('open');
+        document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+      });
+      mobileNav.querySelectorAll('a, .mn-close').forEach((a) => {
+        a.addEventListener('click', () => {
+          mobileNav.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+
+    // FAQ アコーディオン
+    root.querySelectorAll('[data-faq] .faq-item').forEach((item) => {
+      const q = item.querySelector('.faq-q');
+      const a = item.querySelector('.faq-a');
+      if (!q || !a) return;
+      q.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        const group = item.closest('[data-faq]');
+        group.querySelectorAll('.faq-item.open').forEach((other) => {
+          if (other !== item) {
+            other.classList.remove('open');
+            other.querySelector('.faq-a').style.maxHeight = null;
+          }
+        });
+        if (isOpen) {
+          item.classList.remove('open');
+          a.style.maxHeight = null;
+        } else {
+          item.classList.add('open');
+          a.style.maxHeight = a.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // スクロール演出
+    const reveals = [].slice.call(root.querySelectorAll('.reveal'));
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ヒーロー数式の順次出現＋価格カウントアップ
+    const heroCopy = root.querySelector('.hero-copy');
+    const heroValue = root.querySelector('.hero-value');
+    const priceNum = heroValue && heroValue.querySelector('.hv-price .num');
+    const revealHero = () => {
+      if (heroCopy) heroCopy.classList.add('fx-in');
+      if (heroValue) heroValue.classList.add('formula-in');
+    };
+    const runHeroFx = () => {
+      revealHero();
+      if (priceNum && !reduceMotion) {
+        const target = 1990, dur = 1100, start = performance.now();
+        const fmt = (n) => Math.round(n).toLocaleString('en-US');
+        const tick = (now) => {
+          const p = Math.min(1, (now - start) / dur);
+          const eased = 1 - Math.pow(1 - p, 3);
+          priceNum.textContent = fmt(target * eased);
+          if (p < 1) requestAnimationFrame(tick);
+          else priceNum.textContent = fmt(target);
+        };
+        requestAnimationFrame(tick);
+      }
+    };
+    setTimeout(runHeroFx, reduceMotion ? 0 : 250);
+    // セーフティネット：何があっても表示状態にする
+    setTimeout(revealHero, 1600);
+
+    const showAll = () => reveals.forEach((el) => el.classList.add('in'));
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      showAll();
+    } else {
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.04, rootMargin: '0px 0px -4% 0px' });
+      reveals.forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight * 0.92) { el.classList.add('in'); }
+        else { io.observe(el); }
+      });
+      setTimeout(() => {
+        reveals.forEach((el) => {
+          if (!el.classList.contains('in')) {
+            const r = el.getBoundingClientRect();
+            if (r.top < window.innerHeight * 1.3) el.classList.add('in');
+          }
+        });
+      }, 1400);
+    }
+
+    // アンカーリンクのヘッダー分オフセット補正
+    root.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (ev) => {
+        const id = link.getAttribute('href');
+        if (id === '#' || id.length < 2) return;
+        const target = root.querySelector(id);
+        if (!target) return;
+        ev.preventDefault();
+        const headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 64;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 8;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      });
+    });
+
+    // 別ページから #access 等で来た場合に、その位置までスクロール
+    const scrollToHash = () => {
+      const hash = window.location.hash;
+      if (!hash || hash.length < 2) return;
+      let target = null;
+      try { target = root.querySelector(hash); } catch (e) { return; }
+      if (!target) return;
+      const headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 64;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 8;
+      window.scrollTo({ top: top, behavior: 'auto' });
+    };
+    if (window.location.hash) {
+      // DC描画・画像読み込み後に補正（複数回試行）
+      [120, 400, 900].forEach((d) => setTimeout(scrollToHash, d));
+    }
+  }
+}
+;(function(){function s(){try{new Component().componentDidMount();}catch(e){console.error(e);}}if(document.readyState!=="loading")s();else document.addEventListener("DOMContentLoaded",s);})();
+</script>
 </body>
 </html>

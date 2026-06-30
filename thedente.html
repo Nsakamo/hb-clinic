@@ -1,131 +1,411 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>銀座歯科 THE DENTE｜ラグジュアリー・ホワイトニング</title>
-<meta name="description" content="銀座歯科 THE DENTE。ラグジュアリーな空間で、ワンランク上のホワイトニング体験を。完全個室・上質なおもてなし。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/thedente.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&amp;family=Shippori+Mincho:wght@500;600;700&amp;family=Cormorant+Garamond:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --c-primary:#0B2D5C;--c-primary-d:#081f40;--c-accent:#C89B16;--c-accent-d:#a8810f;
+  --c-bg:#FAF8F5;--c-bg-2:#F2EEE7;--c-text:#1A1A1A;--c-sub:#666666;--c-line:#E5DFD5;
+  --shadow:0 6px 24px rgba(11,45,92,.06);--shadow-hover:0 10px 32px rgba(11,45,92,.10);
+  --maxw:1120px;--header-h:64px;
+  --d-ink:#100c08;--d-ink2:#16100a;--d-card:#1a130c;--d-gold:#c8ae74;--d-gold-b:#e3c984;
+  --d-cream:#e8ddca;--d-sub:#9b9079;--d-line:rgba(200,174,116,.20);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+/* sticky header fix: DCホストを実コンテンツ高さにして position:sticky を全長で効かせる */
+html,body{height:auto!important;}
+#dc-root,.sc-host{height:auto!important;min-height:100vh;overflow:visible!important;}
+body{font-family:"Noto Sans JP",system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:var(--d-cream);background:var(--d-ink);font-weight:400;line-height:1.8;letter-spacing:.02em;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul,li{list-style:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+@keyframes hwUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:none;}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1);}
+.reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;}}
+/* ---- shared site header / footer / buttons ---- */
+.container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;line-height:1;text-align:center;padding:18px 32px;border-radius:999px;transition:.25s ease;min-height:56px;}
+.btn--primary{background:var(--c-primary);color:#fff;box-shadow:var(--shadow);}
+.btn--primary:hover{background:var(--c-primary-d);box-shadow:var(--shadow-hover);transform:translateY(-1px);}
+.btn--line{background:#06C755;color:#fff;}
+.btn--line:hover{filter:brightness(.95);}
+.btn--block{width:100%;}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(250,248,245,.92);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid var(--c-line);}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;height:var(--header-h);}
+.brand{display:flex;flex-direction:column;line-height:1.2;gap:4px;}
+.brand b{font-size:16px;font-weight:700;color:var(--c-primary);letter-spacing:.04em;}
+.brand span{font-size:10px;color:var(--c-sub);letter-spacing:.18em;}
+.nav{display:none;gap:22px;align-items:center;}
+.nav a{font-size:14px;font-weight:500;color:var(--c-text);transition:.2s;white-space:nowrap;letter-spacing:.01em;}
+.nav a:hover{color:var(--c-accent);}
+.header-cta{display:none;}
+.header-actions{display:flex;align-items:center;gap:10px;}
+.order-cta{background:#fff;color:var(--c-accent-d);border:1.5px solid var(--c-accent);min-height:44px;padding:12px 18px;font-size:14px;font-weight:700;border-radius:999px;white-space:nowrap;}
+.order-cta:hover{background:var(--c-accent);color:#fff;}
+.nav-toggle{display:flex;flex-direction:column;gap:5px;padding:8px;}
+.nav-toggle span{width:24px;height:2px;background:var(--c-primary);display:block;}
+.mobile-nav{display:none;position:fixed;inset:var(--header-h) 0 0;z-index:99;background:var(--c-bg);padding:28px 24px calc(72px + env(safe-area-inset-bottom));overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.mobile-nav.open{display:block;animation:mnFade .26s ease both;}
+@keyframes mnFade{from{opacity:0;}to{opacity:1;}}
+.mobile-nav.open > *{animation:mnItem .42s cubic-bezier(.22,.61,.36,1) both;}
+.mobile-nav.open > *:nth-child(1){animation-delay:.04s;}
+.mobile-nav.open > *:nth-child(2){animation-delay:.09s;}
+.mobile-nav.open > *:nth-child(3){animation-delay:.14s;}
+.mobile-nav.open > *:nth-child(4){animation-delay:.19s;}
+.mobile-nav.open > *:nth-child(5){animation-delay:.24s;}
+.mobile-nav.open > *:nth-child(6){animation-delay:.29s;}
+.mobile-nav.open > *:nth-child(7){animation-delay:.34s;}
+@keyframes mnItem{from{opacity:0;transform:translateX(-16px);}to{opacity:1;transform:none;}}
+.mobile-nav .mn-clinics{padding:2px 0 0;}
+.mobile-nav .mn-clinics-label{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--c-accent-d);padding:16px 0 2px;}
+.mobile-nav a.clinic-link{font-size:14px;font-weight:500;padding:13px 0;color:var(--c-sub);}
+.mobile-nav a.clinic-link:hover{color:var(--c-accent);}
+.mobile-nav a{display:block;padding:18px 0;font-size:18px;font-weight:500;color:var(--c-text);border-bottom:1px solid var(--c-line);}
+.mobile-nav .btn{margin-top:28px;}
+.mobile-nav a.btn--primary{color:#fff!important;}
+.mn-close{position:absolute;top:12px;right:14px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#fff;border:1px solid var(--c-line);color:var(--c-primary);box-shadow:var(--shadow);padding:0;z-index:2;}
+.mn-close:hover{background:var(--c-bg-2);}
+.nav a.nav-dual{position:relative;color:var(--c-accent-d);font-weight:700;}
+.nav a.nav-dual:hover{color:var(--c-accent);}
+.nav-badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;color:#fff;background:var(--c-accent);border-radius:999px;padding:2px 7px;margin-left:5px;line-height:1.2;vertical-align:middle;position:absolute;top:-11px;left:50%;transform:translateX(-50%);white-space:nowrap;box-shadow:0 3px 8px rgba(200,155,22,.35);}
+.mobile-nav a.nav-dual{color:var(--c-accent-d);}
+.site-footer{background:var(--c-primary-d);color:#aebbce;padding:48px 0 110px;font-size:12.5px;}
+.site-footer .container{display:grid;gap:24px;}
+.site-footer .f-brand b{color:#fff;font-size:16px;display:block;margin-bottom:6px;}
+.site-footer nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.site-footer nav a{color:#aebbce;padding:4px 0;}
+.site-footer nav a:hover{color:#fff;}
+.site-footer .copy{border-top:1px solid rgba(255,255,255,.12);padding-top:18px;font-size:11px;color:#7e8ba1;}
+.site-footer .legal-links{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:11px;}
+.site-footer .legal-links a{color:#9aa7bc;}
+.site-footer .legal-links a:hover{color:#fff;}
+.site-footer .f-notes{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.12);padding-top:22px;}
+.f-notes h4{color:#cdd7e6;font-size:12px;font-weight:700;letter-spacing:.04em;margin-bottom:9px;}
+.f-notes ul li{position:relative;padding-left:14px;font-size:11px;line-height:1.75;color:#9aa7bc;}
+.f-notes ul li::before{content:"";position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:50%;background:#6f7d93;}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:90;display:flex;gap:8px;padding:10px 14px;background:rgba(16,12,8,.96);backdrop-filter:blur(6px);border-top:1px solid var(--d-line);box-shadow:0 -4px 20px rgba(0,0,0,.4);}
+.sticky-cta .btn{flex:1;min-height:50px;padding:14px;font-size:14px;border-radius:0;}
+.sticky-cta .s-gold{background:var(--d-gold);color:#15110d;font-weight:700;letter-spacing:.06em;}
+/* ---- DENTE base ---- */
+.d-wrap{max-width:1060px;margin:0 auto;padding:0 22px;}
+.d-eyebrow{font-family:"Cormorant Garamond",serif;font-size:clamp(13px,3vw,16px);font-weight:600;letter-spacing:.4em;text-transform:uppercase;color:var(--d-gold);}
+.d-h{font-family:"Shippori Mincho",serif;color:#fbf6ec;font-weight:600;line-height:1.55;letter-spacing:.05em;}
+.d-lead{color:var(--d-sub);font-size:clamp(14px,1.6vw,15px);line-height:2.05;letter-spacing:.03em;}
+.d-rule{width:52px;height:1px;background:linear-gradient(90deg,var(--d-gold),rgba(200,174,116,0));}
+.wordmark{font-family:"Cormorant Garamond",serif;font-weight:600;color:#fff;letter-spacing:.18em;line-height:.95;}
+.gold-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:58px;padding:18px 42px;background:var(--d-gold);color:#15110d;font-weight:700;font-size:14px;letter-spacing:.12em;transition:.3s;border:1px solid var(--d-gold);}
+.gold-btn:hover{background:transparent;color:var(--d-gold);}
+.ghost-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:18px 36px;background:transparent;color:var(--d-cream);font-weight:600;font-size:14px;letter-spacing:.1em;border:1px solid var(--d-line);transition:.3s;}
+.ghost-btn:hover{border-color:var(--d-gold);color:var(--d-gold);}
+.menu-pill{display:inline-flex;font-family:"Cormorant Garamond",serif;font-size:13px;letter-spacing:.22em;color:var(--d-gold);text-transform:uppercase;border:1px solid var(--d-line);padding:6px 16px;}
+.dual-incl{display:grid;grid-template-columns:1fr;gap:14px;}
+.incl-card{border:1px solid var(--d-line);background:#150f09;}
+.incl-card .ph{aspect-ratio:4/3;}
+.incl-tag{display:inline-flex;align-items:center;font-size:11px;font-weight:700;letter-spacing:.06em;color:#15110d;background:var(--d-gold);padding:3px 10px;}
+.ph{position:relative;overflow:hidden;background:linear-gradient(135deg,#241b12,#120d08);display:flex;align-items:center;justify-content:center;}
+.ph::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(200,174,116,.045) 0 1px,transparent 1px 13px);}
+.ph::after{content:attr(data-label);position:relative;font-family:"Cormorant Garamond",serif;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:rgba(200,174,116,.6);padding:0 14px;text-align:center;}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.sec{padding:clamp(60px,9vw,104px) 0;}
+.sec-head{text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:clamp(36px,5vw,56px);}
+/* hero */
+.aHero{position:relative;min-height:clamp(500px,82vh,640px);display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+.aHero .ph{position:absolute;inset:0;}
+.aHero .veil{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 35%,rgba(16,12,8,.42),rgba(16,12,8,.82) 70%,#100c08 100%);}
+.aHero .inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:20px;padding:60px 22px;}
+/* feature rows */
+.a-feat{display:grid;grid-template-columns:1fr;align-items:stretch;}
+.a-feat .ph{min-height:clamp(240px,42vw,460px);}
+.a-feat .txt{padding:clamp(36px,6vw,76px) clamp(24px,5vw,64px);display:flex;flex-direction:column;justify-content:center;gap:18px;}
+.a-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;}
+.a-strip .ph{aspect-ratio:3/4;}
+.a-bar{display:flex;flex-direction:column;align-items:flex-start;gap:18px;padding:clamp(26px,4vw,38px) clamp(24px,4vw,44px);border:1px solid var(--d-line);}
+.a-bar + .a-bar{border-top:0;}
+.access-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:18px 48px;text-align:center;}
+@media(min-width:768px){
+  :root{--header-h:72px;}
+  .d-wrap{padding:0 40px;}
+  .container{padding:0 28px;}
+  .site-footer{padding-bottom:48px;}
+  .site-footer .container{grid-template-columns:1.4fr 1fr;}
+  .sticky-cta{display:none;}
+  .a-feat{grid-template-columns:1fr 1fr;}
+  .a-feat:nth-child(even) .ph{order:2;}
+  .a-strip{grid-template-columns:repeat(4,1fr);}
+  .a-bar{flex-direction:row;align-items:center;justify-content:space-between;gap:30px;}
+  .dual-incl{grid-template-columns:repeat(3,1fr);}
+}
+@media(min-width:1024px){
+  .nav{display:flex;}
+  .header-cta:not(.order-cta){display:inline-flex;}
+  .nav-toggle{display:none;}
+}
+@media(min-width:1180px){
+  .nav{gap:26px;}
+  .header-cta.order-cta{display:inline-flex;}
+}
+</style>
 </head>
 <body>
-
-<header class="d-header">
-  <div class="d-container">
-    <a href="thedente.html" class="d-brand serif">THE DENTE<small>GINZA DENTAL</small></a>
-    <nav class="d-nav">
-      <a href="#concept">Concept</a>
-      <a href="#experience">Experience</a>
-      <a href="#plan">Plan</a>
-      <a href="#reserve">Reservation</a>
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><b>歯と美容のクリニック</b><span>MEDICAL WHITENING · GINZA</span></a>
+    <nav class="nav">
+      <a href="home-whitening.html">ホームホワイトニング</a>
+      <a href="index.html#price" class="nav-dual">デュアルホワイトニング<span class="nav-badge">白さを目指すなら</span></a>
+      <a href="index.html#faq">よくある質問</a>
+      <a href="index.html#access">アクセス</a>
     </nav>
-    <a href="index.html" class="d-back">← 歯と美容のクリニック</a>
+    <div class="header-actions">
+      <a href="https://hb-clinic.online/" target="_blank" rel="noopener" class="btn order-cta header-cta">ジェルを注文</a>
+      <a href="index.html#reserve" class="btn btn--primary header-cta" style="min-height:44px;padding:12px 22px;font-size:14px;">今すぐ予約</a>
+    </div>
+    <button class="nav-toggle" aria-label="メニュー" id="navToggle"><span></span><span></span><span></span></button>
   </div>
 </header>
-
-<!-- Hero -->
-<section class="d-hero">
-  <div class="d-container d-hero-inner">
-    <span class="d-eyebrow">Luxury Whitening · Ginza</span>
-    <h1 class="serif">ワンランク上の<br><em>ホワイトニング</em>体験を。</h1>
-    <p class="d-lead">ラグジュアリーな完全個室で、上質なおもてなしとともに。特別な一日のための、銀座の歯科。</p>
-    <a href="#reserve" class="d-btn d-btn--solid">ご予約・ご相談</a>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mn-close" type="button" aria-label="メニューを閉じる"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+  <a href="home-whitening.html">ホームホワイトニング</a>
+  <a href="index.html#price" class="nav-dual">デュアルホワイトニング<span class="nav-badge">白さを目指すなら</span></a>
+  <a href="index.html#faq">よくある質問</a>
+  <a href="index.html#access">アクセス</a>
+  <div class="mn-clinics">
+    <span class="mn-clinics-label">医院一覧</span>
+    <a class="clinic-link" href="index.html#access">銀座本院</a>
+    <a class="clinic-link" href="index.html#access">銀座7丁目院</a>
+    <a class="clinic-link" href="thedente.html">銀座歯科 THE DENTE</a>
   </div>
-</section>
+  <a href="index.html#reserve" class="btn btn--primary btn--block">今すぐWEBで予約する</a>
+  <a href="https://hb-clinic.online/" target="_blank" rel="noopener" class="btn order-cta btn--block" style="margin-top:12px;">ホームホワイトニングジェルを注文</a>
+</div>
 
-<!-- Concept -->
-<section class="d-section d-center d-reveal" id="concept">
-  <div class="d-container">
-    <span class="d-eyebrow">Concept</span>
-    <p class="d-h serif">日常を離れ、<br>美しさと向き合う時間。</p>
-    <div class="d-rule"></div>
-    <p class="d-lead">THE DENTE は、銀座の喧騒を忘れさせる静謐な空間。確かな技術と上質な設えで、あなただけのひとときをお届けします。</p>
-  </div>
-</section>
-
-<!-- Trio -->
-<section class="d-section d-reveal" style="padding-top:0;">
-  <div class="d-container">
-    <div class="d-trio">
-      <div class="cell"><div class="no">01</div><h3 class="serif">完全個室</h3><p>人目を気にせず、落ち着いた個室で施術を受けられます。</p></div>
-      <div class="cell"><div class="no">02</div><h3 class="serif">上質なおもてなし</h3><p>ご来院からお見送りまで、心地よい時間を丁寧に。</p></div>
-      <div class="cell"><div class="no">03</div><h3 class="serif">確かな技術</h3><p>国家資格を持つプロによる、安心の医療ホワイトニング。</p></div>
+<main>
+  <!-- HERO -->
+  <section class="aHero">
+    <div style="position:absolute;inset:0;background:radial-gradient(130% 105% at 50% -5%,#1d160d 0%,#140e08 46%,#0b0804 100%);"></div>
+    <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(200,174,116,.05) 0 1px,transparent 1px 72px);"></div>
+    <div class="veil"></div>
+    <div class="inner">
+      <div class="d-eyebrow reveal">Ginza &middot; Medical Whitening</div>
+      <div class="wordmark reveal" style="font-size:clamp(40px,12vw,78px);">THE DENTE</div>
+      <div class="reveal" style="font-family:'Shippori Mincho',serif;font-size:clamp(13px,3.5vw,16px);letter-spacing:.5em;color:var(--d-gold);">銀 座 歯 科</div>
+      <div class="d-rule reveal" style="margin:6px auto;"></div>
+      <h1 class="d-h reveal" style="font-size:clamp(20px,5vw,27px);font-weight:500;">ワンランク上の上質な空間で、<br>特別な体験を。</h1>
+      <p class="d-lead reveal" style="max-width:30em;">銀座一丁目駅 徒歩10秒。完全予約制のプライベートな空間で、最新機器による医療ホワイトニングをご提供します。</p>
+      <div class="reveal" style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:10px;">
+        <a href="index.html#reserve" class="gold-btn">WEBで予約する</a>
+        <a href="#access" class="ghost-btn">アクセスを見る</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Experience -->
-<section class="d-section d-reveal d-center" id="experience" style="background:linear-gradient(180deg,#0e0c0a,#15110d);">
-  <div class="d-container">
-    <span class="d-eyebrow">Experience</span>
-    <p class="d-h serif">細部まで、美意識を宿して。</p>
-    <div class="d-rule"></div>
-    <p class="d-lead">調度、照明、香り。空間のすべてが、あなたの時間を上質に彩ります。施術後の口元とともに、満ち足りた気持ちでお帰りいただけるように。</p>
-  </div>
-</section>
-
-<!-- Values -->
-<section class="d-section d-reveal" style="padding-top:0;">
-  <div class="d-container">
-    <div class="d-trio">
-      <div class="cell"><div class="no">— 01 —</div><h3 class="serif">静謐</h3><p>銀座の喧騒を忘れる、静かで落ち着いた時間。</p></div>
-      <div class="cell"><div class="no">— 02 —</div><h3 class="serif">上質</h3><p>選び抜かれた設えと、ゆきとどいたおもてなし。</p></div>
-      <div class="cell"><div class="no">— 03 —</div><h3 class="serif">確かさ</h3><p>国家資格者による、安心の医療ホワイトニング。</p></div>
+  <!-- CONCEPT -->
+  <section class="sec" style="text-align:center;">
+    <div class="d-wrap reveal" style="display:flex;flex-direction:column;align-items:center;gap:24px;max-width:760px;">
+      <div class="d-eyebrow">Concept</div>
+      <h2 class="d-h" style="font-size:clamp(24px,5.5vw,32px);">非日常に整えられた、<br>銀座のプライベートクリニック</h2>
+      <div class="d-rule"></div>
+      <p class="d-lead">THE DENTEは、歯科医師・歯科衛生士による医療ホワイトニングを、銀座の落ち着いた空間でご提供する自由診療専門のクリニックです。一人ひとりに向き合うため完全予約制とし、待ち時間や人目を気にすることなく、施術そのものに集中いただけます。</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Plan -->
-<section class="d-section d-center d-reveal" id="plan">
-  <div class="d-container">
-    <span class="d-eyebrow">Plan</span>
-    <p class="d-h serif" style="margin-bottom:40px;">プレミアム・ホワイトニング</p>
-    <div class="d-plan">
-      <div class="name">Premium Whitening</div>
-      <div class="price serif">お問い合わせ<small></small></div>
-      <p class="note">完全個室での施術。詳細はご予約時にご案内いたします。</p>
+  <!-- 最新機器 -->
+  <section class="sec" style="padding-top:0;">
+    <div class="sec-head reveal">
+      <div class="d-eyebrow">Equipment</div>
+      <h2 class="d-h" style="font-size:clamp(23px,5.2vw,30px);">最新機器が、<br>白さの質を引き上げる。</h2>
     </div>
-  </div>
-</section>
+    <div class="a-feat reveal">
+      <div class="ph"><img src="img/dente-ct.png" alt="3D歯科用CT Veraviewepocs"></div>
+      <div class="txt">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,7vw,48px);font-weight:600;color:var(--d-gold);line-height:1;">01</div>
+        <h3 class="d-h" style="font-size:clamp(19px,4vw,23px);">3D歯科用CT「Veraviewepocs」</h3>
+        <p class="d-lead">3Dで口腔内を撮影できる歯科用CT「Veraviewepocs」を導入。お口の状態を立体的に把握し、安全で精度の高い診療につなげます。</p>
+      </div>
+    </div>
+    <div class="a-feat reveal">
+      <div class="ph"><img src="img/dente-led.png" alt="温度を見ながら照射するLED照射機"></div>
+      <div class="txt">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,7vw,48px);font-weight:600;color:var(--d-gold);line-height:1;">02</div>
+        <h3 class="d-h" style="font-size:clamp(19px,4vw,23px);">歯の表面温度を調節しながら照射するLED照射機</h3>
+        <p class="d-lead">歯の表面温度を調節しながら照射できるLED照射機。最適な温度にコントロールすることで、しみにくさに配慮した施術が可能です。</p>
+      </div>
+    </div>
+    <div class="a-feat reveal">
+      <div class="ph"><img src="img/dente-room.png" alt="半個室風の施術室"></div>
+      <div class="txt">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,7vw,48px);font-weight:600;color:var(--d-gold);line-height:1;">03</div>
+        <h3 class="d-h" style="font-size:clamp(19px,4vw,23px);">半個室風の施術室</h3>
+        <p class="d-lead">周囲の視線を気にせず施術を受けられる、半個室風の施術室。落ち着いた銀座の空間で、自分だけの時間をお過ごしいただけます。</p>
+      </div>
+    </div>
+  </section>
 
-<!-- CTA -->
-<section class="d-section d-cta d-center" id="reserve">
-  <div class="d-container">
-    <span class="d-eyebrow">Reservation</span>
-    <p class="d-h serif" style="margin-bottom:32px;">特別な一日を、THE DENTE で。</p>
-    <a href="https://hb-clinic.kalonade.com/hb-clinic/reservation/menu_section_categories" target="_blank" rel="noopener" class="d-btn d-btn--solid" style="margin:0 8px 14px;">WEBでご予約</a>
-    <a href="https://lin.ee/PFnoLi7" target="_blank" rel="noopener" class="d-btn" style="margin:0 8px 14px;">LINEでご相談</a>
-  </div>
-</section>
+  <!-- メニュー -->
+  <section class="sec">
+    <div class="d-wrap">
+      <div class="sec-head reveal">
+        <div class="d-eyebrow">Menu</div>
+        <h2 class="d-h" style="font-size:clamp(23px,5.2vw,30px);">ホワイトニングメニュー</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;margin:0 auto;">
+        <div style="position:relative;border:1px solid var(--d-gold);background:linear-gradient(180deg,#1a130b,#120d08);padding:clamp(34px,5vw,52px) clamp(24px,4vw,48px);">
+          <span style="position:absolute;top:0;left:0;background:var(--d-gold);color:#15110d;font-family:'Noto Sans JP',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;padding:8px 18px;">白さに、妥協しない方へ</span>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px;">
+            <h3 class="d-h" style="font-size:clamp(25px,5.5vw,34px);">デュアルホワイトニング</h3>
+            <p class="d-lead" style="font-size:14.5px;">オフィスホワイトニングとホームホワイトニングを組み合わせた、当院いちおしのプラン。クリニックでの60分照射で一気に白さを引き上げ、さらにご自宅でのホームケアで「あと戻り」をおさえながら、理想の白さへ近づけていきます。</p>
+          </div>
+          <div style="display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap;border-top:1px solid var(--d-line);border-bottom:1px solid var(--d-line);padding:24px 0;margin:26px 0;">
+            <div style="display:flex;align-items:baseline;gap:5px;color:var(--d-gold-b);font-family:'Cormorant Garamond',serif;">
+              <span style="font-size:26px;font-weight:600;">¥</span>
+              <span style="font-size:clamp(46px,12vw,60px);font-weight:600;line-height:1;letter-spacing:.02em;">18,000</span>
+              <span style="font-family:'Noto Sans JP',sans-serif;font-size:13px;color:var(--d-sub);letter-spacing:.04em;">税込</span>
+            </div>
+            <span class="menu-pill" style="margin-left:auto;">60分照射</span>
+          </div>
+          <div style="margin-bottom:30px;">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--d-gold);margin-bottom:16px;">Included &mdash; 3つすべてがセットに含まれます</div>
+            <div class="dual-incl">
+              <div class="incl-card">
+                <div class="ph"><img src="img/dente-led.png" alt="60分のオフィスホワイトニング照射"></div>
+                <div style="padding:18px 18px 20px;">
+                  <span class="incl-tag">60分照射</span>
+                  <b style="display:block;color:#fbf6ec;font-size:15px;font-weight:600;margin:12px 0 5px;">① 60分のオフィス照射</b>
+                  <p style="color:var(--d-sub);font-size:12.5px;line-height:1.8;">歯科医師・歯科衛生士がクリニックで施術。高出力LEDの60分照射で、その日のうちに白さを実感。</p>
+                </div>
+              </div>
+              <div class="incl-card">
+                <div class="ph"><img src="img/dente-mouthpiece.png" alt="型取りから作成する専用マウスピース"></div>
+                <div style="padding:18px 18px 20px;">
+                  <span class="incl-tag">型取りから作成</span>
+                  <b style="display:block;color:#fbf6ec;font-size:15px;font-weight:600;margin:12px 0 5px;">② 専用マウスピース</b>
+                  <p style="color:var(--d-sub);font-size:12.5px;line-height:1.8;">歯型に合わせて製作する、あなた専用のマウスピース（トレー）。自宅ケアにそのまま使えます。</p>
+                </div>
+              </div>
+              <div class="incl-card">
+                <div class="ph"><img src="img/dente-gel.png" alt="ホームホワイトニング用ジェル 1本付き"></div>
+                <div style="padding:18px 18px 20px;">
+                  <span class="incl-tag">1本付き</span>
+                  <b style="display:block;color:#fbf6ec;font-size:15px;font-weight:600;margin:12px 0 5px;">③ ホーム用ジェル</b>
+                  <p style="color:var(--d-sub);font-size:12.5px;line-height:1.8;">ご自宅で使う専用ジェル。マウスピースに入れて装着し、白さを育て・キープ。あと戻り対策にも。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="index.html#reserve" class="gold-btn">WEBで予約する</a>
+          </div>
+        </div>
+        <p style="text-align:center;color:var(--d-sub);font-size:12.5px;margin-top:18px;">※ 単回のオフィスホワイトニングもご用意しています。詳しくは<a href="index.html#price" style="color:var(--d-gold);text-decoration:underline;">料金ページ</a>をご覧ください。</p>
+      </div>
+    </div>
+  </section>
 
-<!-- Footer -->
-<footer class="d-footer">
-  <div class="d-container">
-    <div class="d-brand serif">THE DENTE</div>
+  <!-- アクセス -->
+  <section class="sec" id="access" style="padding-top:0;">
+    <div class="d-wrap">
+      <div class="sec-head reveal">
+        <div class="d-eyebrow">Access</div>
+        <h2 class="d-h" style="font-size:clamp(23px,5.2vw,30px);">銀座歯科 THE DENTE</h2>
+      </div>
+      <iframe class="reveal" style="border:1px solid var(--d-line);width:100%;min-height:clamp(280px,40vw,400px);margin-bottom:30px;filter:grayscale(.35) contrast(.95);display:block;" src="https://maps.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E9%8A%80%E5%BA%A72-2-19&amp;z=16&amp;hl=ja&amp;output=embed" loading="lazy"></iframe>
+      <div class="access-meta reveal">
+        <div><span class="d-eyebrow" style="font-size:11px;letter-spacing:.3em;">Address</span><p style="color:var(--d-cream);margin-top:6px;">東京都中央区銀座2-2-19 藤間ビル9階</p></div>
+        <div><span class="d-eyebrow" style="font-size:11px;letter-spacing:.3em;">Access</span><p style="color:var(--d-cream);margin-top:6px;">銀座一丁目駅 徒歩10秒／有楽町駅 徒歩3分</p></div>
+        <div><span class="d-eyebrow" style="font-size:11px;letter-spacing:.3em;">Hours</span><p style="color:var(--d-cream);margin-top:6px;">完全予約制</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 最終CTA -->
+  <section class="sec" style="text-align:center;background:linear-gradient(180deg,var(--d-ink2),#0c0905);border-top:1px solid var(--d-line);">
+    <div class="d-wrap reveal" style="display:flex;flex-direction:column;align-items:center;gap:22px;">
+      <div class="wordmark" style="font-size:clamp(26px,7vw,30px);">THE DENTE</div>
+      <h2 class="d-h" style="font-size:clamp(22px,5vw,26px);">特別な一日を、銀座で。</h2>
+      <p class="d-lead" style="max-width:28em;">ご予約はWEBから24時間受け付けております。</p>
+      <a href="index.html#reserve" class="gold-btn" style="margin-top:6px;">WEBで予約する</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="f-brand">
+      <b>歯と美容のクリニック</b>
+      国家資格を持つプロ集団による、安心の医療ホワイトニング。銀座本院／銀座7丁目院／銀座歯科 THE DENTE。
+    </div>
     <nav>
-      <a href="index.html">歯と美容のクリニック</a>
-      <a href="#concept">Concept</a>
-      <a href="#plan">Plan</a>
-      <a href="#reserve">Reservation</a>
+      <a href="home-whitening.html">ホームホワイトニング</a>
+      <a href="index.html#price" class="nav-dual">デュアルホワイトニング</a>
+      <a href="index.html#faq">よくある質問</a>
+      <a href="index.html#access">アクセス</a>
+      <a href="index.html#reserve">WEB予約</a>
+      <a href="contact.html">お問い合わせ</a>
+      <a href="shohosen.html">指示書について</a>
     </nav>
-    <p class="copy">運営：一般社団法人SmileMedi ｜ © 銀座歯科 THE DENTE All Rights Reserved.</p>
+    <div class="f-notes">
+      <h4>ご利用にあたって</h4>
+      <ul>
+        <li>お支払いは現金不可です。各種キャッシュレス決済のみのご対応となります。</li>
+        <li>お電話でのお問い合わせ・ご予約は承っておりません。WEBまたはLINEよりお願いいたします。</li>
+      </ul>
+    </div>
+    <div class="legal-links">
+      <a href="terms.html">利用規約</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="tokushoho.html">特定商取引法に基づく表記</a>
+      <a href="aboutus.html">当院について</a>
+    </div>
+    <p class="copy">© 歯と美容のクリニック All Rights Reserved.</p>
   </div>
 </footer>
 
+<div class="sticky-cta">
+  <a href="https://hb-clinic.online/" target="_blank" rel="noopener" class="btn order-cta" style="padding-left:8px;padding-right:8px;"><span style="font-size:11px;line-height:1.32;text-align:center;font-weight:700;">ホームホワイトニング<br>ジェルを注文</span></a>
+  <a href="https://hb-clinic.kalonade.com/hb-clinic/reservation/menu_section_categories" target="_blank" rel="noopener" class="btn s-gold">来院予約</a>
+</div>
 <script>
-(function(){
-  var els=[].slice.call(document.querySelectorAll('.d-reveal'));
-  var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(rm||!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in');});}
-  else{
-    var io=new IntersectionObserver(function(es,obs){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.04,rootMargin:'0px 0px -4% 0px'});
-    els.forEach(function(el){var r=el.getBoundingClientRect();if(r.top<window.innerHeight*0.92){el.classList.add('in');}else{io.observe(el);}});
-    setTimeout(function(){els.forEach(function(el){if(!el.classList.contains('in')){var r=el.getBoundingClientRect();if(r.top<window.innerHeight*1.3)el.classList.add('in');}});},1400);
+class DCLogic{}
+class Component extends DCLogic {
+  componentDidMount() {
+    const root = this.el || document;
+    const toggle = root.querySelector('#navToggle');
+    const mobileNav = root.querySelector('#mobileNav');
+    if (toggle && mobileNav) {
+      toggle.addEventListener('click', () => {
+        const open = mobileNav.classList.toggle('open');
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+      mobileNav.querySelectorAll('a, .mn-close').forEach(a => a.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        document.body.style.overflow = '';
+      }));
+    }
+    // reveal on scroll
+    const items = root.querySelectorAll('.reveal');
+    const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) {
+      items.forEach(el => el.classList.add('in'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    items.forEach(el => io.observe(el));
+    // hero reveals immediately
+    root.querySelectorAll('.aHero .reveal').forEach((el, i) => {
+      setTimeout(() => el.classList.add('in'), 80 + i * 110);
+    });
   }
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(ev){var t=document.querySelector(a.getAttribute('href'));if(t){ev.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-20,behavior:'smooth'});}});});
-})();
+}
+;(function(){function s(){try{new Component().componentDidMount();}catch(e){console.error(e);}}if(document.readyState!=="loading")s();else document.addEventListener("DOMContentLoaded",s);})();
 </script>
 </body>
 </html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="canonical" href="https://hb-clinic.com/shohosen">
+<style>
+:root{
+  --c-primary:#0B2D5C;--c-primary-d:#081f40;--c-accent:#C89B16;--c-accent-d:#a8810f;
+  --c-no:#D93838;--c-bg:#FAF8F5;--c-bg-2:#F2EEE7;--c-white:#FFFFFF;
+  --c-text:#1A1A1A;--c-sub:#666666;--c-line:#E5DFD5;
+  --radius:24px;--radius-sm:14px;
+  --shadow:0 6px 24px rgba(11,45,92,.06);--shadow-hover:0 10px 32px rgba(11,45,92,.10);
+  --maxw:1120px;--header-h:64px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+/* sticky header fix: DCホストを実コンテンツ高さにして position:sticky を全長で効かせる */
+html,body{height:auto!important;}
+#dc-root,.sc-host{height:auto!important;min-height:100vh;overflow:visible!important;}
+body{font-family:"Noto Sans JP",system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:var(--c-text);background:var(--c-bg);font-weight:400;line-height:1.8;letter-spacing:.02em;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul,li{list-style:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+.num{font-weight:600;font-feature-settings:"tnum";}
+@keyframes hwUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:none;}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;}}
+.container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;line-height:1;text-align:center;padding:18px 32px;border-radius:999px;transition:.25s ease;min-height:56px;}
+.btn--primary{background:var(--c-primary);color:#fff;box-shadow:var(--shadow);}
+.btn--primary:hover{background:var(--c-primary-d);box-shadow:var(--shadow-hover);transform:translateY(-1px);}
+.btn--line{background:#06C755;color:#fff;}
+.btn--line:hover{filter:brightness(.95);}
+.btn--block{width:100%;}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(250,248,245,.92);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid var(--c-line);}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;height:var(--header-h);}
+.brand{display:flex;flex-direction:column;line-height:1.2;gap:4px;}
+.brand b{font-size:16px;font-weight:700;color:var(--c-primary);letter-spacing:.04em;}
+.brand span{font-size:10px;color:var(--c-sub);letter-spacing:.18em;}
+.nav{display:none;gap:22px;align-items:center;}
+.nav a{font-size:14px;font-weight:500;color:var(--c-text);transition:.2s;white-space:nowrap;letter-spacing:.01em;}
+.nav a:hover{color:var(--c-accent);}
+.header-cta{display:none;}
+.header-actions{display:flex;align-items:center;gap:10px;}
+.order-cta{background:#fff;color:var(--c-accent-d);border:1.5px solid var(--c-accent);min-height:44px;padding:12px 18px;font-size:14px;font-weight:700;border-radius:999px;white-space:nowrap;}
+.order-cta:hover{background:var(--c-accent);color:#fff;}
+.nav-toggle{display:flex;flex-direction:column;gap:5px;padding:8px;}
+.nav-toggle span{width:24px;height:2px;background:var(--c-primary);display:block;}
+.mobile-nav{display:none;position:fixed;inset:var(--header-h) 0 0;z-index:99;background:var(--c-bg);padding:28px 24px calc(72px + env(safe-area-inset-bottom));overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.mobile-nav.open{display:block;animation:mnFade .26s ease both;}
+@keyframes mnFade{from{opacity:0;}to{opacity:1;}}
+.mobile-nav.open > *{animation:mnItem .42s cubic-bezier(.22,.61,.36,1) both;}
+.mobile-nav.open > *:nth-child(1){animation-delay:.04s;}
+.mobile-nav.open > *:nth-child(2){animation-delay:.09s;}
+.mobile-nav.open > *:nth-child(3){animation-delay:.14s;}
+.mobile-nav.open > *:nth-child(4){animation-delay:.19s;}
+.mobile-nav.open > *:nth-child(5){animation-delay:.24s;}
+.mobile-nav.open > *:nth-child(6){animation-delay:.29s;}
+.mobile-nav.open > *:nth-child(7){animation-delay:.34s;}
+@keyframes mnItem{from{opacity:0;transform:translateX(-16px);}to{opacity:1;transform:none;}}
+.mobile-nav .mn-clinics{padding:2px 0 0;}
+.mobile-nav .mn-clinics-label{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--c-accent-d);padding:16px 0 2px;}
+.mobile-nav a.clinic-link{font-size:14px;font-weight:500;padding:13px 0;color:var(--c-sub);}
+.mobile-nav a.clinic-link:hover{color:var(--c-accent);}
+.mobile-nav a{display:block;padding:18px 0;font-size:18px;font-weight:500;border-bottom:1px solid var(--c-line);}
+.mobile-nav .btn{margin-top:28px;}
+.mobile-nav a.btn--primary{color:#fff!important;}
+.mn-close{position:absolute;top:12px;right:14px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#fff;border:1px solid var(--c-line);color:var(--c-primary);box-shadow:var(--shadow);padding:0;z-index:2;}
+.mn-close:hover{background:var(--c-bg-2);}
+.nav a.nav-dual{position:relative;color:var(--c-accent-d);font-weight:700;}
+.nav a.nav-dual:hover{color:var(--c-accent);}
+.nav-badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;color:#fff;background:var(--c-accent);border-radius:999px;padding:2px 7px;margin-left:5px;line-height:1.2;vertical-align:middle;}
+.nav a.nav-dual .nav-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);margin-left:0;white-space:nowrap;box-shadow:0 3px 8px rgba(200,155,22,.35);}
+.mobile-nav a.nav-dual{color:var(--c-accent-d);}
+.site-footer{background:var(--c-primary-d);color:#aebbce;padding:48px 0 110px;font-size:12.5px;}
+.site-footer .container{display:grid;gap:24px;}
+.site-footer .f-brand b{color:#fff;font-size:16px;display:block;margin-bottom:6px;}
+.site-footer nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.site-footer nav a{color:#aebbce;padding:4px 0;}
+.site-footer nav a:hover{color:#fff;}
+.site-footer .copy{border-top:1px solid rgba(255,255,255,.12);padding-top:18px;font-size:11px;color:#7e8ba1;}
+.site-footer .legal-links{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:11px;}
+.site-footer .legal-links a{color:#9aa7bc;}
+.site-footer .legal-links a:hover{color:#fff;}
+.site-footer .f-notes{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.12);padding-top:22px;display:grid;gap:22px;}
+.f-notes h4{color:#cdd7e6;font-size:12px;font-weight:700;letter-spacing:.04em;margin-bottom:9px;}
+.f-notes ul{list-style:none;display:grid;gap:6px;}
+.f-notes ul li{position:relative;padding-left:14px;font-size:11px;line-height:1.75;color:#9aa7bc;}
+.f-notes ul li::before{content:"";position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:50%;background:#6f7d93;}
+.f-notes .ld-intro{font-size:11px;color:#9aa7bc;margin-bottom:4px;}
+.f-notes .ld{display:grid;gap:4px;}
+.f-notes .ld p{margin:0;font-size:10.5px;line-height:1.6;color:#828fa5;}
+.f-notes .ld p b{color:#b6c1d3;font-weight:600;}
+.f-notes .ld a{color:#aebbce;text-decoration:underline;word-break:break-all;}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:90;display:flex;gap:8px;padding:10px 14px;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-top:1px solid var(--c-line);box-shadow:0 -4px 20px rgba(11,45,92,.08);}
+.sticky-cta .btn{flex:1;min-height:50px;padding:14px;font-size:14px;}
+@media(min-width:768px){:root{--header-h:72px;}.site-footer{padding-bottom:48px;}.site-footer .container{grid-template-columns:1.4fr 1fr;}.sticky-cta{display:none;}}
+@media(min-width:1024px){.nav{display:flex;}.header-cta:not(.order-cta){display:inline-flex;}.nav-toggle{display:none;}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><b>歯と美容のクリニック</b><span>MEDICAL WHITENING · GINZA</span></a>
+    <nav class="nav">
+      <a href="home-whitening.html">ホームホワイトニング</a>
+      <a href="index.html#price" class="nav-dual">デュアルホワイトニング<span class="nav-badge">白さを目指すなら</span></a>
+      <a href="index.html#faq">よくある質問</a>
+      <a href="index.html#access">アクセス</a>
+    </nav>
+    <div class="header-actions">
+      <a href="https://hb-clinic.online/" target="_blank" rel="noopener" class="btn order-cta header-cta">ジェルを注文</a>
+      <a href="index.html#reserve" class="btn btn--primary header-cta" style="min-height:44px;padding:12px 22px;font-size:14px;">今すぐ予約</a>
+    </div>
+    <button class="nav-toggle" aria-label="メニュー" id="navToggle"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mn-close" type="button" aria-label="メニューを閉じる"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+  <a href="home-whitening.html">ホームホワイトニング</a>
+  <a href="index.html#price" class="nav-dual">デュアルホワイトニング<span class="nav-badge">白さを目指すなら</span></a>
+  <a href="index.html#faq">よくある質問</a>
+  <a href="index.html#access">アクセス</a>
+  <div class="mn-clinics">
+    <span class="mn-clinics-label">医院一覧</span>
+    <a class="clinic-link" href="index.html#access">銀座本院</a>
+    <a class="clinic-link" href="index.html#access">銀座7丁目院</a>
+    <a class="clinic-link" href="thedente.html">銀座歯科 THE DENTE</a>
+  </div>
+  <a href="index.html#reserve" class="btn btn--primary btn--block">今すぐWEBで予約する</a>
+  <a href="https://hb-clinic.online/" target="_blank" rel="noopener" class="btn order-cta btn--block" style="margin-top:12px;">ホームホワイトニングジェルを注文</a>
+</div>
+
+<!-- HERO -->
+<section style="position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--c-bg) 100%);">
+  <div class="container">
+    <nav aria-label="パンくず" style="padding:18px 0 0;font-size:12px;color:var(--c-sub);display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+      <a href="index.html" style="color:var(--c-sub);">TOP</a>
+      <span style="color:var(--c-line);">/</span>
+      <span style="color:var(--c-primary);">指示書について</span>
+    </nav>
+    <div class="sh-hero" style="display:grid;gap:30px;padding:30px 0 52px;align-items:center;">
+      <div class="reveal" style="animation:hwUp .8s cubic-bezier(.22,.61,.36,1) both;">
+        <span style="display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.26em;color:var(--c-accent);text-transform:uppercase;margin-bottom:18px;">Dentist's Instruction</span>
+        <h1 style="font-size:30px;font-weight:700;line-height:1.4;color:var(--c-primary);margin-bottom:18px;letter-spacing:.01em;">必要な指示書の発行<br><span style="color:var(--c-accent-d);">オンラインですべて完結</span></h1>
+        <p style="color:var(--c-sub);font-size:15px;line-height:1.95;max-width:32em;margin-bottom:22px;">ホワイトニングジェルのご使用には、歯科医師の指示書が必要です。当院では<b style="color:var(--c-primary);">ご予約から診察・指示書の発行までオンラインで完結</b>。ご自宅にいながら、全国どこからでも受診いただけます。</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;">
+          <span style="font-size:12px;font-weight:600;color:var(--c-primary);background:#fff;border:1px solid var(--c-line);border-radius:999px;padding:7px 14px;">オンライン診療</span>
+          <span style="font-size:12px;font-weight:600;color:var(--c-primary);background:#fff;border:1px solid var(--c-line);border-radius:999px;padding:7px 14px;">即日〜発行</span>
+          <span style="font-size:12px;font-weight:600;color:var(--c-primary);background:#fff;border:1px solid var(--c-line);border-radius:999px;padding:7px 14px;">全国対応</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;max-width:360px;">
+          <a href="index.html#reserve" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;padding:18px 32px;border-radius:999px;min-height:56px;background:var(--c-primary);color:#fff;box-shadow:var(--shadow);transition:.25s;" onMouseOver="this.style.background='var(--c-primary-d)'" onMouseOut="this.style.background='var(--c-primary)'">オンライン診療を予約する</a>
+          <a href="#flow" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;padding:18px 32px;border-radius:999px;min-height:56px;background:#fff;color:var(--c-primary);border:1.5px solid var(--c-line);transition:.25s;" onMouseOver="this.style.borderColor='var(--c-primary)'" onMouseOut="this.style.borderColor='var(--c-line)'">診察の流れを見る</a>
+        </div>
+      </div>
+      <div class="reveal" style="animation:hwUp .8s cubic-bezier(.22,.61,.36,1) .12s both;">
+        <div style="position:relative;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;border:1px solid var(--c-line);box-shadow:var(--shadow);">
+          <img src="img/shohosen-hero.png" alt="歯科医師が指示書を確認・記入している様子" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ONLINE CARE INTRO -->
+<section style="padding:60px 0;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:38px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.26em;color:var(--c-accent);text-transform:uppercase;margin-bottom:16px;">Online Care</span>
+      <p style="font-size:26px;font-weight:700;line-height:1.55;color:var(--c-primary);">オンライン診療について</p>
+      <p style="color:var(--c-sub);font-size:15px;line-height:1.95;max-width:34em;margin:12px auto 0;">オンライン診療とは、スマートフォンやパソコンを使い、<b style="color:var(--c-primary);">ビデオ通話や電話で歯科医師の診察を受けられる</b>仕組みです。来院は不要。ご自宅にいながら、全国どこからでも受診いただけます。</p>
+    </div>
+    <div class="sh-grid3" style="display:grid;gap:20px;margin-bottom:30px;">
+      <div style="background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);padding:32px 26px;box-shadow:var(--shadow);">
+        <div style="width:56px;height:56px;border-radius:16px;background:rgba(200,155,22,.10);display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+          <svg viewBox="0 0 24 24" width="27" height="27" fill="none" stroke="var(--c-accent-d)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"></rect><path d="M10 18.5h4"></path></svg>
+        </div>
+        <b style="display:block;font-size:18px;font-weight:700;color:var(--c-primary);margin-bottom:9px;">来院せずスマホで完結</b>
+        <p style="font-size:14px;line-height:1.9;color:var(--c-sub);">ビデオ通話または電話で診察。移動や待ち時間がなく、ご自宅やお好きな場所から受診いただけます。</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);padding:32px 26px;box-shadow:var(--shadow);">
+        <div style="width:56px;height:56px;border-radius:16px;background:rgba(200,155,22,.10);display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+          <svg viewBox="0 0 24 24" width="27" height="27" fill="none" stroke="var(--c-accent-d)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 12.5l1.8 1.8 3.5-3.8"></path></svg>
+        </div>
+        <b style="display:block;font-size:18px;font-weight:700;color:var(--c-primary);margin-bottom:9px;">歯科医師が直接診察</b>
+        <p style="font-size:14px;line-height:1.9;color:var(--c-sub);">国家資格を持つ歯科医師が、お口の状態や使用の可否を確認。安全にご使用いただけるかを判断します。</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);padding:32px 26px;box-shadow:var(--shadow);">
+        <div style="width:56px;height:56px;border-radius:16px;background:rgba(200,155,22,.10);display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+          <svg viewBox="0 0 24 24" width="27" height="27" fill="none" stroke="var(--c-accent-d)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5 10v9h14v-9"></path><path d="M9.5 19v-5h5v5"></path></svg>
+        </div>
+        <b style="display:block;font-size:18px;font-weight:700;color:var(--c-primary);margin-bottom:9px;">全国どこからでも</b>
+        <p style="font-size:14px;line-height:1.9;color:var(--c-sub);">お住まいの地域を問わず受診可能。通院の負担なく、指示書の発行まですべてオンラインで完結します。</p>
+      </div>
+    </div>
+    <div style="max-width:760px;margin:0 auto;background:var(--c-bg-2);border:1px solid var(--c-line);border-radius:var(--radius);padding:28px 28px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--c-accent-d)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+        <b style="font-size:16px;font-weight:700;color:var(--c-primary);">ご受診の前にご用意ください</b>
+      </div>
+      <ul style="display:grid;gap:12px;">
+        <li style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;line-height:1.8;color:var(--c-sub);"><span style="flex:0 0 auto;margin-top:7px;width:6px;height:6px;border-radius:50%;background:var(--c-accent);"></span><span>カメラ・マイクの使えるスマートフォンまたはパソコン</span></li>
+        <li style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;line-height:1.8;color:var(--c-sub);"><span style="flex:0 0 auto;margin-top:7px;width:6px;height:6px;border-radius:50%;background:var(--c-accent);"></span><span>通話が安定して行えるインターネット環境</span></li>
+        <li style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;line-height:1.8;color:var(--c-sub);"><span style="flex:0 0 auto;margin-top:7px;width:6px;height:6px;border-radius:50%;background:var(--c-accent);"></span><span>お顔・お口元が確認できる明るい場所</span></li>
+      </ul>
+      <p style="margin-top:16px;font-size:12px;line-height:1.85;color:var(--c-sub);border-top:1px dashed var(--c-line);padding-top:14px;">※ 18歳未満の方、妊娠中・授乳中・妊娠の可能性のある方には、オンライン診療および指示書の発行はできません。<br>※ 診察の結果、指示書を発行できない場合もございます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section style="padding:60px 0;background:var(--c-bg-2);">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:38px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.26em;color:var(--c-accent);text-transform:uppercase;margin-bottom:16px;">About</span>
+      <p style="font-size:26px;font-weight:700;line-height:1.55;color:var(--c-primary);">指示書とは</p>
+      <p style="color:var(--c-sub);font-size:15px;line-height:1.95;max-width:34em;margin:12px auto 0;">ホワイトニングジェル（過酸化尿素配合）のご使用には、<b style="color:var(--c-primary);">歯科医師による指示書</b>が必要です。当院では、当院が確認した購入元からご購入いただいた患者様に対し、オンライン診療を経て指示書を発行いたします。</p>
+    </div>
+    <div class="sh-grid3" style="display:grid;gap:20px;">
+      <div style="position:relative;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);padding:32px 26px;box-shadow:var(--shadow);">
+        <div style="width:56px;height:56px;border-radius:16px;background:rgba(200,155,22,.10);display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+          <svg viewBox="0 0 24 24" width="27" height="27" fill="none" stroke="var(--c-accent-d)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="14" height="18" rx="2"></rect><path d="M8 8h6M8 12h6M8 16h3"></path></svg>
+        </div>
+        <b style="display:block;font-size:18px;font-weight:700;color:var(--c-primary);margin-bottom:9px;">歯科医師が発行</b>
+        <p style="font-size:14px;line-height:1.9;color:var(--c-sub);">国家資格を持つ歯科医師がオンライン診療で内容を確認し、指示書を発行します。</p>
+      </div>
+      <div style="position:relative;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);padding:32px 26px;box-shadow:var(--shadow);">
+        <div style="width:56px;height:56px;border-radius:16px;background:rgba(200,155,22,.10);display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+          <svg viewBox="0 0 24 24" width="27" height="27" fill="none" stroke="var(--c-accent-d)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M2 7l10 6 10-6"></path></svg>
+        </div>
+        <b style="display:block;font-size:18px;font-weight:700;color:var(--c-primary);margin-bottom:9px;">メールで受け取り</b>
+        <p style="font-size:14px;line-height:1.9;color:var(--c-sub);">指示書は診察後、ご登録のメールアドレス宛に電子データファイルでお送りします。</p>
+      </div>
+      <div style="position:relative;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);padding:32px 26px;box-shadow:var(--shadow);">
+        <div style="width:56px;height:56px;border-radius:16px;background:rgba(200,155,22,.10);display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+          <svg viewBox="0 0 24 24" width="27" height="27" fill="none" stroke="var(--c-accent-d)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+        </div>
+        <b style="display:block;font-size:18px;font-weight:700;color:var(--c-primary);margin-bottom:9px;">有効期限は60日間</b>
+        <p style="font-size:14px;line-height:1.9;color:var(--c-sub);">有効期限は指示書発行日から60日間です。指示書発行日は診察日となります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPORTANT NOTICE -->
+<section style="padding:46px 0;background:var(--c-bg);">
+  <div class="container">
+    <div style="max-width:760px;margin:0 auto;position:relative;background:#fff;border:2px solid var(--c-no);border-radius:var(--radius);box-shadow:0 12px 32px rgba(217,56,56,.12);overflow:hidden;">
+      <div style="background:var(--c-no);color:#fff;display:flex;align-items:center;gap:10px;padding:16px 26px;">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+        <b style="font-size:14px;font-weight:700;letter-spacing:.06em;">指示書の発行についての重要なご注意</b>
+      </div>
+      <div style="padding:30px 28px 32px;">
+        <p style="font-size:21px;font-weight:700;line-height:1.65;color:var(--c-primary);letter-spacing:.01em;">指示書は、<span style="color:var(--c-no);">当院が正規品の販売を確認した販売元様</span>からご購入いただいたジェルに対してのみ発行いたします。</p>
+        <p style="margin-top:16px;font-size:14px;line-height:1.95;color:var(--c-sub);">当院が販売元を確認していない商品（並行輸入品・転売品・出所不明の商品など）については、安全性が確認できないため、指示書を発行することはできません。あらかじめご了承ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section id="flow" style="padding:62px 0;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:40px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.26em;color:var(--c-accent);text-transform:uppercase;margin-bottom:14px;">Flow</span>
+      <p style="font-size:26px;font-weight:700;line-height:1.5;color:var(--c-primary);">オンラインで簡単 ─ 診察の流れ</p>
+      <p style="color:var(--c-sub);font-size:15px;line-height:1.9;max-width:30em;margin:8px auto 0;">ご予約から指示書の受け取りまで、すべてオンラインで完結します。</p>
+    </div>
+    <div class="sh-flow" style="display:grid;gap:16px;max-width:760px;margin:0 auto;">
+      <div style="position:relative;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius-sm);padding:26px 26px;box-shadow:var(--shadow);">
+        <span style="position:absolute;top:18px;right:22px;font-size:30px;font-weight:700;color:var(--c-line);font-feature-settings:'tnum';line-height:1;">01</span>
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--c-primary);color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">1</div>
+        <b style="display:block;font-size:17px;color:var(--c-primary);margin-bottom:7px;">オンライン診察の予約</b>
+        <p style="font-size:13.5px;color:var(--c-sub);line-height:1.85;">当院の予約ページより「処方せんや指示書の発行」メニューを選択いただき、オンライン診療のご予約を行ってください。</p>
+      </div>
+      <div style="position:relative;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius-sm);padding:26px 26px;box-shadow:var(--shadow);">
+        <span style="position:absolute;top:18px;right:22px;font-size:30px;font-weight:700;color:var(--c-line);font-feature-settings:'tnum';line-height:1;">02</span>
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--c-primary);color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">2</div>
+        <b style="display:block;font-size:17px;color:var(--c-primary);margin-bottom:7px;">問診・同意書の回答</b>
+        <p style="font-size:13.5px;color:var(--c-sub);line-height:1.85;">ご予約完了後に表示される「問診はこちら」のボタンより、問診・同意書へのご回答をお願いします。回答がない場合、ご予約は強制キャンセルとなります。</p>
+      </div>
+      <div style="position:relative;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius-sm);padding:26px 26px;box-shadow:var(--shadow);">
+        <span style="position:absolute;top:18px;right:22px;font-size:30px;font-weight:700;color:var(--c-line);font-feature-settings:'tnum';line-height:1;">03</span>
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--c-primary);color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">3</div>
+        <b style="display:block;font-size:17px;color:var(--c-primary);margin-bottom:7px;">オンラインで診察</b>
+        <p style="font-size:13.5px;color:var(--c-sub);line-height:1.85;">ご予約のお時間になりましたら、当院の歯科医師がビデオ通話・電話にてオンライン診療を行います。</p>
+        <ul style="display:grid;gap:8px;margin-top:14px;">
+          <li style="font-size:12.5px;color:var(--c-sub);line-height:1.7;background:var(--c-bg-2);border-radius:10px;padding:11px 14px;"><b style="color:var(--c-primary);">ビデオ通話の場合：</b>事前にビデオ通話用URLを送付いたしますので、お時間になり次第ご入室をお願いします。</li>
+          <li style="font-size:12.5px;color:var(--c-sub);line-height:1.7;background:var(--c-bg-2);border-radius:10px;padding:11px 14px;"><b style="color:var(--c-primary);">電話診療の場合：</b>ご予約時間になり次第、歯科医師よりご登録の電話番号へお電話をおかけいたします。</li>
+        </ul>
+      </div>
+      <div style="position:relative;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius-sm);padding:26px 26px;box-shadow:var(--shadow);">
+        <span style="position:absolute;top:18px;right:22px;font-size:30px;font-weight:700;color:var(--c-line);font-feature-settings:'tnum';line-height:1;">04</span>
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--c-primary);color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">4</div>
+        <b style="display:block;font-size:17px;color:var(--c-primary);margin-bottom:7px;">診察代金の決済</b>
+        <p style="font-size:13.5px;color:var(--c-sub);line-height:1.85;">ご予約時にご登録いただいたクレジットカードへ代金をご請求いたします。お客様に操作していただくものはございません。</p>
+      </div>
+      <div style="position:relative;background:linear-gradient(135deg,#fff,#FBF6EC);border:2px solid var(--c-accent);border-radius:var(--radius-sm);padding:26px 26px;box-shadow:0 10px 26px rgba(200,155,22,.14);">
+        <span style="position:absolute;top:18px;right:22px;font-size:30px;font-weight:700;color:rgba(200,155,22,.28);font-feature-settings:'tnum';line-height:1;">05</span>
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--c-accent);color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">5</div>
+        <b style="display:block;font-size:17px;color:var(--c-primary);margin-bottom:7px;">指示書をメールで送付</b>
+        <p style="font-size:13.5px;color:var(--c-sub);line-height:1.85;">ご決済の確認後、当院よりメールにて指示書を送付いたします。郵送での発行はしておりませんのでご注意ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section id="price" style="padding:62px 0;background:var(--c-bg-2);">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:36px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.26em;color:var(--c-accent);text-transform:uppercase;margin-bottom:14px;">Price</span>
+      <p style="font-size:26px;font-weight:700;line-height:1.5;color:var(--c-primary);">指示書発行の費用</p>
+    </div>
+    <div style="max-width:560px;margin:0 auto;background:#fff;border:2px solid var(--c-accent);border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 30px rgba(200,155,22,.16);">
+      <div style="position:relative;background:linear-gradient(135deg,var(--c-accent),var(--c-accent-d));color:#fff;padding:26px 28px;text-align:center;">
+        <span style="position:absolute;top:14px;right:14px;font-size:11px;font-weight:700;color:var(--c-primary);background:#fff;border-radius:999px;padding:6px 12px;box-shadow:0 3px 8px rgba(0,0,0,.12);">この価格は今だけ！</span>
+        <div style="font-size:13px;font-weight:600;letter-spacing:.08em;opacity:.92;margin-bottom:4px;">即日発行</div>
+        <div style="font-size:24px;font-weight:700;">初診料・診察料込み</div>
+      </div>
+      <div style="padding:28px;">
+        <p style="text-align:center;font-size:14px;color:var(--c-primary);font-weight:600;line-height:1.7;margin-bottom:6px;">有効期限は指示書発行日から60日間。<br>指示書発行日は診察日となります。</p>
+        <p style="text-align:center;font-size:12.5px;color:var(--c-sub);line-height:1.8;padding-bottom:22px;border-bottom:1px dashed var(--c-line);">指示書は診察後、ご登録いただくメールアドレス宛に電子データファイルとしてお送りします。</p>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0;border-bottom:1px solid var(--c-line);">
+          <div>
+            <span style="display:inline-block;font-size:13px;font-weight:700;color:#fff;background:var(--c-accent-d);border-radius:8px;padding:5px 12px;margin-bottom:6px;">即日発行</span>
+            <div style="font-size:12px;color:var(--c-sub);">即日〜翌営業日に発行</div>
+          </div>
+          <div style="white-space:nowrap;"><span style="font-size:18px;font-weight:700;color:var(--c-accent-d);">¥</span><span class="num" style="font-size:34px;color:var(--c-accent-d);">1,900</span><span style="font-size:12px;color:var(--c-sub);margin-left:4px;">税込</span></div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0;">
+          <div>
+            <span style="display:inline-block;font-size:13px;font-weight:700;color:#fff;background:var(--c-primary);border-radius:8px;padding:5px 12px;margin-bottom:6px;">通常発行</span>
+            <div style="font-size:12px;color:var(--c-sub);">5から7営業日中に発行</div>
+          </div>
+          <div style="white-space:nowrap;"><span style="font-size:18px;font-weight:700;color:var(--c-primary);">¥</span><span class="num" style="font-size:34px;color:var(--c-primary);">1,100</span><span style="font-size:12px;color:var(--c-sub);margin-left:4px;">税込</span></div>
+        </div>
+        <div style="margin-top:8px;display:grid;gap:8px;">
+          <p style="font-size:12.5px;color:var(--c-sub);line-height:1.8;">診察の結果、発行できない場合もございます。その場合は費用はかかりません。</p>
+          <p style="font-size:12.5px;color:var(--c-sub);line-height:1.8;">自由診療です。公的医療保険はご利用いただけません。</p>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:560px;margin:20px auto 0;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius-sm);padding:22px 24px;">
+      <ul style="display:grid;gap:9px;">
+        <li style="position:relative;padding-left:16px;font-size:12px;line-height:1.8;color:var(--c-sub);"><span style="position:absolute;left:0;top:0;color:var(--c-accent-d);">※</span>全ての価格は税込みです。</li>
+        <li style="position:relative;padding-left:16px;font-size:12px;line-height:1.8;color:var(--c-sub);"><span style="position:absolute;left:0;top:0;color:var(--c-accent-d);">※</span>当院が確認した購入元からご購入いただいた患者様にのみ指示書を発行致します。</li>
+        <li style="position:relative;padding-left:16px;font-size:12px;line-height:1.8;color:var(--c-sub);"><span style="position:absolute;left:0;top:0;color:var(--c-accent-d);">※</span>オンライン診療の結果、処方できない場合もございます。</li>
+        <li style="position:relative;padding-left:16px;font-size:12px;line-height:1.8;color:var(--c-sub);"><span style="position:absolute;left:0;top:0;color:var(--c-accent-d);">※</span>無断キャンセルやカスタマーハラスメントと受け取られる行為がある場合には、今後当院のご利用をお断りする場合がございます。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:60px 0;">
+  <div class="container">
+    <div style="background:linear-gradient(135deg,#0B2D5C,#102f5e);border-radius:var(--radius);padding:46px 32px;text-align:center;box-shadow:var(--shadow);">
+      <p style="font-size:23px;font-weight:700;color:#fff;line-height:1.5;margin-bottom:10px;">オンライン診療を予約する</p>
+      <p style="font-size:13.5px;color:#cdd7e6;line-height:1.9;max-width:30em;margin:0 auto 26px;">必ず規約と同意書に同意の上、ご予約ください。ご予約から指示書の受け取りまで、すべてオンラインで完結します。</p>
+      <div style="display:flex;flex-direction:column;gap:12px;max-width:380px;margin:0 auto;">
+        <a href="index.html#reserve" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;padding:18px 32px;border-radius:999px;min-height:56px;width:100%;background:var(--c-accent);color:#fff;transition:.25s;" onMouseOver="this.style.background='var(--c-accent-d)'" onMouseOut="this.style.background='var(--c-accent)'">オンライン診療を予約する</a>
+        <a href="https://lin.ee/PFnoLi7" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;padding:18px 32px;border-radius:999px;min-height:56px;width:100%;background:#06C755;color:#fff;transition:.25s;" onMouseOver="this.style.filter='brightness(.95)'" onMouseOut="this.style.filter='none'">LINEで相談する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TERMS -->
+<section style="padding:0 0 70px;">
+  <div class="container">
+    <div style="max-width:760px;margin:0 auto;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;">
+      <details>
+        <summary style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:24px 28px;font-size:16px;font-weight:700;color:var(--c-primary);">
+          <span>指示書発行診療に係る規約と同意書</span>
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--c-accent-d)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M6 9l6 6 6-6"></path></svg>
+        </summary>
+        <div style="padding:4px 28px 30px;border-top:1px solid var(--c-line);display:grid;gap:14px;">
+          <p style="font-size:13px;line-height:1.95;color:var(--c-sub);margin-top:18px;">歯科ホワイトニングは、歯の内部色素を分解して歯を明るくする治療法ですが、陶器や紙のように完全な白さを実現することはできません。また、詰め物や被せ物は色が変わらないため、色の差が目立つようになることがあります。これが気になる場合は、再処置が必要になることがあります。</p>
+          <p style="font-size:13px;line-height:1.95;color:var(--c-sub);">歯科ホワイトニングの効果には個人差があり、抗生物質の使用や神経の死んだ歯、金属による変色など、原因によっては色調の改善が見込めない場合もあります。</p>
+          <p style="font-size:13px;line-height:1.95;color:var(--c-sub);">1. 目標とする白さに到達した後は、その色を維持するために、間隔を空けて継続的にホワイトニングを行うことが推奨されます。</p>
+          <p style="font-size:13px;line-height:1.95;color:var(--c-sub);">2. ご購入の濃度によって異なりますが、一般的な10%過酸化尿素配合のホワイトニングジェルの場合、ホワイトニングの効果の持続は、変色の原因や生活習慣によって異なりますが、初期の2週間は毎日、その後は週3回を目安に施術を行い、十分な白さが得られたら、月1〜2回のメンテナンスをお勧めします。</p>
+          <p style="font-size:13px;line-height:1.95;color:var(--c-sub);">ホワイトニングによって知覚過敏や歯肉の熱感、粘膜の潰瘍、歯の痛みなどが生じることがありますが、これらは一般的に数日で自然治癒します。</p>
+          <p style="font-size:13px;line-height:1.95;color:var(--c-sub);">すでに知覚過敏を持っている場合は、一時的に症状が悪化する可能性があります。</p>
+          <p style="font-size:13px;line-height:1.95;color:var(--c-sub);">虫歯や歯周病がある場合は、これらを先に治療することが優先されます。</p>
+          <p style="font-size:13px;line-height:1.95;color:var(--c-sub);">使用中の薬剤によっては、ホワイトニング後に発疹やかゆみ、口腔周囲の粘膜の腫れや痛みが生じることもあります。</p>
+          <p style="font-size:13px;line-height:1.95;color:var(--c-primary);font-weight:600;">授乳中、妊娠中、または妊娠の可能性がある方には指示書の発行はできません。</p>
+          <p style="font-size:13px;line-height:1.95;color:var(--c-primary);font-weight:600;">18歳未満の方に指示書の発行はできません。</p>
+          <p style="font-size:13px;line-height:1.95;color:var(--c-sub);">また、ホワイトニング後には歯の表面に白い点や帯が現れることがありますが、これは元々の歯の特徴が強調されたもので、通常は数日で馴染みます。気になる場合は、当院の歯科医師にご相談ください。</p>
+          <p style="font-size:13px;line-height:1.95;color:var(--c-sub);">利用規約は予告なく変更されることがあります。</p>
+          <p style="font-size:13px;line-height:1.95;color:var(--c-sub);">輸入確認証の発行可否は厚生労働省が行います。当院では輸入確認証の取得を保証する事は出来かねます。</p>
+          <p style="font-size:13px;line-height:1.95;color:var(--c-sub);">情報入力ミスや決済ミスなど第三者機関とのトラブルに関しては責任を負いかねます。</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="f-brand">
+      <b>歯と美容のクリニック</b>
+      国家資格を持つプロ集団による、安心の医療ホワイトニング。銀座本院／銀座7丁目院／銀座歯科 THE DENTE。
+    </div>
+    <nav>
+      <a href="home-whitening.html">ホームホワイトニング</a>
+      <a href="index.html#price" class="nav-dual">デュアルホワイトニング</a>
+      <a href="index.html#faq">よくある質問</a>
+      <a href="index.html#access">アクセス</a>
+      <a href="index.html#reserve">WEB予約</a>
+      <a href="contact.html">お問い合わせ</a>
+      <a href="shohosen.html">指示書について</a>
+    </nav>
+    <div class="f-notes">
+      <div class="f-note">
+        <h4>ご利用にあたって</h4>
+        <ul>
+          <li>お支払いは現金不可です。各種キャッシュレス決済のみのご対応となります。</li>
+          <li>お電話でのお問い合わせ・ご予約は承っておりません。WEBまたはLINEよりお願いいたします。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal-links">
+      <a href="terms.html">利用規約</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="tokushoho.html">特定商取引法に基づく表記</a>
+      <a href="aboutus.html">当院について</a>
+    </div>
+    <p class="copy">© 歯と美容のクリニック All Rights Reserved.</p>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a href="https://hb-clinic.online/" target="_blank" rel="noopener" class="btn order-cta" style="padding-left:8px;padding-right:8px;"><span style="font-size:11px;line-height:1.32;text-align:center;font-weight:700;">ホームホワイトニング<br>ジェルを注文</span></a>
+  <a href="https://hb-clinic.kalonade.com/hb-clinic/reservation/menu_section_categories" target="_blank" rel="noopener" class="btn btn--primary">来院予約</a>
+</div>
+
+<style>
+@media(min-width:768px){
+  .sh-grid3{grid-template-columns:repeat(3,1fr);}
+  h1{font-size:36px!important;}
+}
+@media(min-width:1024px){
+  .sh-hero{grid-template-columns:1.05fr .95fr;gap:48px;padding:44px 0 64px;}
+  .nav{gap:26px;}
+  .header-cta.order-cta{display:inline-flex;}
+}
+</style>
+<script>
+class DCLogic{}
+class Component extends DCLogic {
+  componentDidMount() {
+    const root = document;
+    const toggle = root.getElementById('navToggle');
+    const mobileNav = root.getElementById('mobileNav');
+    if (toggle && mobileNav) {
+      toggle.addEventListener('click', () => {
+        mobileNav.classList.toggle('open');
+        document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+      });
+      mobileNav.querySelectorAll('a, .mn-close').forEach((a) => {
+        a.addEventListener('click', () => {
+          mobileNav.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+    root.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (ev) => {
+        const id = link.getAttribute('href');
+        if (id === '#' || id.length < 2) return;
+        const target = root.querySelector(id);
+        if (!target) return;
+        ev.preventDefault();
+        const headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 64;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 8;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      });
+    });
+  }
+}
+;(function(){function s(){try{new Component().componentDidMount();}catch(e){console.error(e);}}if(document.readyState!=="loading")s();else document.addEventListener("DOMContentLoaded",s);})();
+</script>
+</body>
+</html>

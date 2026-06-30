@@ -1,153 +1,810 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ホームホワイトニング｜自宅で続ける医療ホワイトニング</title>
-<meta name="description" content="オパールエッセンス対応のホームホワイトニング。オンライン診療で受診から発送まで完結。カスタムマウスピース5,500円。歯と美容のクリニック。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --c-primary:#0B2D5C;--c-primary-d:#081f40;--c-accent:#C89B16;--c-accent-d:#a8810f;
+  --c-no:#D93838;--c-bg:#FAF8F5;--c-bg-2:#F2EEE7;--c-white:#FFFFFF;
+  --c-text:#1A1A1A;--c-sub:#666666;--c-line:#E5DFD5;
+  --radius:24px;--radius-sm:14px;
+  --shadow:0 6px 24px rgba(11,45,92,.06);--shadow-hover:0 10px 32px rgba(11,45,92,.10);
+  --maxw:1120px;--header-h:64px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+/* sticky header fix: DCホストを実コンテンツ高さにして position:sticky を全長で効かせる */
+html,body{height:auto!important;}
+#dc-root,.sc-host{height:auto!important;min-height:100vh;overflow:visible!important;}
+body{font-family:"Noto Sans JP",system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:var(--c-text);background:var(--c-bg);font-weight:400;line-height:1.8;letter-spacing:.02em;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul,li{list-style:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+.num{font-weight:600;font-feature-settings:"tnum";}
+@keyframes hwKen{from{transform:scale(1.04);}to{transform:scale(1);}}
+@keyframes hwUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:none;}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;}}
+.container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;line-height:1;text-align:center;padding:18px 32px;border-radius:999px;transition:.25s ease;min-height:56px;}
+.btn--primary{background:var(--c-primary);color:#fff;box-shadow:var(--shadow);}
+.btn--primary:hover{background:var(--c-primary-d);box-shadow:var(--shadow-hover);transform:translateY(-1px);}
+.btn--line{background:#06C755;color:#fff;}
+.btn--line:hover{filter:brightness(.95);}
+.btn--block{width:100%;}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(250,248,245,.92);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid var(--c-line);}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;height:var(--header-h);}
+.brand{display:flex;flex-direction:column;line-height:1.2;gap:4px;}
+.brand b{font-size:16px;font-weight:700;color:var(--c-primary);letter-spacing:.04em;}
+.brand span{font-size:10px;color:var(--c-sub);letter-spacing:.18em;}
+.nav{display:none;gap:22px;align-items:center;}
+.nav a{font-size:14px;font-weight:500;color:var(--c-text);transition:.2s;white-space:nowrap;letter-spacing:.01em;}
+.nav a:hover{color:var(--c-accent);}
+.header-cta{display:none;}
+.header-actions{display:flex;align-items:center;gap:10px;}
+.order-cta{background:#fff;color:var(--c-accent-d);border:1.5px solid var(--c-accent);min-height:44px;padding:12px 18px;font-size:14px;font-weight:700;border-radius:999px;white-space:nowrap;}
+.order-cta:hover{background:var(--c-accent);color:#fff;}
+.nav-toggle{display:flex;flex-direction:column;gap:5px;padding:8px;}
+.nav-toggle span{width:24px;height:2px;background:var(--c-primary);display:block;}
+.mobile-nav{display:none;position:fixed;inset:var(--header-h) 0 0;z-index:99;background:var(--c-bg);padding:28px 24px calc(72px + env(safe-area-inset-bottom));overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.mobile-nav.open{display:block;animation:mnFade .26s ease both;}
+@keyframes mnFade{from{opacity:0;}to{opacity:1;}}
+.mobile-nav.open > *{animation:mnItem .42s cubic-bezier(.22,.61,.36,1) both;}
+.mobile-nav.open > *:nth-child(1){animation-delay:.04s;}
+.mobile-nav.open > *:nth-child(2){animation-delay:.09s;}
+.mobile-nav.open > *:nth-child(3){animation-delay:.14s;}
+.mobile-nav.open > *:nth-child(4){animation-delay:.19s;}
+.mobile-nav.open > *:nth-child(5){animation-delay:.24s;}
+.mobile-nav.open > *:nth-child(6){animation-delay:.29s;}
+.mobile-nav.open > *:nth-child(7){animation-delay:.34s;}
+@keyframes mnItem{from{opacity:0;transform:translateX(-16px);}to{opacity:1;transform:none;}}
+.mobile-nav .mn-clinics{padding:2px 0 0;}
+.mobile-nav .mn-clinics-label{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--c-accent-d);padding:16px 0 2px;}
+.mobile-nav a.clinic-link{font-size:14px;font-weight:500;padding:13px 0;color:var(--c-sub);}
+.mobile-nav a.clinic-link:hover{color:var(--c-accent);}
+.mobile-nav a{display:block;padding:18px 0;font-size:18px;font-weight:500;border-bottom:1px solid var(--c-line);}
+.mobile-nav .btn{margin-top:28px;}
+.mobile-nav a.btn--primary{color:#fff!important;}
+.mn-close{position:absolute;top:12px;right:14px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#fff;border:1px solid var(--c-line);color:var(--c-primary);box-shadow:var(--shadow);padding:0;z-index:2;}
+.mn-close:hover{background:var(--c-bg-2);}
+.nav a.nav-dual{position:relative;color:var(--c-accent-d);font-weight:700;}
+.nav a.nav-dual:hover{color:var(--c-accent);}
+.nav-badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;color:#fff;background:var(--c-accent);border-radius:999px;padding:2px 7px;margin-left:5px;line-height:1.2;vertical-align:middle;}
+.nav a.nav-dual .nav-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);margin-left:0;white-space:nowrap;box-shadow:0 3px 8px rgba(200,155,22,.35);}
+.mobile-nav a.nav-dual{color:var(--c-accent-d);}
+.site-footer{background:var(--c-primary-d);color:#aebbce;padding:48px 0 110px;font-size:12.5px;}
+.site-footer .container{display:grid;gap:24px;}
+.site-footer .f-brand b{color:#fff;font-size:16px;display:block;margin-bottom:6px;}
+.site-footer nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.site-footer nav a{color:#aebbce;padding:4px 0;}
+.site-footer nav a:hover{color:#fff;}
+.site-footer .copy{border-top:1px solid rgba(255,255,255,.12);padding-top:18px;font-size:11px;color:#7e8ba1;}
+.site-footer .legal-links{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:11px;}
+.site-footer .legal-links a{color:#9aa7bc;}
+.site-footer .legal-links a:hover{color:#fff;}
+.site-footer .f-notes{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.12);padding-top:22px;display:grid;gap:22px;}
+.f-notes h4{color:#cdd7e6;font-size:12px;font-weight:700;letter-spacing:.04em;margin-bottom:9px;}
+.f-notes ul{list-style:none;display:grid;gap:6px;}
+.f-notes ul li{position:relative;padding-left:14px;font-size:11px;line-height:1.75;color:#9aa7bc;}
+.f-notes ul li::before{content:"";position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:50%;background:#6f7d93;}
+.f-notes .ld-intro{font-size:11px;color:#9aa7bc;margin-bottom:4px;}
+.f-notes .ld{display:grid;gap:4px;}
+.f-notes .ld p{margin:0;font-size:10.5px;line-height:1.6;color:#828fa5;}
+.f-notes .ld p b{color:#b6c1d3;font-weight:600;}
+.f-notes .ld a{color:#aebbce;text-decoration:underline;word-break:break-all;}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:90;display:flex;gap:8px;padding:10px 14px;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-top:1px solid var(--c-line);box-shadow:0 -4px 20px rgba(11,45,92,.08);}
+.sticky-cta .btn{flex:1;min-height:50px;padding:14px;font-size:14px;}
+@media(min-width:768px){:root{--header-h:72px;}.site-footer{padding-bottom:48px;}.site-footer .container{grid-template-columns:1.4fr 1fr;}.sticky-cta{display:none;}}
+@media(min-width:1024px){.nav{display:flex;}.header-cta:not(.order-cta){display:inline-flex;}.nav-toggle{display:none;}}
+</style>
 </head>
 <body>
-
-<!-- ===== Header ===== -->
 <header class="site-header">
   <div class="container">
-    <a href="index.html" class="brand"><b>歯と美容のクリニック</b><span>HOME WHITENING</span></a>
+    <a href="index.html" class="brand"><b>歯と美容のクリニック</b><span>MEDICAL WHITENING · GINZA</span></a>
     <nav class="nav">
-      <a href="index.html">TOP</a>
-      <a href="#price">価格</a>
-      <a href="#flow">診療の流れ</a>
-      <a href="dual-whitening.html">デュアル</a>
-      <a href="#faq">よくある質問</a>
+      <a href="home-whitening.html">ホームホワイトニング</a>
+      <a href="index.html#price" class="nav-dual">デュアルホワイトニング<span class="nav-badge">白さを目指すなら</span></a>
+      <a href="index.html#faq">よくある質問</a>
+      <a href="index.html#access">アクセス</a>
     </nav>
-    <a href="#order" class="btn btn--primary header-cta" style="min-height:44px;padding:12px 22px;font-size:14px;">オンライン診療で相談</a>
+    <div class="header-actions">
+      <a href="https://hb-clinic.online/" target="_blank" rel="noopener" class="btn order-cta header-cta">ジェルを注文</a>
+      <a href="index.html#reserve" class="btn btn--primary header-cta" style="min-height:44px;padding:12px 22px;font-size:14px;">今すぐ予約</a>
+    </div>
     <button class="nav-toggle" aria-label="メニュー" id="navToggle"><span></span><span></span><span></span></button>
   </div>
 </header>
 <div class="mobile-nav" id="mobileNav">
-  <a href="index.html">TOP</a>
-  <a href="#price">価格</a>
-  <a href="#flow">オンライン診療の流れ</a>
-  <a href="dual-whitening.html">デュアルホワイトニング</a>
-  <a href="#faq">よくある質問</a>
-  <a href="#order" class="btn btn--primary btn--block">オンライン診療で発方を受ける</a>
+  <button class="mn-close" type="button" aria-label="メニューを閉じる"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+  <a href="home-whitening.html">ホームホワイトニング</a>
+  <a href="index.html#price" class="nav-dual">デュアルホワイトニング<span class="nav-badge">白さを目指すなら</span></a>
+  <a href="index.html#faq">よくある質問</a>
+  <a href="index.html#access">アクセス</a>
+  <div class="mn-clinics">
+    <span class="mn-clinics-label">医院一覧</span>
+    <a class="clinic-link" href="index.html#access">銀座本院</a>
+    <a class="clinic-link" href="index.html#access">銀座7丁目院</a>
+    <a class="clinic-link" href="thedente.html">銀座歯科 THE DENTE</a>
+  </div>
+  <a href="index.html#reserve" class="btn btn--primary btn--block">今すぐWEBで予約する</a>
+  <a href="https://hb-clinic.online/" target="_blank" rel="noopener" class="btn order-cta btn--block" style="margin-top:12px;">ホームホワイトニングジェルを注文</a>
 </div>
 
-<!-- ===== FV ===== -->
-<section class="hero section" id="top">
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <span class="eyebrow">Opalescence × Online</span>
-      <h1><small>オパールエッセンスで</small>自宅で続ける<br>医療ホワイトニング</h1>
-      <p class="lead">しっかり白く、しみにくい。自宅で好きな時間にケア。<br>無理のない価格で・安心の医療品質。</p>
-      <ul class="feature-list" style="margin-top:18px;">
-        <li>しっかり白く、しみにくい処方</li>
-        <li>自宅で好きな時間にケア</li>
-        <li>無理のない価格で・安心・安全</li>
-      </ul>
-      <div class="hero-cta" style="margin-top:24px;">
-        <a href="#order" class="btn btn--primary">オンライン診療で発方を受ける</a>
+<!-- HERO -->
+<section style="position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--c-bg) 100%);">
+  <div style="width:100%;max-width:var(--maxw);margin:0 auto;padding:0 22px;">
+    <div class="hw-hero-grid" style="display:grid;gap:8px;padding:40px 0 48px;align-items:center;">
+      <div class="reveal" style="animation:hwUp .8s cubic-bezier(.22,.61,.36,1) both;">
+        <span style="display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.26em;color:var(--c-accent);text-transform:uppercase;margin-bottom:18px;">HOME WHITENING</span>
+        <h1 style="font-size:30px;font-weight:700;line-height:1.35;color:var(--c-primary);margin-bottom:18px;letter-spacing:.01em;">自宅で、続けるほど白く。<br><span style="color:var(--c-accent-d);">ホームホワイトニング</span></h1>
+        <p style="color:var(--c-sub);font-size:15px;line-height:1.95;max-width:30em;margin-bottom:22px;">受診から薬剤の注文まで<b style="color:var(--c-primary);">オンラインで完結</b>。歯科医院専用のホワイトニングジェルを、診療費・送料も含めた価格で全国どこへでもお届けします。</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;">
+          <span style="font-size:12px;font-weight:600;color:var(--c-primary);background:#fff;border:1px solid var(--c-line);border-radius:999px;padding:7px 14px;">オンラインで完結</span>
+          <span style="font-size:12px;font-weight:600;color:var(--c-primary);background:#fff;border:1px solid var(--c-line);border-radius:999px;padding:7px 14px;">送料も価格に含む</span>
+          <span style="font-size:12px;font-weight:600;color:var(--c-primary);background:#fff;border:1px solid var(--c-line);border-radius:999px;padding:7px 14px;">診療費も価格に含む</span>
+        </div>
+        <div class="hw-hero-cta" style="display:flex;flex-direction:column;gap:12px;max-width:340px;">
+          <a href="#order" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;padding:18px 32px;border-radius:999px;min-height:56px;background:var(--c-primary);color:#fff;box-shadow:var(--shadow);transition:.25s;" onMouseOver="this.style.background='var(--c-primary-d)'" onMouseOut="this.style.background='var(--c-primary)'">注文の流れを見る</a>
+          <a href="#price" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;padding:18px 32px;border-radius:999px;min-height:56px;background:#fff;color:var(--c-primary);border:1.5px solid var(--c-line);transition:.25s;" onMouseOver="this.style.borderColor='var(--c-primary)'" onMouseOut="this.style.borderColor='var(--c-line)'">ジェルの料金を見る</a>
+        </div>
+      </div>
+      <div class="reveal" style="animation:hwUp .8s cubic-bezier(.22,.61,.36,1) .12s both;position:relative;">
+        <div style="position:relative;">
+          <img src="img/opalescence-cut.png" alt="オパールエッセンス ホームホワイトニングキット" style="width:100%;aspect-ratio:4/3;object-fit:contain;animation:hwKen 18s ease-out forwards;display:block;">
+          <span style="position:absolute;left:24px;top:6px;background:var(--c-accent);color:#fff;font-size:12px;font-weight:700;padding:7px 14px;border-radius:999px;letter-spacing:.04em;">歯科医院専用ジェル</span>
+        </div>
       </div>
     </div>
-    <div class="imgph"><img src="img/home-use.jpg" alt="自宅でホームホワイトニング"></div>
   </div>
 </section>
 
-<!-- ===== 価格優位性 ===== -->
-<section class="section bg-alt reveal" id="price">
-  <div class="container">
-    <div class="center"><span class="eyebrow">Price</span><p class="h-sec">当院のオパールエッセンスは<br><span class="accent">圧倒的にお得です</span></p></div>
-    <table class="ptable">
-      <thead><tr><th>項目</th><th>一般的な歯科例</th><th class="ours">当院</th></tr></thead>
-      <tbody>
-        <tr><td>初診料</td><td>3,000円程度</td><td class="ours">0円</td></tr>
-        <tr><td>マウスピース製作</td><td>15,000円程度</td><td class="ours">5,500円</td></tr>
-        <tr><td>ホワイトニングジェル（オパールエッセンス10%・4本）</td><td>5,000〜8,000円</td><td class="ours">3,990円〜</td></tr>
-      </tbody>
-    </table>
-    <p class="price-note center" style="margin-top:12px;">※価格は税込。比較は当院調べの一般例です。</p>
-  </div>
-</section>
+<!-- MERITS -->
+<section style="padding:74px 0;background:var(--c-bg-2);">
+  <div style="width:100%;max-width:var(--maxw);margin:0 auto;padding:0 22px;">
+    <div style="text-align:center;margin-bottom:44px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.26em;color:var(--c-accent);text-transform:uppercase;margin-bottom:16px;">Our Strength</span>
+      <p style="font-size:26px;font-weight:700;line-height:1.55;color:var(--c-primary);word-break:keep-all;"><span style="display:inline-block;">通院ゼロ。</span><span style="display:inline-block;"><span style="color:var(--c-accent);">自宅で完結する</span>から、</span><span style="display:inline-block;">続けられる。</span></p>
+      <p style="color:var(--c-sub);font-size:15px;line-height:1.9;max-width:30em;margin:12px auto 0;">会員登録から受診・お薬の受け取りまで、来院せずにスマホひとつで完結します。</p>
+    </div>
+    <div class="hw-merit-grid" style="display:grid;gap:20px;">
+      <div style="display:flex;flex-direction:column;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);">
+        <div style="position:relative;">
+          <img src="img/order-1-app.png" alt="スマホアプリで完結" style="display:block;width:100%;aspect-ratio:16/10;object-fit:cover;">
+          <span style="position:absolute;top:14px;left:14px;width:38px;height:38px;border-radius:50%;background:var(--c-accent);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.18);">01</span>
+        </div>
+        <div style="padding:26px 26px 30px;">
+          <div style="display:flex;align-items:center;gap:11px;margin-bottom:11px;">
+            <span style="flex:0 0 auto;width:42px;height:42px;border-radius:12px;background:rgba(200,155,22,.10);display:flex;align-items:center;justify-content:center;">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--c-accent-d)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"></rect><path d="M11 18.5h2"></path></svg>
+            </span>
+            <b style="font-size:18px;font-weight:700;color:var(--c-primary);">オンラインで完結</b>
+          </div>
+          <p style="font-size:14px;line-height:1.9;color:var(--c-sub);">会員登録・診療予約・受診・注文まで、すべてスマホひとつで。来院の必要はありません。</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);">
+        <div style="position:relative;">
+          <img src="img/order-5-delivery.png" alt="送料無料でご自宅へ配送" style="display:block;width:100%;aspect-ratio:16/10;object-fit:cover;">
+          <span style="position:absolute;top:14px;left:14px;width:38px;height:38px;border-radius:50%;background:var(--c-accent);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.18);">02</span>
+        </div>
+        <div style="padding:26px 26px 30px;">
+          <div style="display:flex;align-items:center;gap:11px;margin-bottom:11px;">
+            <span style="flex:0 0 auto;width:42px;height:42px;border-radius:12px;background:rgba(200,155,22,.10);display:flex;align-items:center;justify-content:center;">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--c-accent-d)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="6" width="13" height="10" rx="1.5"></rect><path d="M14.5 9h4l3 3v4h-7z"></path><circle cx="6.5" cy="18" r="1.9"></circle><circle cx="18" cy="18" r="1.9"></circle></svg>
+            </span>
+            <b style="font-size:18px;font-weight:700;color:var(--c-primary);">送料も価格に含む</b>
+          </div>
+          <p style="font-size:14px;line-height:1.9;color:var(--c-sub);">薬剤は全国どこでもご自宅へ。送料は表示価格に含まれています（税込・送料込）。</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);">
+        <div style="position:relative;">
+          <img src="img/order-3-consult.png" alt="歯科医師によるオンライン診療" style="display:block;width:100%;aspect-ratio:16/10;object-fit:cover;">
+          <span style="position:absolute;top:14px;left:14px;width:38px;height:38px;border-radius:50%;background:var(--c-accent);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.18);">03</span>
+          <span style="position:absolute;bottom:14px;right:14px;background:var(--c-accent-d);color:#fff;font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;letter-spacing:.04em;">診療費も価格に含む</span>
+        </div>
+        <div style="padding:26px 26px 30px;">
+          <div style="display:flex;align-items:center;gap:11px;margin-bottom:11px;">
+            <span style="flex:0 0 auto;width:42px;height:42px;border-radius:12px;background:rgba(200,155,22,.10);display:flex;align-items:center;justify-content:center;">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--c-accent-d)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3 0-5 1.8-5 5.5C7 14 9 21 12 21s5-7 5-12.5C17 4.8 15 3 12 3z"></path><path d="M9.5 11h5"></path></svg>
+            </span>
+            <b style="font-size:18px;font-weight:700;color:var(--c-primary);">診療費も価格に含む</b>
+          </div>
+          <p style="font-size:14px;line-height:1.9;color:var(--c-sub);">歯科医師による診療の費用はすべて商品料金に含まれています。お口の状態を確認し、安全に使えるかを判断します。</p>
+        </div>
+      </div>
+    </div>
 
-<!-- ===== 濃度ラインナップ ===== -->
-<section class="section reveal">
-  <div class="container center">
-    <span class="eyebrow">Lineup</span>
-    <p class="h-sec">選べる濃度ラインナップ</p>
-    <p class="lead">目的やしみやすさに合わせて、最適な濃度をご提案します。</p>
-    <div class="menu-grid" style="margin-top:28px;">
-      <div class="menu-card"><div class="imgph" data-ratio="1/1"><img src="img/opal-regular.jpg" alt="オパールエッセンス レギュラー"></div><h3>低濃度 10%</h3><p class="desc">しみにくく、長時間ケアしたい方に。</p></div>
-      <div class="menu-card"><div class="imgph" data-ratio="1/1"><img src="img/opal-mint.jpg" alt="オパールエッセンス ミント"></div><h3>標準 15%</h3><p class="desc">バランス重視のスタンダード。</p></div>
-      <div class="menu-card"><div class="imgph" data-ratio="1/1"><img src="img/opal-package.jpg" alt="オパールエッセンス パッケージ"></div><h3>高濃度 20%</h3><p class="desc">短時間でしっかり白くしたい方に。</p></div>
+    <div class="hw-mp-banner" style="margin-top:24px;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);overflow:hidden;display:flex;flex-wrap:wrap;box-shadow:var(--shadow);">
+      <img src="img/howto-1-syringe.png" alt="ホームホワイトニング専用マウスピース" style="flex:1 1 280px;min-width:260px;min-height:230px;align-self:stretch;object-fit:cover;">
+      <div style="flex:2 1 380px;padding:34px 36px;display:flex;flex-direction:column;justify-content:center;gap:14px;">
+        <span style="align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--c-accent-d);background:rgba(200,155,22,.12);padding:6px 14px;border-radius:999px;">当院だけの安心価格</span>
+        <p style="font-size:22px;font-weight:700;color:var(--c-primary);line-height:1.5;word-break:keep-all;">専用マウスピースを<br><span style="color:var(--c-accent-d);">上下セットで精密作製</span></p>
+        <p style="font-size:13.5px;color:var(--c-sub);line-height:1.85;">歯科医院でお口の型に合わせて作るオーダーメイド。繰り返し使えて、ジェルを歯面に均一になじませます。<br>※マウスピースの作製には当院へのご来院が必要です。</p>
+        <div style="display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 12px;border-top:1px dashed var(--c-line);padding-top:18px;margin-top:4px;">
+          <span style="font-size:12.5px;font-weight:600;color:var(--c-sub);">上下セット作製</span>
+          <span class="num" style="font-size:40px;color:var(--c-primary);line-height:1;">5,500</span>
+          <span style="font-size:18px;font-weight:700;color:var(--c-primary);">円</span>
+          <span style="font-size:11.5px;color:var(--c-sub);">税込・上下まとめて</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== オンライン診療の流れ ===== -->
-<section class="section bg-alt reveal" id="flow">
-  <div class="container">
-    <div class="center"><span class="eyebrow">Online Flow</span><p class="h-sec">オンライン診療の流れ</p></div>
-    <div class="steps">
-      <div class="step"><div class="n num">01</div><div><b>開始</b><span>WEB・LINEからご予約</span></div></div>
-      <div class="step"><div class="n num">02</div><div><b>オンライン診療</b><span>歯科医師がビデオで診察</span></div></div>
-      <div class="step"><div class="n num">03</div><div><b>処方・歯型採取</b><span>歯型キットをご自宅へ郵送</span></div></div>
-      <div class="step"><div class="n num">04</div><div><b>マウスピース製作・発送</b><span>カスタムマウスピースをお届け</span></div></div>
-      <div class="step"><div class="n num">05</div><div><b>ご自宅でケア開始</b><span>お好きな時間にホワイトニング</span></div></div>
+<!-- PRICE -->
+<section id="price" style="padding:64px 0;">
+  <div style="width:100%;max-width:var(--maxw);margin:0 auto;padding:0 22px;">
+    <div style="text-align:center;margin-bottom:14px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.26em;color:var(--c-accent);text-transform:uppercase;margin-bottom:16px;">Price</span>
+      <p style="font-size:26px;font-weight:700;line-height:1.5;color:var(--c-primary);word-break:keep-all;"><span style="display:inline-block;">ホームホワイトニング</span> <span style="display:inline-block;">ジェル料金</span></p>
+      <p style="color:var(--c-sub);font-size:15px;line-height:1.9;max-width:34em;margin:8px auto 0;">濃度や目的に合わせて選べます。表示価格は<b style="color:var(--c-primary);">初診料・診察料・送料すべて込み</b>の総額です（1本あたりの目安）。</p>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:10px;margin:34px 0 18px;">
+      <span style="font-size:13px;font-weight:700;letter-spacing:.2em;color:var(--c-accent-d);">OPALESCENCE</span>
+      <span style="flex:1;height:1px;background:var(--c-line);"></span>
+      <span style="font-size:12px;color:var(--c-sub);">オパールエッセンス</span>
+    </div>
+    <div class="hw-pl" style="display:grid;gap:24px;">
+      <div style="align-self:start;background:#F4F1EB;border:1px solid var(--c-line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);position:relative;">
+        <span style="position:absolute;left:18px;top:18px;z-index:2;background:var(--c-accent);color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px;letter-spacing:.04em;">歯科専売</span>
+        <img src="img/opalescence-cut.png" alt="オパールエッセンス ホームホワイトニングジェル" style="width:100%;aspect-ratio:1/1;object-fit:contain;padding:12px;">
+        <div style="background:#fff;border-top:1px solid var(--c-line);padding:18px 20px;">
+          <span style="display:block;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--c-accent-d);margin-bottom:15px;">ジェルの特徴</span>
+          <div style="display:flex;flex-direction:column;gap:15px;">
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+              <span style="flex:0 0 auto;width:38px;height:38px;border-radius:11px;background:rgba(200,155,22,.10);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--c-accent-d)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"></path></svg></span>
+              <div><b style="display:block;font-size:14px;font-weight:700;color:var(--c-primary);line-height:1.4;">数々の受賞歴を持つブランド</b><p style="font-size:12px;color:var(--c-sub);line-height:1.7;margin-top:3px;">ホーム用部門「Best Take-Home Cosmetic Bleaching System」（Townie Choice Award）を複数年連続で受賞。</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+              <span style="flex:0 0 auto;width:38px;height:38px;border-radius:11px;background:rgba(200,155,22,.10);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" width="20" height="20" fill="var(--c-accent-d)" stroke="var(--c-accent-d)" stroke-width="1.4" stroke-linejoin="round"><path d="M12 3c-3.6 4.2-6 7.3-6 9.8a6 6 0 0 0 12 0C18 10.3 15.6 7.2 12 3z"></path></svg></span>
+              <div><b style="display:block;font-size:14px;font-weight:700;color:var(--c-primary);line-height:1.4;">硬めのテクスチャー</b><p style="font-size:12px;color:var(--c-sub);line-height:1.7;margin-top:3px;">トレーから流れにくく、セットしやすい稠度。</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+              <span style="flex:0 0 auto;width:38px;height:38px;border-radius:11px;background:rgba(200,155,22,.10);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--c-accent-d)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-7.5 5-12.5 14.5-13C20 13.5 14.5 19.5 5 19z"></path><path d="M9 15c2.2-2.3 4.4-3.5 6.5-4"></path></svg></span>
+              <div><b style="display:block;font-size:14px;font-weight:700;color:var(--c-primary);line-height:1.4;">フレーバーが選べる</b><p style="font-size:12px;color:var(--c-sub);line-height:1.7;margin-top:3px;">ミントなどお好みの風味で続けやすい。</p></div>
+            </div>
+          </div>
+        </div>
+        <p style="background:#fff;border-top:1px solid var(--c-line);margin:0;padding:11px 18px;font-size:11px;color:var(--c-sub);line-height:1.7;">※限定解除に基づく表示です。リスク・副作用及び限定解除要件に関する表示は<a href="#risk" style="color:var(--c-accent-d);text-decoration:underline;">こちら</a>をご確認ください。</p>
+      </div>
+      <div style="display:flex;flex-direction:column;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 24px;">
+        <div style="display:flex;align-items:center;gap:9px;background:#F4F1EB;border-radius:12px;padding:11px 14px;margin-bottom:8px;">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="var(--c-accent-d)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><circle cx="12" cy="12" r="9"></circle><path d="M8.3 12l2.5 2.5L15.7 9"></path></svg>
+          <span style="font-size:12.5px;font-weight:600;color:var(--c-primary);line-height:1.5;">表示価格は<b>初診料・診察料・送料</b>すべて込みの総額です</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:20px 0;border-bottom:1px dashed var(--c-line);">
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;"><b style="font-size:17px;font-weight:700;color:var(--c-primary);">オパールエッセンス 10%</b></div>
+            <p style="font-size:13px;color:var(--c-sub);line-height:1.75;margin-top:6px;">しみにくく、初めての方やゆっくり白くしたい方に。低濃度でじっくりケアしたい方向けです。</p>
+          </div>
+          <div style="text-align:right;white-space:nowrap;padding-top:2px;"><span class="num" style="font-size:29px;color:var(--c-primary);">3,990</span><span style="font-size:14px;font-weight:600;color:var(--c-primary);">円</span><div style="font-size:13px;font-weight:700;color:var(--c-primary);margin-top:3px;">／<span style="font-size:20px;">4本</span> 総額</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:20px 0;border-bottom:1px dashed var(--c-line);">
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;"><b style="font-size:17px;font-weight:700;color:var(--c-primary);">オパールエッセンス 15%</b></div>
+            <p style="font-size:13px;color:var(--c-sub);line-height:1.75;margin-top:6px;">白さと続けやすさのバランスが取りやすい濃度。装着の目安は1日4〜6時間。日々のケアに。</p>
+          </div>
+          <div style="text-align:right;white-space:nowrap;padding-top:2px;"><span class="num" style="font-size:29px;color:var(--c-primary);">6,600</span><span style="font-size:14px;font-weight:600;color:var(--c-primary);">円</span><div style="font-size:13px;font-weight:700;color:var(--c-primary);margin-top:3px;">／<span style="font-size:20px;">4本</span> 総額</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:20px 0;border-bottom:1px dashed var(--c-line);">
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;"><b style="font-size:17px;font-weight:700;color:var(--c-primary);">オパールエッセンス 20%</b></div>
+            <p style="font-size:13px;color:var(--c-sub);line-height:1.75;margin-top:6px;">装着の目安は1日2〜4時間の短時間タイプ。</p>
+          </div>
+          <div style="text-align:right;white-space:nowrap;padding-top:2px;"><span class="num" style="font-size:29px;color:var(--c-primary);">6,600</span><span style="font-size:14px;font-weight:600;color:var(--c-primary);">円</span><div style="font-size:13px;font-weight:700;color:var(--c-primary);margin-top:3px;">／<span style="font-size:20px;">4本</span> 総額</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:20px 0;border-bottom:1px dashed var(--c-line);">
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;"><b style="font-size:17px;font-weight:700;color:var(--c-primary);">オパールエッセンス 35%</b></div>
+            <p style="font-size:13px;color:var(--c-sub);line-height:1.75;margin-top:6px;">高濃度タイプ。装着は短時間が目安です。</p>
+          </div>
+          <div style="text-align:right;white-space:nowrap;padding-top:2px;"><span class="num" style="font-size:29px;color:var(--c-primary);">6,600</span><span style="font-size:14px;font-weight:600;color:var(--c-primary);">円</span><div style="font-size:13px;font-weight:700;color:var(--c-primary);margin-top:3px;">／<span style="font-size:20px;">4本</span> 総額</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:20px 0 4px;">
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;"><b style="font-size:17px;font-weight:700;color:var(--c-accent-d);">オパールエッセンス GO</b></div>
+            <p style="font-size:13px;color:var(--c-sub);line-height:1.75;margin-top:6px;">あらかじめジェルが入った使い捨てトレー。マウスピースの作製不要で、すぐに始められる手軽なタイプ。</p>
+          </div>
+          <div style="text-align:right;white-space:nowrap;padding-top:2px;"><span class="num" style="font-size:29px;color:var(--c-accent-d);">4,400</span><span style="font-size:14px;font-weight:600;color:var(--c-accent-d);">円</span><div style="font-size:13px;font-weight:700;color:var(--c-primary);margin-top:3px;">／<span style="font-size:20px;">2ピース</span> 総額</div></div>
+        </div>
+        <div class="hw-peruse" style="margin:18px -24px -20px;padding:20px 24px;background:#F6F2E9;border-top:1px solid var(--c-line);border-radius:0 0 var(--radius) var(--radius);display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;">
+          <div class="hw-peruse-vis" style="min-width:0;">
+            <span style="display:block;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--c-accent-d);margin-bottom:10px;">1本でこれだけ使える</span>
+            <div class="hw-peruse-row" style="display:flex;align-items:center;gap:11px;flex-wrap:wrap;">
+              <div style="display:flex;align-items:flex-end;gap:5px;">
+                <span style="display:flex;gap:2px;">
+                  <svg viewBox="0 0 16 24" width="15" height="23" fill="rgba(200,155,22,.18)" stroke="var(--c-accent-d)" stroke-width="1.3" stroke-linejoin="round"><rect x="5" y="1.4" width="6" height="3" rx="1"></rect><path d="M4.6 5.4c0-.5.4-.9 1-.9h4.8c.6 0 1 .4 1 .9V20a2 2 0 0 1-2 2H6.6a2 2 0 0 1-2-2z"></path><path d="M4.6 12.5h6.8" stroke-width="1"></path></svg>
+                  <svg viewBox="0 0 16 24" width="15" height="23" fill="rgba(200,155,22,.18)" stroke="var(--c-accent-d)" stroke-width="1.3" stroke-linejoin="round"><rect x="5" y="1.4" width="6" height="3" rx="1"></rect><path d="M4.6 5.4c0-.5.4-.9 1-.9h4.8c.6 0 1 .4 1 .9V20a2 2 0 0 1-2 2H6.6a2 2 0 0 1-2-2z"></path><path d="M4.6 12.5h6.8" stroke-width="1"></path></svg>
+                  <svg viewBox="0 0 16 24" width="15" height="23" fill="rgba(200,155,22,.18)" stroke="var(--c-accent-d)" stroke-width="1.3" stroke-linejoin="round"><rect x="5" y="1.4" width="6" height="3" rx="1"></rect><path d="M4.6 5.4c0-.5.4-.9 1-.9h4.8c.6 0 1 .4 1 .9V20a2 2 0 0 1-2 2H6.6a2 2 0 0 1-2-2z"></path><path d="M4.6 12.5h6.8" stroke-width="1"></path></svg>
+                  <svg viewBox="0 0 16 24" width="15" height="23" fill="rgba(200,155,22,.18)" stroke="var(--c-accent-d)" stroke-width="1.3" stroke-linejoin="round"><rect x="5" y="1.4" width="6" height="3" rx="1"></rect><path d="M4.6 5.4c0-.5.4-.9 1-.9h4.8c.6 0 1 .4 1 .9V20a2 2 0 0 1-2 2H6.6a2 2 0 0 1-2-2z"></path><path d="M4.6 12.5h6.8" stroke-width="1"></path></svg>
+                </span>
+                <span style="font-size:12px;font-weight:700;color:var(--c-primary);">4本</span>
+              </div>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--c-sub)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 6l6 6-6 6"></path></svg>
+              <span style="display:inline-flex;align-items:center;gap:5px;">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="var(--c-accent)" stroke="none"><path d="M12 2l1.7 5.1a3 3 0 0 0 1.9 1.9L20.7 11l-5.1 1.7a3 3 0 0 0-1.9 1.9L12 19.8l-1.7-5.1a3 3 0 0 0-1.9-1.9L3.3 11l5.1-1.7a3 3 0 0 0 1.9-1.9z"></path></svg>
+                <span style="font-size:14px;font-weight:700;color:var(--c-primary);">約 8〜12回分</span>
+              </span>
+            </div>
+            <span style="display:block;font-size:11.5px;color:var(--c-sub);margin-top:8px;line-height:1.5;">1本で約2〜3回分使えます</span>
+          </div>
+          <div class="hw-peruse-amt" style="text-align:right;color:var(--c-primary);white-space:nowrap;">
+            <span style="display:block;margin-bottom:9px;"><span style="font-size:13px;font-weight:600;color:var(--c-sub);">ホワイトニング</span> <span style="position:relative;display:inline-block;font-size:21px;font-weight:800;color:var(--c-accent-d);">1回あたり<svg viewBox="0 0 120 12" preserveAspectRatio="none" style="position:absolute;left:-3px;bottom:-8px;width:calc(100% + 8px);height:10px;overflow:visible;"><path d="M2 7C28 2 70 11 118 4" fill="none" stroke="var(--c-accent)" stroke-width="3.6" stroke-linecap="round"></path></svg></span></span>
+            <span style="display:inline-flex;align-items:baseline;gap:3px;">
+              <span style="font-size:15px;font-weight:600;">約</span>
+              <span class="num" style="font-size:48px;color:var(--c-accent-d);line-height:.9;">330</span>
+              <span style="font-size:18px;font-weight:700;">円〜</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:10px;margin:38px 0 18px;">
+      <span style="font-size:13px;font-weight:700;letter-spacing:.2em;color:var(--c-accent-d);">BRIGHT UP</span>
+      <span style="flex:1;height:1px;background:var(--c-line);"></span>
+      <span style="font-size:12px;color:var(--c-sub);">ブライトアップ</span>
+    </div>
+    <div class="hw-pl" style="display:grid;gap:24px;">
+      <div style="align-self:start;background:#F4F1EB;border:1px solid var(--c-line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);position:relative;">
+        <img src="img/brightup-cut.png" alt="ブライトアップ ホワイトニングジェル" style="width:100%;aspect-ratio:1/1;object-fit:contain;padding:12px;">
+        <div style="background:#fff;border-top:1px solid var(--c-line);padding:18px 20px;">
+          <span style="display:block;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--c-accent-d);margin-bottom:15px;">ジェルの特徴</span>
+          <div style="display:flex;flex-direction:column;gap:15px;">
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+              <span style="flex:0 0 auto;width:38px;height:38px;border-radius:11px;background:rgba(200,155,22,.10);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--c-accent-d)" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3c-3.6 4.2-6 7.3-6 9.8a6 6 0 0 0 12 0C18 10.3 15.6 7.2 12 3z"></path></svg></span>
+              <div><b style="display:block;font-size:14px;font-weight:700;color:var(--c-primary);line-height:1.4;">やわらかめのテクスチャー</b><p style="font-size:12px;color:var(--c-sub);line-height:1.7;margin-top:3px;">歯になじみやすい、なめらかなつけ心地。</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+              <span style="flex:0 0 auto;width:38px;height:38px;border-radius:11px;background:rgba(200,155,22,.10);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--c-accent-d)" stroke-width="1.5" stroke-linejoin="round"><rect x="8" y="2" width="8" height="3.4" rx="1"></rect><path d="M7 6.5c0-.6.4-1.1 1-1.1h8c.6 0 1 .5 1 1.1V20a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2z"></path><path d="M7 12.5h10" fill="none"></path><path d="M7.4 12.6h9.2V20a2 2 0 0 1-2 2H9.4a2 2 0 0 1-2-2z" fill="rgba(200,155,22,.22)" stroke="none"></path></svg></span>
+              <div><b style="display:block;font-size:14px;font-weight:700;color:var(--c-primary);line-height:1.4;">1本3mlの大容量</b><p style="font-size:12px;color:var(--c-sub);line-height:1.7;margin-top:3px;">オパールエッセンスの約2倍量でたっぷり使える。</p></div>
+            </div>
+          </div>
+        </div>
+        <p style="background:#fff;border-top:1px solid var(--c-line);margin:0;padding:11px 18px;font-size:11px;color:var(--c-sub);line-height:1.7;">※限定解除に基づく表示です。リスク・副作用及び限定解除要件に関する表示は<a href="#risk" style="color:var(--c-accent-d);text-decoration:underline;">こちら</a>をご確認ください。</p>
+      </div>
+      <div style="display:flex;flex-direction:column;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 24px;">
+        <div style="display:flex;align-items:center;gap:9px;background:#F4F1EB;border-radius:12px;padding:11px 14px;margin-bottom:8px;">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="var(--c-accent-d)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><circle cx="12" cy="12" r="9"></circle><path d="M8.3 12l2.5 2.5L15.7 9"></path></svg>
+          <span style="font-size:12.5px;font-weight:600;color:var(--c-primary);line-height:1.5;">表示価格は<b>初診料・診察料・送料</b>すべて込みの総額です</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:20px 0;border-bottom:1px dashed var(--c-line);">
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;"><b style="font-size:17px;font-weight:700;color:var(--c-primary);">ブライトアップ 10%</b></div>
+            <p style="font-size:13px;color:var(--c-sub);line-height:1.75;margin-top:6px;">過酸化尿素10%のやさしい濃度。しみにくく、初めての方やゆっくり白くしたい方に。</p>
+          </div>
+          <div style="text-align:right;white-space:nowrap;padding-top:2px;"><span class="num" style="font-size:29px;color:var(--c-primary);">3,980</span><span style="font-size:14px;font-weight:600;color:var(--c-primary);">円</span><div style="font-size:13px;font-weight:700;color:var(--c-primary);margin-top:3px;">／<span style="font-size:20px;">4本</span> 総額</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:20px 0;border-bottom:1px dashed var(--c-line);">
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;"><b style="font-size:17px;font-weight:700;color:var(--c-primary);">ブライトアップ 22%</b></div>
+            <p style="font-size:13px;color:var(--c-sub);line-height:1.75;margin-top:6px;">過酸化尿素22%のミントフレーバー。しみにくく、初めての方や日々のメンテナンス、色戻り対策にも。</p>
+          </div>
+          <div style="text-align:right;white-space:nowrap;padding-top:2px;"><span class="num" style="font-size:29px;color:var(--c-primary);">4,280</span><span style="font-size:14px;font-weight:600;color:var(--c-primary);">円</span><div style="font-size:13px;font-weight:700;color:var(--c-primary);margin-top:3px;">／<span style="font-size:20px;">4本</span> 総額</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:20px 0 4px;">
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;"><b style="font-size:17px;font-weight:700;color:var(--c-primary);">ブライトアップ 35%</b></div>
+            <p style="font-size:13px;color:var(--c-sub);line-height:1.75;margin-top:6px;">過酸化尿素35%の高濃度タイプ。装着は短時間が目安。しっかりケアしたい方へ。</p>
+          </div>
+          <div style="text-align:right;white-space:nowrap;padding-top:2px;"><span class="num" style="font-size:29px;color:var(--c-primary);">4,980</span><span style="font-size:14px;font-weight:600;color:var(--c-primary);">円</span><div style="font-size:13px;font-weight:700;color:var(--c-primary);margin-top:3px;">／<span style="font-size:20px;">4本</span> 総額</div></div>
+        </div>
+        <div class="hw-peruse" style="margin:18px -24px -20px;padding:20px 24px;background:#F6F2E9;border-top:1px solid var(--c-line);border-radius:0 0 var(--radius) var(--radius);display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;">
+          <div class="hw-peruse-vis" style="min-width:0;">
+            <span style="display:inline-flex;align-items:center;gap:7px;margin-bottom:10px;"><span style="font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--c-accent-d);">1本でこれだけ使える</span><span style="font-size:10.5px;font-weight:700;color:#fff;background:var(--c-accent-d);padding:2px 8px;border-radius:4px;letter-spacing:.04em;">オパールエッセンスの倍</span></span>
+            <div class="hw-peruse-row" style="display:flex;align-items:center;gap:11px;flex-wrap:wrap;">
+              <div style="display:flex;align-items:flex-end;gap:5px;">
+                <span style="display:flex;gap:2px;">
+                  <svg viewBox="0 0 16 26" width="15" height="25" fill="rgba(200,155,22,.18)" stroke="var(--c-accent-d)" stroke-width="1.3" stroke-linejoin="round"><rect x="5" y="1.4" width="6" height="3" rx="1"></rect><path d="M4.6 5.4c0-.5.4-.9 1-.9h4.8c.6 0 1 .4 1 .9V22a2 2 0 0 1-2 2H6.6a2 2 0 0 1-2-2z"></path><path d="M4.6 13h6.8" stroke-width="1"></path></svg>
+                  <svg viewBox="0 0 16 26" width="15" height="25" fill="rgba(200,155,22,.18)" stroke="var(--c-accent-d)" stroke-width="1.3" stroke-linejoin="round"><rect x="5" y="1.4" width="6" height="3" rx="1"></rect><path d="M4.6 5.4c0-.5.4-.9 1-.9h4.8c.6 0 1 .4 1 .9V22a2 2 0 0 1-2 2H6.6a2 2 0 0 1-2-2z"></path><path d="M4.6 13h6.8" stroke-width="1"></path></svg>
+                  <svg viewBox="0 0 16 26" width="15" height="25" fill="rgba(200,155,22,.18)" stroke="var(--c-accent-d)" stroke-width="1.3" stroke-linejoin="round"><rect x="5" y="1.4" width="6" height="3" rx="1"></rect><path d="M4.6 5.4c0-.5.4-.9 1-.9h4.8c.6 0 1 .4 1 .9V22a2 2 0 0 1-2 2H6.6a2 2 0 0 1-2-2z"></path><path d="M4.6 13h6.8" stroke-width="1"></path></svg>
+                  <svg viewBox="0 0 16 26" width="15" height="25" fill="rgba(200,155,22,.18)" stroke="var(--c-accent-d)" stroke-width="1.3" stroke-linejoin="round"><rect x="5" y="1.4" width="6" height="3" rx="1"></rect><path d="M4.6 5.4c0-.5.4-.9 1-.9h4.8c.6 0 1 .4 1 .9V22a2 2 0 0 1-2 2H6.6a2 2 0 0 1-2-2z"></path><path d="M4.6 13h6.8" stroke-width="1"></path></svg>
+                </span>
+                <span style="font-size:12px;font-weight:700;color:var(--c-primary);">4本</span>
+              </div>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--c-sub)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 6l6 6-6 6"></path></svg>
+              <span style="display:inline-flex;align-items:center;gap:5px;">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="var(--c-accent)" stroke="none"><path d="M12 2l1.7 5.1a3 3 0 0 0 1.9 1.9L20.7 11l-5.1 1.7a3 3 0 0 0-1.9 1.9L12 19.8l-1.7-5.1a3 3 0 0 0-1.9-1.9L3.3 11l5.1-1.7a3 3 0 0 0 1.9-1.9z"></path></svg>
+                <span style="font-size:14px;font-weight:700;color:var(--c-primary);">約 16〜24回分</span>
+              </span>
+            </div>
+            <span style="display:block;font-size:11.5px;color:var(--c-sub);margin-top:8px;line-height:1.5;">オパールの約2倍量。1本で約4〜6回分使えます</span>
+          </div>
+          <div class="hw-peruse-amt" style="text-align:right;color:var(--c-primary);white-space:nowrap;">
+            <span style="display:block;margin-bottom:9px;"><span style="font-size:13px;font-weight:600;color:var(--c-sub);">ホワイトニング</span> <span style="position:relative;display:inline-block;font-size:21px;font-weight:800;color:var(--c-accent-d);">1回あたり<svg viewBox="0 0 120 12" preserveAspectRatio="none" style="position:absolute;left:-3px;bottom:-8px;width:calc(100% + 8px);height:10px;overflow:visible;"><path d="M2 7C28 2 70 11 118 4" fill="none" stroke="var(--c-accent)" stroke-width="3.6" stroke-linecap="round"></path></svg></span></span>
+            <span style="display:inline-flex;align-items:baseline;gap:3px;">
+              <span style="font-size:15px;font-weight:600;">約</span>
+              <span class="num" style="font-size:48px;color:var(--c-accent-d);line-height:.9;">165</span>
+              <span style="font-size:18px;font-weight:700;">円〜</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--c-sub);text-align:center;margin-top:18px;line-height:1.8;">※専用マウスピース（上下セット）の作製費 5,500円（税込）が別途必要です。1回あたりの金額は使用量・マウスピースの形状により異なる目安です。価格・在庫は変動する場合があります。最新の料金は注文サイトをご確認ください。</p>
+  </div>
+</section>
+
+<section id="howto" style="padding:64px 0;background:var(--c-bg-2);">
+  <div style="width:100%;max-width:var(--maxw);margin:0 auto;padding:0 22px;">
+    <div style="text-align:center;margin-bottom:38px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.26em;color:var(--c-accent);text-transform:uppercase;margin-bottom:16px;">How to use</span>
+      <p style="font-size:26px;font-weight:700;line-height:1.5;color:var(--c-primary);word-break:keep-all;"><span style="display:inline-block;">ホームホワイトニングの</span><span style="display:inline-block;">使い方</span></p>
+      <p style="color:var(--c-sub);font-size:15px;line-height:1.9;max-width:32em;margin:8px auto 0;">1日たった数分の習慣。専用マウスピースに薬剤を入れて、装着するだけ。</p>
+    </div>
+    <div class="hw-howto-grid" style="display:grid;gap:16px;">
+      <div style="background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);overflow:hidden;text-align:center;">
+        <div style="position:relative;">
+          <img src="img/howto-1-syringe.png" alt="マウスピースに薬剤を入れる" style="width:100%;aspect-ratio:4/3;object-fit:cover;">
+          <div style="position:absolute;left:14px;top:14px;width:38px;height:38px;border-radius:50%;background:var(--c-primary);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(11,45,92,.25);">1</div>
+        </div>
+        <div style="padding:20px 22px 26px;">
+          <b style="display:block;font-size:15px;color:var(--c-primary);margin-bottom:6px;">マウスピースに薬剤</b>
+          <p style="font-size:13px;color:var(--c-sub);line-height:1.8;">専用トレーの内側に、ジェルを米粒大ずつ点状に入れます。</p>
+        </div>
+      </div>
+
+      <div style="background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);overflow:hidden;text-align:center;">
+        <div style="position:relative;">
+          <img src="img/howto-2-insert.png" alt="マウスピースを歯に装着する" style="width:100%;aspect-ratio:4/3;object-fit:cover;">
+          <div style="position:absolute;left:14px;top:14px;width:38px;height:38px;border-radius:50%;background:var(--c-primary);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(11,45,92,.25);">2</div>
+        </div>
+        <div style="padding:20px 22px 26px;">
+          <b style="display:block;font-size:15px;color:var(--c-primary);margin-bottom:6px;">歯に装着する</b>
+          <p style="font-size:13px;color:var(--c-sub);line-height:1.8;">歯に合わせてはめ、はみ出たジェルはティッシュで拭き取ります。</p>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);overflow:hidden;text-align:center;">
+        <div style="position:relative;">
+          <img src="img/howto-3-clock.png" alt="規定の時間マウスピースを装着する" style="width:100%;aspect-ratio:4/3;object-fit:cover;">
+          <div style="position:absolute;left:14px;top:14px;width:38px;height:38px;border-radius:50%;background:var(--c-primary);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(11,45,92,.25);">3</div>
+        </div>
+        <div style="padding:20px 22px 26px;">
+          <b style="display:block;font-size:15px;color:var(--c-primary);margin-bottom:6px;">規定の時間つける</b>
+          <p style="font-size:13px;color:var(--c-sub);line-height:1.8;">濃度ごとの目安時間だけ装着。歯科医師の指示に沿って規定の時間を守ります。</p>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--c-line);border-radius:var(--radius);overflow:hidden;text-align:center;">
+        <div style="position:relative;">
+          <img src="img/howto-4-rinse.png" alt="マウスピースを外して洗浄する" style="width:100%;aspect-ratio:4/3;object-fit:cover;">
+          <div style="position:absolute;left:14px;top:14px;width:38px;height:38px;border-radius:50%;background:var(--c-primary);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(11,45,92,.25);">4</div>
+        </div>
+        <div style="padding:20px 22px 26px;">
+          <b style="display:block;font-size:15px;color:var(--c-primary);margin-bottom:6px;">外して洗浄する</b>
+          <p style="font-size:13px;color:var(--c-sub);line-height:1.8;">うがいをして口内のジェルを除去。トレーは水で洗い乾かして保管します。</p>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--c-sub);text-align:center;margin-top:18px;line-height:1.8;">※装着時間・頻度は薬剤の濃度や歯科医師の指示によって異なります。しみる場合は使用を中止しご相談ください。</p>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section id="order" style="padding:64px 0;">
+  <div style="width:100%;max-width:var(--maxw);margin:0 auto;padding:0 22px;">
+    <div style="text-align:center;margin-bottom:38px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.26em;color:var(--c-accent);text-transform:uppercase;margin-bottom:16px;">How to order</span>
+      <p style="font-size:26px;font-weight:700;line-height:1.5;color:var(--c-primary);">注文の流れ</p>
+      <p style="color:var(--c-sub);font-size:15px;line-height:1.9;max-width:34em;margin:8px auto 0;">薬剤は医療機器のため、<b style="color:var(--c-primary);">歯科医師のオンライン診療</b>を受けてからのご注文となります。診療費は商品料金に含まれ、すべてオンラインで完結します。</p>
+    </div>
+    <div style="max-width:780px;margin:0 auto;">
+      <div class="hw-ostep" style="background:#fff;border:1px solid var(--c-line);border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow);">
+        <div style="position:relative;min-height:190px;">
+          <img src="img/order-1-app.png" alt="注文サイトに会員登録" style="width:100%;height:100%;min-height:190px;object-fit:cover;display:block;">
+          <div style="position:absolute;left:16px;top:16px;width:42px;height:42px;border-radius:12px;background:var(--c-primary);color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(11,45,92,.3);">1</div>
+        </div>
+        <div style="padding:24px 28px;display:flex;flex-direction:column;justify-content:center;">
+          <b style="font-size:19px;color:var(--c-primary);margin-bottom:7px;">患者様専用の注文サイトに会員登録</b>
+          <p style="font-size:14px;color:var(--c-sub);line-height:1.85;">当院の注文サイトでアカウントを作成します。メールアドレスがあれば数分で完了します。</p>
+          <a href="https://hb-clinic.online/account/register" target="_blank" rel="noopener" class="hw-reg-btn" style="display:inline-flex;align-self:flex-start;align-items:center;gap:8px;margin-top:14px;font-weight:700;font-size:14px;padding:12px 22px;border-radius:999px;min-height:44px;background:var(--c-accent);color:#fff;transition:.25s;" onMouseOver="this.style.background='var(--c-accent-d)'" onMouseOut="this.style.background='var(--c-accent)'">注文サイトに登録する<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;padding:8px 0;"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--c-accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></div>
+
+      <div class="hw-ostep" style="background:#fff;border:1px solid var(--c-line);border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow);">
+        <div style="position:relative;min-height:190px;">
+          <img src="img/order-2-calendar.png" alt="無料オンライン診療を予約" style="width:100%;height:100%;min-height:190px;object-fit:cover;display:block;">
+          <div style="position:absolute;left:16px;top:16px;width:42px;height:42px;border-radius:12px;background:var(--c-primary);color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(11,45,92,.3);">2</div>
+        </div>
+        <div style="padding:24px 28px;display:flex;flex-direction:column;justify-content:center;">
+          <b style="font-size:19px;color:var(--c-primary);margin-bottom:7px;">オンライン診療を予約</b>
+          <p style="font-size:14px;color:var(--c-sub);line-height:1.85;">ご都合の良い日時を選んで、歯科医師とのオンライン診療を予約します。診療費は商品料金に含まれます。</p>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;padding:8px 0;"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--c-accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></div>
+
+      <div class="hw-ostep" style="background:#fff;border:1px solid var(--c-line);border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow);">
+        <div style="position:relative;min-height:190px;">
+          <img src="img/order-3-consult.png" alt="オンライン診療を受ける" style="width:100%;height:100%;min-height:190px;object-fit:cover;display:block;">
+          <div style="position:absolute;left:16px;top:16px;width:42px;height:42px;border-radius:12px;background:var(--c-primary);color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(11,45,92,.3);">3</div>
+        </div>
+        <div style="padding:24px 28px;display:flex;flex-direction:column;justify-content:center;">
+          <b style="font-size:19px;color:var(--c-primary);margin-bottom:7px;">オンライン診療を受ける</b>
+          <p style="font-size:14px;color:var(--c-sub);line-height:1.85;">スマホやPCで歯科医師がお口の状態を確認。ホワイトニングの希望や不安をご相談ください。</p>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;padding:8px 0;"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--c-accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></div>
+
+      <div class="hw-ostep" style="background:#fff;border:2px solid var(--c-accent);border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow);">
+        <div style="position:relative;min-height:190px;">
+          <img src="img/order-4-dentist.png" alt="歯科医師が使用の可否を判断" style="width:100%;height:100%;min-height:190px;object-fit:cover;display:block;">
+          <div style="position:absolute;left:16px;top:16px;width:42px;height:42px;border-radius:12px;background:var(--c-accent);color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(200,155,22,.35);">4</div>
+        </div>
+        <div style="padding:24px 28px;display:flex;flex-direction:column;justify-content:center;">
+          <b style="font-size:19px;color:var(--c-primary);margin-bottom:7px;">歯科医師が使用の可否を判断</b>
+          <p style="font-size:14px;color:var(--c-sub);line-height:1.85;">お口の状態によっては、安全のため<b style="color:var(--c-no);">使用をお控えいただく場合があります</b>。</p>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;padding:8px 0;"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--c-accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></div>
+
+      <div class="hw-ostep" style="background:linear-gradient(135deg,#0B2D5C,#102f5e);border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow);">
+        <div style="position:relative;min-height:190px;">
+          <img src="img/order-5-delivery.png" alt="ジェルをご自宅へお届け" style="width:100%;height:100%;min-height:190px;object-fit:cover;display:block;">
+          <div style="position:absolute;left:16px;top:16px;width:42px;height:42px;border-radius:12px;background:var(--c-accent);color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(0,0,0,.3);">5</div>
+        </div>
+        <div style="padding:24px 28px;display:flex;flex-direction:column;justify-content:center;">
+          <b style="font-size:19px;color:#fff;margin-bottom:7px;">注文OK・ご自宅へお届け</b>
+          <p style="font-size:14px;color:#cdd7e6;line-height:1.85;">判断を受けたら注文サイトでジェルを購入。送料を含んだ価格で全国どこへでもお届けします。</p>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;max-width:400px;margin:34px auto 0;">
+      <a href="https://hb-clinic.online/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;padding:18px 32px;border-radius:999px;min-height:56px;width:100%;background:var(--c-accent);color:#fff;transition:.25s;" onMouseOver="this.style.background='var(--c-accent-d)'" onMouseOut="this.style.background='var(--c-accent)'">注文サイトで会員登録する</a>
+      <a href="https://lin.ee/PFnoLi7" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;padding:18px 32px;border-radius:999px;min-height:56px;width:100%;background:#06C755;color:#fff;transition:.25s;" onMouseOver="this.style.filter='brightness(.95)'" onMouseOut="this.style.filter='none'">LINEで相談する</a>
+    </div>
+    <div style="display:flex;gap:11px;align-items:flex-start;max-width:560px;margin:24px auto 0;padding:16px 18px;background:rgba(200,155,22,.06);border:1px solid var(--c-line);border-radius:var(--radius-sm);">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--c-accent-d)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;margin-top:2px;"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 7.6v.01"></path></svg>
+      <p style="font-size:12.5px;color:var(--c-sub);line-height:1.9;margin:0;">本サービスは、歯科医師の診療に基づく<b style="color:var(--c-primary);">ホワイトニングの治療計画に沿って、ご自宅でホワイトニングを行っていただく</b>ものです。ジェル単体の販売を目的としたものではなく、歯科医師の診察・使用可否の判断を受けずにジェルのみをご購入いただくことはできません。</p>
     </div>
   </div>
 </section>
 
-<!-- ===== FAQ ===== -->
-<section class="section reveal" id="faq">
-  <div class="container">
-    <div class="center"><span class="eyebrow">FAQ</span><p class="h-sec">よくある質問</p></div>
-    <div class="faq" data-faq>
-      <div class="faq-item"><button class="faq-q">どのくらいで白くなりますか？<span class="mark"></span></button><div class="faq-a"><div>濃度や使用頻度によりますが、2週間ほどで変化を感じる方が多いです。</div></div></div>
-      <div class="faq-item"><button class="faq-q">しみたり染みたりしますか？<span class="mark"></span></button><div class="faq-a"><div>低濃度を選ぶ・使用時間を調整することで、しみにくくできます。</div></div></div>
-      <div class="faq-item"><button class="faq-q">毎日やらないとダメですか？<span class="mark"></span></button><div class="faq-a"><div>毎日でなくても効果は得られます。ご自身のペースで継続できます。</div></div></div>
-      <div class="faq-item"><button class="faq-q">ホワイトニングの効果はどのくらい？<span class="mark"></span></button><div class="faq-a"><div>継続することで白さをキープしやすくなります。定期的な追加ジェルがおすすめです。</div></div></div>
-      <div class="faq-item"><button class="faq-q">妊娠中でも使用できますか？<span class="mark"></span></button><div class="faq-a"><div>妊娠中・授乳中の方はご使用をお控えください。</div></div></div>
+<!-- ONLINE CARE (legal) -->
+<section id="online-care" style="padding:48px 0 28px;background:var(--c-bg-2);">
+  <div style="width:100%;max-width:760px;margin:0 auto;padding:0 22px;color:var(--c-sub);font-size:13px;line-height:1.95;">
+    <details>
+    <summary style="font-size:14px;font-weight:700;color:var(--c-text);cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;padding:6px 0;"><span style="font-size:11px;color:var(--c-sub);">▶</span>オンライン診療について</summary>
+    <div style="padding-top:14px;">
+    <p style="margin-bottom:20px;">当院（歯と美容のクリニック）では、ホワイトニングに関するオンライン診療を実施しています。ご利用の前に、以下の内容を必ずご確認ください。</p>
+
+    <p style="font-weight:700;color:var(--c-text);margin-bottom:4px;">1. 担当歯科医師</p>
+    <p style="margin-bottom:18px;">オンライン診療は、歯と美容のクリニック所属の歯科医師が担当します。</p>
+
+    <p style="font-weight:700;color:var(--c-text);margin-bottom:4px;">2. オンライン診療で対応する内容</p>
+    <p style="margin-bottom:18px;">・ホワイトニングに関するご相談<br>・再診<br>・ホワイトニング製品（ホワイトニングジェル等）の処方</p>
+
+    <p style="font-weight:700;color:var(--c-text);margin-bottom:4px;">3. オンライン診療で対応できない場合</p>
+    <p style="margin-bottom:18px;">次のような場合は、オンライン診療では対応できず、対面での受診をご案内するか、又は処方をお断りすることがあります。<br>・カメラ等を通じて歯面の状態が十分に確認できない場合<br>・歯科医師が、オンラインでの診療・処方が適切でないと判断した場合<br>・痛み、腫れ等の急性症状がある場合<br>・外科的処置その他、オンラインでの対応が困難な処置が必要な場合</p>
+
+    <p style="font-weight:700;color:var(--c-text);margin-bottom:4px;">4. 診療の流れ</p>
+    <p style="margin-bottom:18px;">（1）ご予約 →（2）オンラインでの診察 →（3）問題がなければ処方 →（4）商品のご注文・お支払い →（5）発送</p>
+
+    <p style="font-weight:700;color:var(--c-text);margin-bottom:4px;">5. ご利用に必要な環境</p>
+    <p style="margin-bottom:18px;">スマートフォン、及びカメラ機能が必須です。通信環境はお客様にてご用意いただくものとし、通信不良・機器の不具合等により生じた不利益はお客様のご負担となります。</p>
+
+    <p style="font-weight:700;color:var(--c-text);margin-bottom:4px;">6. 本人確認</p>
+    <p style="margin-bottom:18px;">診察にあたり、顔写真付きの身分証明書のご提示をお願いします。ご提示いただけない場合、診療をお断りすることがあります。</p>
+
+    <p style="font-weight:700;color:var(--c-text);margin-bottom:4px;">7. 処方品の配送</p>
+    <p style="margin-bottom:18px;">・送料：初回発送時の送料は当院負担で無料です。再送となった場合は、1配送あたり660円の送料を申し受けます。<br>・費用：診察料・初診料などはすべて込みの価格を商品ページに表示しています。<br>・お届け時期：診察後、患者様からのご注文を受けて3営業日以内に発送し、その後1週間ほどでお届けします。<br>　※診察結果により、ご希望の処方ができない場合があります。<br>（配送・送料・お届け時期は「特定商取引法に基づく表記」と同じ内容です。）</p>
+
+    <p style="font-weight:700;color:var(--c-text);margin-bottom:4px;">8. 費用とお支払い</p>
+    <p style="margin-bottom:18px;">費用は、初診料・診察料・ホワイトニングジェル等を含めた総額を、商品価格として表示します。お支払い方法はクレジットカード決済のみです。</p>
+
+    <p style="font-weight:700;color:var(--c-text);margin-bottom:4px;">9. 予約の変更・キャンセル</p>
+    <p style="margin-bottom:18px;">予約の変更・キャンセル及びキャンセル料については、ご予約時にご案内する内容をご参照ください。</p>
+
+    <p style="font-weight:700;color:var(--c-text);margin-bottom:4px;">10. 急変時・緊急時の対応</p>
+    <p style="margin-bottom:18px;">診療中又は診療後に体調の変化等があった場合は、公式LINE、又はメール（hatobiyo.help@gmail.com）までご連絡ください。状況に応じて、対面診療（銀座本院・銀座７丁目医院・銀座歯科 THE DENTE）への切り替え、又は適切な医療機関のご案内を行います。</p>
+
+    <p style="font-weight:700;color:var(--c-text);margin-bottom:4px;">11. 対応日時</p>
+    <p style="margin-bottom:18px;">オンライン診療の対応日時は、予約カレンダーをご参照ください。</p>
+
+    <p style="font-weight:700;color:var(--c-text);margin-bottom:4px;">12. ご注意</p>
+    <p style="margin-bottom:18px;">・ホワイトニングの効果には個人差があり、結果を保証するものではありません。<br>・診察の結果によっては、ご希望の処方ができない場合があります。<br>・問診時にご申告いただく内容は、正確にお願いします。申告内容の虚偽・不正確・不申告に起因して生じた結果について、当院は責任を負いかねます。</p>
+
+    <p style="font-weight:700;color:var(--c-text);margin-bottom:4px;">13. お問い合わせ窓口</p>
+    <p>公式LINE、又はメール（hatobiyo.help@gmail.com）までお願いします。</p>
     </div>
+    </details>
   </div>
 </section>
 
-<!-- ===== 注文/相談CTA ===== -->
-<section class="final-cta" id="order">
-  <div class="container">
-    <span class="eyebrow" style="color:var(--c-accent);">Start</span>
-    <h2>まずはオンライン診療でご相談ください</h2>
-    <p class="price-note" style="color:#cdd7e6;">歯科医師が診察のうえ、最適な濃度をご提案します。</p>
-    <div class="ftc-btns">
-      <a href="https://lin.ee/PFnoLi7" target="_blank" rel="noopener" class="btn btn--line btn--block">LINEで予約</a>
-      <a href="https://hb-clinic.kalonade.com/hb-clinic/reservation/menu_section_categories" target="_blank" rel="noopener" class="btn btn--gold btn--block">WEBから予約（24時間OK）</a>
-    </div>
+<!-- RISK & 未承認医薬品（限定解除）：コンパクト表示 -->
+<section id="risk" style="padding:0 0 48px;background:var(--c-bg-2);">
+  <div style="width:100%;max-width:760px;margin:0 auto;padding:0 22px;color:var(--c-sub);font-size:11.5px;line-height:1.65;">
+    <p style="font-weight:700;color:var(--c-text);font-size:12.5px;margin-bottom:5px;">リスク・副作用</p>
+    <p style="margin-bottom:14px;">効果には個人差があり、白さ・持続期間を保証するものではありません（時間の経過により色戻りが起こります）。知覚過敏・歯のしみ、歯ぐきや粘膜の一時的な痛み・刺激・白濁が生じることがあります（多くは数日で自然に軽快します）。詰め物・被せ物などの人工歯や、変色の原因によっては白くなりません。むし歯・歯周病がある場合は治療を優先する場合があります。妊娠中・授乳中の方、無カタラーゼ症の方、18歳未満の方はご使用いただけません。本診療は自由診療で、公的医療保険はご利用いただけません（費用は各商品ページに税込価格で表示）。</p>
+    <p style="font-weight:700;color:var(--c-text);font-size:12.5px;margin-bottom:5px;">限定解除要件</p>
+    <p style="margin-bottom:10px;">当院で扱う一部の医療機器について</p>
+    <dl style="display:grid;gap:8px;margin:0;">
+      <div><dt style="font-weight:700;color:var(--c-text);margin-bottom:1px;">主な副作用とリスクについて</dt><dd style="margin:0;">知覚過敏、アレルギー反応、歯肉の炎症などが報告されています。</dd></div>
+      <div><dt style="font-weight:700;color:var(--c-text);margin-bottom:1px;">未承認医療機器であることの提示</dt><dd style="margin:0;">日本国内では未承認の医療機器となります。</dd></div>
+      <div><dt style="font-weight:700;color:var(--c-text);margin-bottom:1px;">入手経路</dt><dd style="margin:0;">一部のOpalescence／BrightUPは、アメリカのメーカーで生産されたものを当院・歯科医師が個人輸入しています。個人輸入された医療機器等の使用によるリスクに関する情報は下記URLをご確認ください。<br><a href="https://www.yakubutsu.mhlw.go.jp/index.html" target="_blank" rel="noopener" style="color:var(--c-accent-d);text-decoration:underline;word-break:break-all;">https://www.yakubutsu.mhlw.go.jp/index.html</a></dd></div>
+      <div><dt style="font-weight:700;color:var(--c-text);margin-bottom:1px;">国内承認医療機器の有無</dt><dd style="margin:0;">国内に同等の承認医療機器はありません。</dd></div>
+      <div><dt style="font-weight:700;color:var(--c-text);margin-bottom:1px;">諸外国における安全性などにかかる情報</dt><dd style="margin:0;">ともにアメリカ食品医薬品局（FDA）によって、認可または承認されている工場で製造されたものを使用しております。アメリカでは化粧品としての扱いとなります。</dd></div>
+      <div><dt style="font-weight:700;color:var(--c-text);margin-bottom:1px;">医薬品副作用被害救済制度について</dt><dd style="margin:0;">万が一重篤な副作用が出た場合は、国の医薬品副作用被害救済制度の対象外となります。</dd></div>
+    </dl>
   </div>
 </section>
 
-<!-- ===== Footer ===== -->
+<!-- FOOTER -->
 <footer class="site-footer">
   <div class="container">
-    <div class="f-brand"><b>歯と美容のクリニック</b>自宅で続ける医療ホワイトニング。オンライン診療対応。</div>
+    <div class="f-brand">
+      <b>歯と美容のクリニック</b>
+      国家資格を持つプロ集団による、安心の医療ホワイトニング。銀座本院／銀座7丁目院／銀座歯科 THE DENTE。
+    </div>
     <nav>
-      <a href="index.html">TOP</a>
-      <a href="#price">価格</a>
-      <a href="#flow">オンライン診療の流れ</a>
-      <a href="dual-whitening.html">デュアルホワイトニング</a>
-      <a href="#faq">よくある質問</a>
+      <a href="home-whitening.html">ホームホワイトニング</a>
+      <a href="index.html#price" class="nav-dual">デュアルホワイトニング</a>
+      <a href="index.html#faq">よくある質問</a>
+      <a href="index.html#access">アクセス</a>
+      <a href="index.html#reserve">WEB予約</a>
       <a href="contact.html">お問い合わせ</a>
+      <a href="shohosen.html">指示書について</a>
     </nav>
-    <p class="copy">運営：一般社団法人SmileMedi ｜ © 歯と美容のクリニック All Rights Reserved.</p>
+    <div class="f-notes">
+      <div class="f-note">
+        <h4>ご利用にあたって</h4>
+        <ul>
+          <li>お支払いは現金不可です。各種キャッシュレス決済のみのご対応となります。</li>
+          <li>お電話でのお問い合わせ・ご予約は承っておりません。WEBまたはLINEよりお願いいたします。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal-links">
+      <a href="terms.html">利用規約</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="tokushoho.html">特定商取引法に基づく表記</a>
+      <a href="aboutus.html">当院について</a>
+    </div>
+    <p class="copy">© 歯と美容のクリニック All Rights Reserved.</p>
   </div>
 </footer>
 
 <div class="sticky-cta">
-  <a href="https://lin.ee/PFnoLi7" target="_blank" rel="noopener" class="btn btn--line">LINEで相談</a>
-  <a href="#order" class="btn btn--primary">オンライン診療</a>
+  <a href="https://hb-clinic.online/" target="_blank" rel="noopener" class="btn order-cta" style="padding-left:8px;padding-right:8px;"><span style="font-size:11px;line-height:1.32;text-align:center;font-weight:700;">ホームホワイトニング<br>ジェルを注文</span></a>
+  <a href="https://hb-clinic.kalonade.com/hb-clinic/reservation/menu_section_categories" target="_blank" rel="noopener" class="btn btn--primary">来院予約</a>
 </div>
 
-<script src="js/main.js"></script>
+<style>
+#online-care summary::-webkit-details-marker{display:none;}
+#online-care details[open] summary span{display:inline-block;transform:rotate(90deg);}
+.hw-ostep{display:grid;grid-template-columns:1fr;}
+@media(min-width:600px){
+  .hw-ostep{grid-template-columns:300px 1fr;align-items:stretch;height:230px;}
+}
+@media(min-width:768px){
+  .hw-merit-grid{grid-template-columns:repeat(3,1fr);}
+  .hw-price-grid{grid-template-columns:repeat(3,1fr);}
+  .hw-price-grid2{grid-template-columns:repeat(2,1fr);}
+  .hw-pl{grid-template-columns:1fr 1fr!important;align-items:start;}
+  .hw-howto-grid{grid-template-columns:repeat(4,1fr);}
+  h1{font-size:38px!important;}
+}
+@media(min-width:1024px){
+  .hw-hero-grid{grid-template-columns:0.9fr 1.25fr;gap:48px;padding:64px 0 72px;}
+}
+@media(min-width:1180px){
+  .nav{gap:26px;}
+  .header-cta.order-cta{display:inline-flex;}
+}
+@keyframes hwFloat{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-14px) scale(1.05);}}
+@media(max-width:767px){
+  .hw-hero-grid{gap:14px!important;padding:16px 0 40px!important;}
+  .hw-hero-grid > div:nth-child(1){order:2;}
+  .hw-hero-grid > div:nth-child(2){order:1;margin:0 -16px;position:relative;}
+  .hw-hero-grid > div:nth-child(2)::before{content:"";position:absolute;left:50%;top:48%;width:84%;aspect-ratio:1;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(200,155,22,.24) 0%,rgba(200,155,22,0) 66%);z-index:0;pointer-events:none;}
+  .hw-hero-grid > div:nth-child(2) img{aspect-ratio:1/1!important;position:relative;z-index:1;animation:none!important;will-change:transform;}
+  .hw-hero-grid h1{font-size:24px!important;line-height:1.5!important;}
+}
+@media (prefers-reduced-motion: reduce){.hw-hero-grid > div:nth-child(2) img{animation:none!important;}}
+@media(max-width:767px){
+  .hw-pl{border:1px solid var(--c-line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);gap:0!important;}
+  .hw-pl > div{border:0!important;border-radius:0!important;box-shadow:none!important;}
+}
+.hw-reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);will-change:opacity,transform;}
+.hw-reveal.is-in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.hw-reveal{opacity:1!important;transform:none!important;}}
+@media(max-width:767px){
+  .hw-peruse{justify-content:center;text-align:center;gap:14px;}
+  .hw-peruse-vis{width:100%;text-align:center;}
+  .hw-peruse-row{justify-content:center;}
+  .hw-peruse-amt{width:100%;text-align:center!important;}
+  .hw-peruse-amt > span:last-child{justify-content:center;}
+  .hw-hero-cta{margin-left:auto;margin-right:auto;width:100%;}
+  .hw-reg-btn{align-self:center!important;}
+}
+</style>
+<script>
+class DCLogic{}
+class Component extends DCLogic {
+  componentDidMount() {
+    const root = document;
+    const toggle = root.getElementById('navToggle');
+    const mobileNav = root.getElementById('mobileNav');
+    if (toggle && mobileNav) {
+      toggle.addEventListener('click', () => {
+        mobileNav.classList.toggle('open');
+        document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+      });
+      mobileNav.querySelectorAll('a, .mn-close').forEach((a) => {
+        a.addEventListener('click', () => {
+          mobileNav.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+    root.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (ev) => {
+        const id = link.getAttribute('href');
+        if (id === '#' || id.length < 2) return;
+        const target = root.querySelector(id);
+        if (!target) return;
+        ev.preventDefault();
+        const headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 64;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 8;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      });
+    });
+
+    // ヒーロー画像：スクロール連動パララックス（スマホのみ）
+    const heroImg = root.querySelector('.hw-hero-grid img');
+    const isMobile = window.matchMedia('(max-width:767px)').matches;
+    const reduceM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (heroImg && isMobile && !reduceM) {
+      const sec = heroImg.closest('section');
+      let ticking = false;
+      const update = () => {
+        ticking = false;
+        const rect = sec.getBoundingClientRect();
+        const p = Math.min(Math.max(-rect.top / window.innerHeight, 0), 1);
+        heroImg.style.transform = 'translateY(' + (p * -70) + 'px) scale(' + (1 + p * 0.22) + ')';
+      };
+      window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+      update();
+    }
+
+    // スクロール連動：要素のフェードアップ表示
+    if (!reduceM && 'IntersectionObserver' in window) {
+      const groups = [
+        { sel: 'div[style*="text-align:center"]', stagger: false },
+        { sel: '.hw-merit-grid > div', stagger: true },
+        { sel: '.hw-howto-grid > div', stagger: true },
+        { sel: '.hw-pl > div', stagger: true },
+        { sel: '.hw-price-grid > div', stagger: true },
+        { sel: '.hw-price-grid2 > div', stagger: true },
+        { sel: '.hw-mp-banner', stagger: false },
+        { sel: '.hw-ostep', stagger: false },
+      ];
+      groups.forEach((g) => {
+        root.querySelectorAll(g.sel).forEach((el, i) => {
+          if (el.closest('.hw-hero-grid')) return;
+          el.classList.add('hw-reveal');
+          if (g.stagger) el.style.transitionDelay = (i % 4) * 90 + 'ms';
+        });
+      });
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+      root.querySelectorAll('.hw-reveal').forEach((el) => io.observe(el));
+    }
+  }
+}
+;(function(){function s(){try{new Component().componentDidMount();}catch(e){console.error(e);}}if(document.readyState!=="loading")s();else document.addEventListener("DOMContentLoaded",s);})();
+</script>
 </body>
 </html>
