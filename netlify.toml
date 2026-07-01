@@ -81,3 +81,8 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/monshin_completed.html"
+  to = "/monshin_completed"
+  status = 301
+  force = true
