@@ -1121,21 +1121,17 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;}
   <div class="container" style="text-align:center;">
     <span class="eyebrow">Contact</span>
     <p class="h-sec">お問い合わせ</p>
-    <p class="lead" style="margin:0 auto;">ご予約は <a href="https://hb-clinic.kalonade.com/hb-clinic/reservation/menu_section_categories" target="_blank" rel="noopener" style="color:var(--c-accent);text-decoration:underline;">WEB予約</a> または <a href="https://lin.ee/PFnoLi7" target="_blank" rel="noopener" style="color:var(--c-accent);text-decoration:underline;">LINE</a> が便利です。その他のお問い合わせは下記フォームよりお願いいたします。</p>
+    <p class="lead" style="margin:0 auto;">ご予約は <a href="https://hb-clinic.kalonade.com/hb-clinic/reservation/menu_section_categories" target="_blank" rel="noopener" style="color:var(--c-accent);text-decoration:underline;">WEB予約</a> または <a href="https://lin.ee/PFnoLi7" target="_blank" rel="noopener" style="color:var(--c-accent);text-decoration:underline;">LINE</a> が便利です。その他のお問い合わせは、下記よりメールでお送りください。</p>
   </div>
 </section>
 <section class="section--tight">
   <div class="container">
-    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks" class="cform">
-      <input type="hidden" name="form-name" value="contact">
-      <p class="hp"><label>この欄は入力しないでください：<input name="bot-field"></label></p>
-      <div class="ff"><label for="name">お名前<span class="req">必須</span></label><input type="text" id="name" name="お名前" required autocomplete="name"></div>
-      <div class="ff"><label for="email">メールアドレス<span class="req">必須</span></label><input type="email" id="email" name="email" required autocomplete="email" placeholder="example@email.com"></div>
-      <div class="ff"><label for="tel">電話番号<span class="opt">任意</span></label><input type="tel" id="tel" name="電話番号" autocomplete="tel"></div>
-      <div class="ff"><label for="msg">お問い合わせ内容<span class="req">必須</span></label><textarea id="msg" name="お問い合わせ内容" required placeholder="ご質問・ご相談内容をご記入ください。"></textarea></div>
-      <div data-netlify-recaptcha="true"></div>
-      <button type="submit" class="btn btn--primary">送信する</button>
-      <p class="note">「私はロボットではありません」の認証にチェックのうえ送信してください。いただいた内容はお問い合わせ対応のみに利用します。</p>
+    <form id="mailForm" class="cform" novalidate>
+      <div class="ff"><label for="name">お名前<span class="req">必須</span></label><input type="text" id="name" required autocomplete="name"></div>
+      <div class="ff"><label for="tel">電話番号<span class="opt">任意</span></label><input type="tel" id="tel" autocomplete="tel"></div>
+      <div class="ff"><label for="msg">お問い合わせ内容<span class="req">必須</span></label><textarea id="msg" required placeholder="ご質問・ご相談内容をご記入ください。"></textarea></div>
+      <button type="submit" class="btn btn--primary">メールアプリで送信する</button>
+      <p class="note">ボタンを押すと、ご利用のメールアプリが「宛先・件名・入力内容」が入った状態で起動します。そのまま送信してください。お客様ご自身のメールアドレスから届くので、折り返しもスムーズです。<br><a href="#" id="copyAddr" style="color:var(--c-accent);text-decoration:underline;">メールアプリが開かない場合はこちら（宛先をコピー）</a><span id="copyMsg" style="margin-left:8px;color:var(--c-sub);"></span></p>
     </form>
   </div>
 </section>
@@ -1307,6 +1303,34 @@ class Component extends DCLogic {
   }
 }
 ;(function(){function s(){try{new Component().componentDidMount();}catch(e){console.error(e);}}if(document.readyState!=="loading")s();else document.addEventListener("DOMContentLoaded",s);})();
+</script>
+<script>
+(function(){
+  var u=["hatobiyo","help"].join("."), d=["gmail","com"].join(".");
+  var addr=u+"@"+d;
+  var f=document.getElementById("mailForm");
+  if(f){
+    f.addEventListener("submit",function(e){
+      e.preventDefault();
+      var name=(document.getElementById("name").value||"").trim();
+      var tel=(document.getElementById("tel").value||"").trim();
+      var msg=(document.getElementById("msg").value||"").trim();
+      if(!name||!msg){ alert("お名前とお問い合わせ内容をご入力ください。"); return; }
+      var subject="【HP】お問い合わせ";
+      var body="お名前："+name+"\r\n電話番号："+(tel||"（未記入）")+"\r\n\r\n【お問い合わせ内容】\r\n"+msg+"\r\n";
+      window.location.href="mailto:"+addr+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+    });
+  }
+  var c=document.getElementById("copyAddr");
+  if(c){
+    c.addEventListener("click",function(e){
+      e.preventDefault();
+      var done=function(){var m=document.getElementById("copyMsg"); if(m){m.textContent="コピーしました（"+addr+"）";}};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(addr).then(done,function(){var m=document.getElementById("copyMsg");if(m)m.textContent=addr;});}
+      else{var m=document.getElementById("copyMsg"); if(m)m.textContent=addr;}
+    });
+  }
+})();
 </script>
 </body>
 </html>
