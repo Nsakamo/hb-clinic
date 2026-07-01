@@ -740,6 +740,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;}
 .agent-conc .ac-body b{display:block;font-size:15.5px;color:#fff;font-weight:800;margin-bottom:4px;}
 .agent-conc .ac-body span{font-size:13px;color:#cdd7e6;line-height:1.72;}
 .agent-conc .ac-body span b{display:inline;color:var(--c-accent);font-weight:800;}
+.agent-conc .ac-risk{display:inline-block;margin-top:8px;color:var(--c-accent);text-decoration:underline;font-weight:700;font-size:12px;}
 @media(min-width:768px){
   .agent-inner{grid-template-columns:.9fr 1.1fr;gap:46px;}
   .ap b{font-size:17px;}
@@ -1277,10 +1278,10 @@ html{overflow-x:clip;}
       <div>
         <p class="lead" style="margin:0 0 22px;">当院は、歯そのものを漂白する<b style="color:#fff;">過酸化水素ベース</b>の薬剤を使用。サロンやエステでは扱えない、医療機関だけの薬剤です。</p>
         <div class="agent-conc">
-          <div class="ac-badge"><span class="ac-num">35<small>%</small></span><span class="ac-cap">当院最高濃度</span></div>
+          <div class="ac-badge"><span class="ac-num">35<small>%</small></span><span class="ac-cap">当院の最大濃度</span></div>
           <div class="ac-body">
-            <b>医療機関だから使える高濃度</b>
-            <span>過酸化水素の濃度は、歯の状態やご希望に合わせて調整します。医院だけが扱える<b>最大35%（当院最高濃度）</b>まで対応し、しっかり白さを引き出します。</span>
+            <b>医療機関だから扱える濃度</b>
+            <span>過酸化水素の濃度は、歯の状態やご希望に合わせて調整します。当院で扱う<b>最も高い濃度（最大35%）</b>まで対応します。<a href="#risk" class="ac-risk">※効果・リスク・限定解除要件についてはこちら</a></span>
           </div>
         </div>
         <div class="agent-points">
@@ -1670,8 +1671,17 @@ html{overflow-x:clip;}
         <li style="position:relative;padding-left:17px;"><span style="position:absolute;left:3px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--c-accent);display:block;"></span>詰め物・被せ物・差し歯などの人工歯、変色の原因によっては白くならない場合があります。</li>
         <li style="position:relative;padding-left:17px;"><span style="position:absolute;left:3px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--c-accent);display:block;"></span>むし歯・歯周病がある場合は、先に治療をおすすめする場合があります。妊娠中・授乳中の方、無カタラーゼ症の方は施術をお控えいただきます。</li>
         <li style="position:relative;padding-left:17px;"><span style="position:absolute;left:3px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--c-accent);display:block;"></span>本診療は自由診療です。公的医療保険はご利用いただけません。費用はすべて税込価格で表示しています。</li>
-        <li style="position:relative;padding-left:17px;"><span style="position:absolute;left:3px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--c-accent);display:block;"></span>ホームホワイトニング用ジェルには一部未承認の医療機器が含まれます。リスク・副作用および限定解除要件に関する表示は<a href="/home-whitening#risk" style="color:var(--c-accent-d);text-decoration:underline;">ホームホワイトニングのページ</a>をご確認ください。</li>
       </ul>
+      <p style="font-weight:700;color:var(--c-text);font-size:14px;margin:22px 0 6px;">限定解除要件</p>
+      <p style="margin:0 0 12px;font-size:12.5px;color:var(--c-sub);">当院で使用する一部の医薬品・医療機器について</p>
+      <dl style="display:grid;gap:10px;margin:0;font-size:12.5px;color:var(--c-sub);line-height:1.75;">
+        <div><dt style="font-weight:700;color:var(--c-text);margin-bottom:1px;">主な副作用とリスクについて</dt><dd style="margin:0;">知覚過敏、アレルギー反応、歯肉の炎症などが報告されています。</dd></div>
+        <div><dt style="font-weight:700;color:var(--c-text);margin-bottom:1px;">未承認医薬品・医療機器であることの提示</dt><dd style="margin:0;">日本国内では未承認の医薬品・医療機器となります。</dd></div>
+        <div><dt style="font-weight:700;color:var(--c-text);margin-bottom:1px;">入手経路</dt><dd style="margin:0;">一部のOpalescence／BrightUPは、アメリカのメーカーで生産されたものを当院・歯科医師が個人輸入しています。個人輸入された医薬品・医療機器等の使用によるリスクに関する情報は下記URLをご確認ください。<br><a href="https://www.yakubutsu.mhlw.go.jp/index.html" target="_blank" rel="noopener" style="color:var(--c-accent-d);text-decoration:underline;word-break:break-all;">https://www.yakubutsu.mhlw.go.jp/index.html</a></dd></div>
+        <div><dt style="font-weight:700;color:var(--c-text);margin-bottom:1px;">国内承認医薬品・医療機器の有無</dt><dd style="margin:0;">国内に同等の承認医薬品・医療機器はありません。</dd></div>
+        <div><dt style="font-weight:700;color:var(--c-text);margin-bottom:1px;">諸外国における安全性などにかかる情報</dt><dd style="margin:0;">アメリカ食品医薬品局（FDA）によって、認可または承認されている工場で製造されたものを使用しております。アメリカでは化粧品としての扱いとなります。</dd></div>
+        <div><dt style="font-weight:700;color:var(--c-text);margin-bottom:1px;">医薬品副作用被害救済制度について</dt><dd style="margin:0;">万が一重篤な副作用が出た場合は、国の医薬品副作用被害救済制度の対象外となります。</dd></div>
+      </dl>
     </div>
   </div>
 </section>
