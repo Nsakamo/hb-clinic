@@ -732,6 +732,14 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;}
 .ap span{font-size:13px;color:#cdd7e6;line-height:1.75;}
 .ap span b{color:#fff;font-weight:700;}
 .agent-note{font-size:12px;color:#9fb0c8;margin-top:18px;}
+.agent-conc{display:flex;align-items:center;gap:16px;background:rgba(200,155,22,.10);border:1px solid rgba(200,155,22,.34);border-radius:16px;padding:16px 18px;margin:0 0 20px;}
+.agent-conc .ac-badge{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:92px;padding:12px 14px;background:linear-gradient(135deg,var(--c-accent),var(--c-accent-d));border-radius:14px;box-shadow:0 8px 20px rgba(200,155,22,.30);}
+.agent-conc .ac-num{font-size:38px;font-weight:800;line-height:1;color:#fff;font-feature-settings:"tnum";letter-spacing:-.01em;}
+.agent-conc .ac-num small{font-size:19px;font-weight:800;margin-left:1px;}
+.agent-conc .ac-cap{margin-top:6px;font-size:11px;font-weight:800;letter-spacing:.06em;color:#fff;white-space:nowrap;}
+.agent-conc .ac-body b{display:block;font-size:15.5px;color:#fff;font-weight:800;margin-bottom:4px;}
+.agent-conc .ac-body span{font-size:13px;color:#cdd7e6;line-height:1.72;}
+.agent-conc .ac-body span b{display:inline;color:var(--c-accent);font-weight:800;}
 @media(min-width:768px){
   .agent-inner{grid-template-columns:.9fr 1.1fr;gap:46px;}
   .ap b{font-size:17px;}
@@ -1268,6 +1276,13 @@ html{overflow-x:clip;}
       <div class="agent-photo"><img src="img/agent.jpg" alt="医療ホワイトニング専用の薬剤（ホワイトニングジェル）"></div>
       <div>
         <p class="lead" style="margin:0 0 22px;">当院は、歯そのものを漂白する<b style="color:#fff;">過酸化水素ベース</b>の薬剤を使用。サロンやエステでは扱えない、医療機関だけの薬剤です。</p>
+        <div class="agent-conc">
+          <div class="ac-badge"><span class="ac-num">35<small>%</small></span><span class="ac-cap">当院最高濃度</span></div>
+          <div class="ac-body">
+            <b>医療機関だから使える高濃度</b>
+            <span>過酸化水素の濃度は、歯の状態やご希望に合わせて調整します。医院だけが扱える<b>最大35%（当院最高濃度）</b>まで対応し、しっかり白さを引き出します。</span>
+          </div>
+        </div>
         <div class="agent-points">
           <div class="ap"><div class="ap-ic"><svg viewBox="0 0 24 24"><path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z"></path></svg></div><div><b>歯そのものを漂白</b><span>表面の汚れ落としではなく、歯の内部の着色を分解して白くします。</span></div></div>
           <div class="ap"><div class="ap-ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9.5 12l2 2 3.5-3.5"></path></svg></div><div><b>歯科医院でしか使えない</b><span>過酸化水素による漂白は歯科医師の管理下のみ。<b>サロンやエステでは使用できません。</b></span></div></div>
