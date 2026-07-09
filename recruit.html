@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="canonical" href="https://hb-clinic.com/recruit">
+<style>
+:root{
+  --c-primary:#0B2D5C;--c-primary-d:#081f40;--c-accent:#C89B16;--c-accent-d:#a8810f;
+  --c-no:#D93838;--c-bg:#FAF8F5;--c-bg-2:#F2EEE7;--c-white:#FFFFFF;
+  --c-text:#1A1A1A;--c-sub:#666666;--c-line:#E5DFD5;
+  --radius:24px;--radius-sm:14px;
+  --shadow:0 6px 24px rgba(11,45,92,.06);--shadow-hover:0 10px 32px rgba(11,45,92,.10);
+  --maxw:1120px;--header-h:64px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+/* sticky header fix: DCホストを実コンテンツ高さにして position:sticky を全長で効かせる */
+html,body{height:auto!important;}
+#dc-root,.sc-host{height:auto!important;min-height:100vh;overflow:visible!important;}
+body{font-family:"Noto Sans JP",system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:var(--c-text);background:var(--c-bg);font-weight:400;line-height:1.8;letter-spacing:.02em;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul,li{list-style:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+.container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;line-height:1;text-align:center;padding:18px 32px;border-radius:999px;transition:.25s ease;min-height:56px;}
+.btn--primary{background:var(--c-primary);color:#fff;box-shadow:var(--shadow);}
+.btn--primary:hover{background:var(--c-primary-d);box-shadow:var(--shadow-hover);transform:translateY(-1px);}
+.btn--line{background:#06C755;color:#fff;}
+.btn--line:hover{filter:brightness(.95);}
+.btn--block{width:100%;}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(250,248,245,.92);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid var(--c-line);}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;height:var(--header-h);}
+.brand{display:flex;flex-direction:column;line-height:1.2;gap:4px;}
+.brand b{font-size:16px;font-weight:700;color:var(--c-primary);letter-spacing:.04em;}
+.brand span{font-size:10px;color:var(--c-sub);letter-spacing:.18em;}
+.nav{display:none;gap:22px;align-items:center;}
+.nav a{font-size:14px;font-weight:500;color:var(--c-text);transition:.2s;white-space:nowrap;letter-spacing:.01em;}
+.nav a:hover{color:var(--c-accent);}
+.header-cta{display:none;}
+.header-actions{display:flex;align-items:center;gap:10px;}
+.order-cta{background:#fff;color:var(--c-accent-d);border:1.5px solid var(--c-accent);min-height:44px;padding:12px 18px;font-size:14px;font-weight:700;border-radius:999px;white-space:nowrap;}
+.order-cta:hover{background:var(--c-accent);color:#fff;}
+.nav-toggle{display:flex;flex-direction:column;gap:5px;padding:8px;}
+.nav-toggle span{width:24px;height:2px;background:var(--c-primary);display:block;}
+.mobile-nav{display:none;position:fixed;inset:var(--header-h) 0 0;z-index:99;background:var(--c-bg);padding:28px 24px calc(72px + env(safe-area-inset-bottom));overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.mobile-nav.open{display:block;animation:mnFade .26s ease both;}
+@keyframes mnFade{from{opacity:0;}to{opacity:1;}}
+.mobile-nav.open > *{animation:mnItem .42s cubic-bezier(.22,.61,.36,1) both;}
+.mobile-nav.open > *:nth-child(1){animation-delay:.04s;}
+.mobile-nav.open > *:nth-child(2){animation-delay:.09s;}
+.mobile-nav.open > *:nth-child(3){animation-delay:.14s;}
+.mobile-nav.open > *:nth-child(4){animation-delay:.19s;}
+.mobile-nav.open > *:nth-child(5){animation-delay:.24s;}
+.mobile-nav.open > *:nth-child(6){animation-delay:.29s;}
+.mobile-nav.open > *:nth-child(7){animation-delay:.34s;}
+@keyframes mnItem{from{opacity:0;transform:translateX(-16px);}to{opacity:1;transform:none;}}
+.mobile-nav .mn-clinics{padding:2px 0 0;}
+.mobile-nav .mn-clinics-label{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--c-accent-d);padding:16px 0 2px;}
+.mobile-nav a.clinic-link{font-size:14px;font-weight:500;padding:13px 0;color:var(--c-sub);}
+.mobile-nav a.clinic-link:hover{color:var(--c-accent);}
+.mobile-nav a{display:block;padding:18px 0;font-size:18px;font-weight:500;border-bottom:1px solid var(--c-line);}
+.mobile-nav .btn{margin-top:28px;}
+.mobile-nav a.btn--primary{color:#fff!important;}
+.mn-close{position:absolute;top:12px;right:14px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#fff;border:1px solid var(--c-line);color:var(--c-primary);box-shadow:var(--shadow);padding:0;z-index:2;}
+.mn-close:hover{background:var(--c-bg-2);}
+.nav a.nav-dual{position:relative;color:var(--c-accent-d);font-weight:700;}
+.nav a.nav-dual:hover{color:var(--c-accent);}
+.nav-badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;color:#fff;background:var(--c-accent);border-radius:999px;padding:2px 7px;margin-left:5px;line-height:1.2;vertical-align:middle;}
+.nav a.nav-dual .nav-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);margin-left:0;white-space:nowrap;box-shadow:0 3px 8px rgba(200,155,22,.35);}
+.mobile-nav a.nav-dual{color:var(--c-accent-d);}
+.site-footer{background:var(--c-primary-d);color:#aebbce;padding:48px 0 110px;font-size:12.5px;}
+.site-footer .container{display:grid;gap:24px;}
+.site-footer .f-brand b{color:#fff;font-size:16px;display:block;margin-bottom:6px;}
+.site-footer nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.site-footer nav a{color:#aebbce;padding:4px 0;}
+.site-footer nav a:hover{color:#fff;}
+.site-footer .copy{border-top:1px solid rgba(255,255,255,.12);padding-top:18px;font-size:11px;color:#7e8ba1;}
+.site-footer .legal-links{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:11px;}
+.site-footer .legal-links a{color:#9aa7bc;}
+.site-footer .legal-links a:hover{color:#fff;}
+.site-footer .f-notes{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.12);padding-top:22px;display:grid;gap:22px;}
+.f-notes h4{color:#cdd7e6;font-size:12px;font-weight:700;letter-spacing:.04em;margin-bottom:9px;}
+.f-notes ul{list-style:none;display:grid;gap:6px;}
+.f-notes ul li{position:relative;padding-left:14px;font-size:11px;line-height:1.75;color:#9aa7bc;}
+.f-notes ul li::before{content:"";position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:50%;background:#6f7d93;}
+.f-notes .ld-intro{font-size:11px;color:#9aa7bc;margin-bottom:4px;}
+.f-notes .ld{display:grid;gap:4px;}
+.f-notes .ld p{margin:0;font-size:10.5px;line-height:1.6;color:#828fa5;}
+.f-notes .ld p b{color:#b6c1d3;font-weight:600;}
+.f-notes .ld a{color:#aebbce;text-decoration:underline;word-break:break-all;}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:90;display:flex;gap:8px;padding:10px 14px;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-top:1px solid var(--c-line);box-shadow:0 -4px 20px rgba(11,45,92,.08);}
+.sticky-cta .btn{flex:1;min-height:50px;padding:14px;font-size:14px;}
+/* legal page */
+.legal-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--c-line);border-radius:var(--radius-sm);overflow:hidden;}
+.legal-table th,.legal-table td{text-align:left;vertical-align:top;padding:16px 18px;font-size:13.5px;line-height:1.85;border-bottom:1px solid var(--c-line);}
+.legal-table tr:last-child th,.legal-table tr:last-child td{border-bottom:none;}
+.legal-table th{width:34%;background:var(--c-bg-2);color:var(--c-primary);font-weight:700;}
+.legal-table td{color:var(--c-sub);}
+.legal-table td b{color:var(--c-text);font-weight:600;}
+.legal-block{display:grid;gap:14px;}
+.legal-block h3{font-size:15px;font-weight:700;color:var(--c-primary);margin-top:10px;}
+.legal-block p{font-size:13.5px;line-height:1.95;color:var(--c-sub);}
+.legal-block ul.dots{display:grid;gap:7px;margin-top:2px;}
+.legal-block ul.dots li{position:relative;padding-left:16px;font-size:13.5px;line-height:1.85;color:var(--c-sub);}
+.legal-block ul.dots li::before{content:"";position:absolute;left:3px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--c-accent);}
+@media(min-width:768px){:root{--header-h:72px;}.site-footer{padding-bottom:48px;}.site-footer .container{grid-template-columns:1.4fr 1fr;}.sticky-cta{display:none;}.legal-table th{width:30%;}}
+@media(min-width:1024px){.nav{display:flex;}.header-cta:not(.order-cta){display:inline-flex;}.header-cta.order-cta{display:inline-flex;}.nav-toggle{display:none;}}
+@media(max-width:600px){.legal-table th,.legal-table td{display:block;width:100%;}.legal-table th{border-bottom:none;}}
+
+/* ===== 採用ページ ===== */
+.rc-ph{background:linear-gradient(135deg,#EEE8DF,#E5DFD5);display:flex;align-items:center;justify-content:center;color:#a99e88;font-size:12px;letter-spacing:.05em;text-align:center;padding:12px;}
+.rc-hero{background:var(--c-primary);color:#fff;overflow:hidden;}
+.rc-hero .container{display:grid;gap:22px;padding:40px 0;align-items:center;}
+.rc-hero h1{font-size:29px;line-height:1.5;font-weight:800;margin:12px 0;letter-spacing:.02em;}
+.rc-hero h1 em{color:#E7C566;font-style:normal;}
+.rc-hero p{color:#cdd7e6;font-size:14.5px;line-height:1.9;margin:0 0 22px;}
+.rc-hero .eyebrow{color:#E7C566;}
+.rc-heroimg{aspect-ratio:4/3;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.16);}
+.rc-heroimg img,.rc-heroimg .rc-ph{width:100%;height:100%;object-fit:cover;display:block;}
+.rc-vals{display:grid;gap:14px;margin-top:26px;}
+.rc-val{background:#fff;border:1px solid var(--c-line);border-radius:16px;padding:22px 20px;box-shadow:var(--shadow);}
+.rc-val .ic{width:46px;height:46px;border-radius:12px;background:rgba(200,155,22,.14);display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
+.rc-val .ic svg{width:24px;height:24px;stroke:var(--c-accent);fill:none;stroke-width:1.8;}
+.rc-val b{display:block;font-size:16px;color:var(--c-primary);margin-bottom:6px;}
+.rc-val span{font-size:13px;color:#555;line-height:1.8;}
+.rc-jobs{display:grid;gap:16px;margin-top:26px;}
+.rc-job{background:#fff;border:1px solid var(--c-line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;}
+.rc-job .thumb{aspect-ratio:16/10;overflow:hidden;}
+.rc-job .thumb img,.rc-job .thumb .rc-ph{width:100%;height:100%;object-fit:cover;display:block;}
+.rc-job .body{padding:20px;}
+.rc-job .tag{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:var(--c-accent);border-radius:999px;padding:4px 12px;margin-bottom:10px;}
+.rc-job h3{font-size:18px;color:var(--c-primary);margin:0 0 8px;font-weight:800;}
+.rc-job .desc{font-size:13px;color:#666;line-height:1.85;margin:0 0 14px;}
+.rc-job .meta{font-size:13px;color:#444;border-top:1px solid #EEE7DC;padding-top:12px;display:grid;gap:5px;}
+.rc-job .meta div{display:flex;gap:10px;}
+.rc-job .meta b{color:var(--c-primary);flex:0 0 74px;font-weight:800;}
+.rc-band{aspect-ratio:21/9;border-radius:16px;overflow:hidden;margin-top:8px;}
+.rc-band img,.rc-band .rc-ph{width:100%;height:100%;object-fit:cover;display:block;}
+.rc-pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px;}
+.rc-pill{background:#fff;border:1px solid var(--c-line);border-radius:999px;padding:10px 18px;font-size:13px;font-weight:700;color:var(--c-primary);}
+.rc-apply{background:var(--c-primary);color:#fff;text-align:center;}
+.rc-apply h2{font-size:24px;font-weight:800;margin:10px 0;}
+.rc-apply p{color:#cdd7e6;font-size:14px;line-height:1.9;margin:0 auto 20px;max-width:560px;}
+.rc-apply .btn-mail{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,#E8BC45,var(--c-accent));color:var(--c-primary);font-weight:800;font-size:15px;border-radius:999px;padding:15px 30px;text-decoration:none;box-shadow:0 12px 28px rgba(200,155,22,.32);}
+.rc-apply .mailnote{font-size:12px;color:#9fb0c8;margin-top:16px;}
+@media(min-width:820px){
+  .rc-hero .container{grid-template-columns:1.05fr .95fr;gap:40px;padding:60px 0;}
+  .rc-hero h1{font-size:38px;}
+  .rc-vals{grid-template-columns:repeat(3,1fr);}
+  .rc-jobs{grid-template-columns:repeat(2,1fr);}
+}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand"><b>歯と美容のクリニック</b><span>MEDICAL WHITENING · GINZA</span></a>
+    <nav class="nav">
+      <a href="/home-whitening">ホームホワイトニング</a>
+      <a href="/#price" class="nav-dual">デュアルホワイトニング<span class="nav-badge">白さを目指すなら</span></a>
+      <a href="/#faq">よくある質問</a>
+      <a href="/#access">アクセス</a>
+    </nav>
+    <div class="header-actions">
+      <a href="https://hb-clinic.online/" target="_blank" rel="noopener" class="btn order-cta header-cta">ジェルを注文</a>
+      <a href="https://hb-clinic.kalonade.com/hb-clinic/reservation/menu_section_categories" target="_blank" rel="noopener" class="btn btn--primary header-cta" style="min-height:44px;padding:12px 22px;font-size:14px;">今すぐ予約</a>
+    </div>
+    <button class="nav-toggle" aria-label="メニュー" id="navToggle"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mn-close" type="button" aria-label="メニューを閉じる"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+  <a href="/home-whitening">ホームホワイトニング</a>
+  <a href="/#price" class="nav-dual">デュアルホワイトニング<span class="nav-badge">白さを目指すなら</span></a>
+  <a href="/#faq">よくある質問</a>
+  <a href="/#access">アクセス</a>
+  <div class="mn-clinics">
+    <span class="mn-clinics-label">医院一覧</span>
+    <a class="clinic-link" href="/#access">銀座本院</a>
+    <a class="clinic-link" href="/#access">銀座7丁目院</a>
+    <a class="clinic-link" href="/thedente">銀座歯科 THE DENTE</a>
+  </div>
+  <a href="https://hb-clinic.kalonade.com/hb-clinic/reservation/menu_section_categories" target="_blank" rel="noopener" class="btn btn--primary btn--block">今すぐWEBで予約する</a>
+  <a href="https://hb-clinic.online/" target="_blank" rel="noopener" class="btn order-cta btn--block" style="margin-top:12px;">ホームホワイトニングジェルを注文</a>
+</div>
+
+<!-- RECRUIT HERO -->
+<section class="rc-hero">
+  <div class="container">
+    <div>
+      <span class="eyebrow">Recruit</span>
+      <h1>銀座で、<em>歯と美容</em>の<br>未来をつくる仲間へ。</h1>
+      <p>おとり広告・高額契約・押し売り・不透明会計をしない、誠実な医療ホワイトニング。患者さんに本当に良いことだけを届けたい——その想いに共感してくださる方を募集しています。</p>
+      <a href="#apply" class="btn btn--gold">募集要項を見る →</a>
+    </div>
+    <div class="rc-heroimg"><div class="rc-ph">［ヒーロー画像：院内で微笑むスタッフ（3枚目）］</div></div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section reveal">
+  <div class="container center">
+    <span class="eyebrow" style="justify-content:center;">Our Values</span>
+    <p class="h-sec">私たちが大切にしていること</p>
+    <p class="lead" style="margin:0 auto;">技術だけでなく「誠実さ」を大切に。押し売りのない、患者さんが安心して通える医院をチームでつくっています。</p>
+    <div class="rc-vals">
+      <div class="rc-val"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9.5 12l2 2 3.5-3.5"/></svg></div><b>誠実であること</b><span>4つのNO宣言のとおり、患者さんに不要な提案はしません。正直な医療を一緒に。</span></div>
+      <div class="rc-val"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z"/></svg></div><b>学べる環境</b><span>丁寧なカウンセリングを大切にする医院で、じっくりスキルを伸ばせます。</span></div>
+      <div class="rc-val"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-4.3-6.5-9A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 6.5 4c0 4.7-6.5 9-6.5 9z"/></svg></div><b>働きやすさ</b><span>銀座駅すぐ。予約制・キャッシュレス中心で、落ち着いて働ける環境です。</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- POSITIONS -->
+<section class="section reveal" style="padding-top:0;">
+  <div class="container center">
+    <span class="eyebrow" style="justify-content:center;">Positions</span>
+    <p class="h-sec">募集職種</p>
+    <div class="rc-jobs" style="text-align:left;">
+      <div class="rc-job">
+        <div class="thumb"><div class="rc-ph">［画像：タブレットで説明する歯科医（1枚目）］</div></div>
+        <div class="body">
+          <span class="tag">週4もしくは週5</span>
+          <h3>歯科医師</h3>
+          <p class="desc">医療ホワイトニングを中心に、患者さんに寄り添う診療をお願いします。丁寧な説明を大切にできる方を歓迎します。</p>
+          <div class="meta">
+            <div><b>勤務日数</b><span>週4もしくは週5</span></div>
+            <div><b>勤務地</b><span>銀座本院</span></div>
+            <div><b>給与</b><span>業界水準以上（詳細は非公開・面談時にご案内）</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="rc-job">
+        <div class="thumb"><div class="rc-ph">［画像：LED照射の施術シーン（2枚目）］</div></div>
+        <div class="body">
+          <span class="tag">週4もしくは週5</span>
+          <h3>歯科衛生士</h3>
+          <p class="desc">ホワイトニングの施術・カウンセリングを担当。未経験・ブランクのある方もご相談ください。</p>
+          <div class="meta">
+            <div><b>勤務日数</b><span>週4もしくは週5</span></div>
+            <div><b>勤務地</b><span>銀座本院／銀座7丁目院</span></div>
+            <div><b>給与</b><span>業界水準以上（詳細は非公開・面談時にご案内）</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section reveal" style="background:var(--c-bg-2);">
+  <div class="container center">
+    <span class="eyebrow" style="justify-content:center;">Benefits</span>
+    <p class="h-sec">働く環境・待遇</p>
+    <div class="rc-pills">
+      <span class="rc-pill">銀座駅すぐ</span><span class="rc-pill">週4〜5日勤務</span><span class="rc-pill">業界水準以上の給与</span><span class="rc-pill">交通費支給</span><span class="rc-pill">予約制で落ち着いた環境</span><span class="rc-pill">キャッシュレス中心</span>
+    </div>
+    <div class="rc-band" style="max-width:900px;margin:26px auto 0;"><div class="rc-ph">［画像：受付でご案内（4枚目）］</div></div>
+  </div>
+</section>
+
+<!-- APPLY -->
+<section class="section rc-apply reveal" id="apply">
+  <div class="container">
+    <span class="eyebrow" style="color:#E7C566;justify-content:center;">Apply</span>
+    <h2>ご応募・ご相談はメールで。</h2>
+    <p>ご応募は、<b style="color:#fff;">履歴書をメールに添付</b>してお送りください。「まず話を聞いてみたい」というご相談だけでも歓迎です。</p>
+    <a href="#" id="applyMail" class="btn-mail">メールで応募する（履歴書を送付）→</a>
+    <p class="mailnote"><a href="#" id="applyCopy" style="color:#E7C566;text-decoration:underline;">メールアプリが開かない場合はこちら（宛先をコピー）</a><span id="applyCopyMsg" style="margin-left:8px;color:#9fb0c8;"></span></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="f-brand">
+      <b>歯と美容のクリニック</b>
+      国家資格を持つプロ集団による、安心の医療ホワイトニング。銀座本院／銀座7丁目院／銀座歯科 THE DENTE。
+    </div>
+    <nav>
+      <a href="/home-whitening">ホームホワイトニング</a>
+      <a href="/#price" class="nav-dual">デュアルホワイトニング</a>
+      <a href="/#faq">よくある質問</a>
+      <a href="/#access">アクセス</a>
+      <a href="/#reserve">WEB予約</a>
+      <a href="/contact">お問い合わせ</a>
+      <a href="/shohosen">指示書について</a>
+    </nav>
+    <div class="f-notes">
+      <div class="f-note">
+        <h4>ご利用にあたって</h4>
+        <ul>
+          <li>お支払いは現金不可です。各種キャッシュレス決済のみのご対応となります。</li>
+          <li>お電話でのお問い合わせ・ご予約は承っておりません。WEBまたはLINEよりお願いいたします。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal-links">
+      <a href="/terms">利用規約</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/tokushoho">特定商取引法に基づく表記</a>
+      <a href="/aboutus">当院について</a>
+    </div>
+    <p class="copy">© 歯と美容のクリニック All Rights Reserved.</p>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a href="https://hb-clinic.online/" target="_blank" rel="noopener" class="btn order-cta" style="padding-left:8px;padding-right:8px;"><span style="font-size:11px;line-height:1.32;text-align:center;font-weight:700;">ホームホワイトニング<br>ジェルを注文</span></a>
+  <a href="https://hb-clinic.kalonade.com/hb-clinic/reservation/menu_section_categories" target="_blank" rel="noopener" class="btn btn--primary">来院予約</a>
+</div>
+<script>
+class DCLogic{}
+class Component extends DCLogic {
+  componentDidMount() {
+    const root = document;
+    const toggle = root.getElementById('navToggle');
+    const mobileNav = root.getElementById('mobileNav');
+    if (toggle && mobileNav) {
+      toggle.addEventListener('click', () => {
+        mobileNav.classList.toggle('open');
+        document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+      });
+      mobileNav.querySelectorAll('a, .mn-close').forEach((a) => {
+        a.addEventListener('click', () => {
+          mobileNav.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  }
+}
+;(function(){function s(){try{new Component().componentDidMount();}catch(e){console.error(e);}}if(document.readyState!=="loading")s();else document.addEventListener("DOMContentLoaded",s);})();
+</script>
+<script>
+(function(){
+  var u=["hatobiyo","help"].join("."), d=["gmail","com"].join(".");
+  var addr=u+"@"+d;
+  var m=document.getElementById("applyMail");
+  if(m){m.addEventListener("click",function(e){
+    e.preventDefault();
+    var subject="【求人応募】履歴書送付";
+    var body="このメールに履歴書を添付してお送りください。\r\n\r\nお名前：\r\nご希望の職種（歯科医師／歯科衛生士）：\r\nご連絡先（電話）：\r\n希望勤務日数（週4／週5）：\r\n";
+    window.location.href="mailto:"+addr+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+  });}
+  var c=document.getElementById("applyCopy");
+  if(c){c.addEventListener("click",function(e){e.preventDefault();
+    var done=function(){var x=document.getElementById("applyCopyMsg");if(x)x.textContent="コピーしました（"+addr+"）";};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(addr).then(done,function(){var x=document.getElementById("applyCopyMsg");if(x)x.textContent=addr;});}
+    else{var x=document.getElementById("applyCopyMsg");if(x)x.textContent=addr;}
+  });}
+})();
+</script>
+</body>
+</html>

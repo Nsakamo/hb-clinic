@@ -86,3 +86,9 @@
   to = "/monshin_completed"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/recruit.html"
+  to = "/recruit"
+  status = 301
+  force = true
