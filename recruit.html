@@ -157,6 +157,31 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;}
   .rc-jobs{grid-template-columns:repeat(2,1fr);}
 }
 
+
+/* === 採用ページ：見出し・余白・ボタンの定義（本ページで不足していた分） === */
+.section{padding:56px 0;}
+@media(min-width:768px){.section{padding:88px 0;}}
+.center{text-align:center;}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.26em;font-weight:800;text-transform:uppercase;color:var(--c-accent);margin-bottom:14px;}
+.eyebrow::before{content:"";width:26px;height:2px;background:currentColor;opacity:.85;}
+.center .eyebrow{justify-content:center;}
+.h-sec{font-size:26px;line-height:1.45;font-weight:800;color:var(--c-primary);letter-spacing:.02em;margin:0 0 12px;}
+@media(min-width:768px){.h-sec{font-size:33px;}}
+.lead{font-size:15px;line-height:1.95;color:var(--c-sub);max-width:40em;margin:0 0 4px;}
+.center .lead{margin-left:auto;margin-right:auto;}
+.btn--gold{background:linear-gradient(135deg,#E8BC45,var(--c-accent))!important;color:var(--c-primary)!important;border:none!important;box-shadow:0 12px 28px rgba(200,155,22,.32);}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);}
+.reveal.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none;}}
+/* 見出し下のゴールドの短いライン */
+.h-sec{position:relative;}
+.center .h-sec::after{content:"";display:block;width:44px;height:3px;border-radius:3px;background:var(--c-accent);margin:14px auto 0;opacity:.9;}
+/* ヒーロー余白を少し増やす */
+.rc-hero .container{padding:46px 0;}
+@media(min-width:820px){.rc-hero .container{padding:72px 0;}}
+/* ダーク背景のeyebrowは明るいゴールド（specificityで上書き） */
+.rc-hero .eyebrow,.rc-apply .eyebrow{color:#E7C566;}
+
 </style>
 </head>
 <body>
@@ -372,6 +397,17 @@ class Component extends DCLogic {
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(addr).then(done,function(){var x=document.getElementById("applyCopyMsg");if(x)x.textContent=addr;});}
     else{var x=document.getElementById("applyCopyMsg");if(x)x.textContent=addr;}
   });}
+})();
+</script>
+<script>
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function showAll(){els.forEach(function(e){e.classList.add('in');});}
+  if(rm||!('IntersectionObserver' in window)){showAll();return;}
+  var io=new IntersectionObserver(function(en,o){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target);}});},{threshold:.04,rootMargin:'0px 0px -4% 0px'});
+  els.forEach(function(el){var r=el.getBoundingClientRect();if(r.top<window.innerHeight*0.92)el.classList.add('in');else io.observe(el);});
+  setTimeout(function(){els.forEach(function(el){if(!el.classList.contains('in')){var r=el.getBoundingClientRect();if(r.top<window.innerHeight*1.3)el.classList.add('in');}});},1400);
 })();
 </script>
 </body>
