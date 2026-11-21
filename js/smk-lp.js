@@ -53,7 +53,7 @@
       try { var h = new URL(document.referrer).hostname.toLowerCase(); return h && h !== location.hostname ? h : ''; } catch (e) { return ''; }
     }
     function load() {
-      try { var v = JSON.parse(localStorage.getItem(KEY) || 'null'); if (v && v.id && v.att && Date.now() - v.t < IDLE) return v; } catch (e) {}
+      try { var v = JSON.parse(localStorage.getItem(KEY) || 'null'); if (v && /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(v.id) && v.att && typeof v.att === 'object' && Date.now() - v.t < IDLE) return v; } catch (e) {}
       return null;
     }
     function save(v) { v.t = Date.now(); try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {} }
