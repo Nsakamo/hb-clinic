@@ -15,8 +15,11 @@
     var PROD = 'https://app.uketsuke-run.online';
     var STAGING = 'https://smilemedi-cloud-w-git-56d932-rupansannsei96-yahoocojps-projects.vercel.app';
     // Netlify の確認用URLでは、うけつけるんのテスト環境へ送り、予約ボタンもテスト環境へ向ける。
+    // 確認用URLに smk_env=production を付けたときだけ本番へ送る（必ずテストの印を付け、数えない。公開前の1回の確認用）。
     var preview = /--hb-clinic-web\.netlify\.app$/.test(location.hostname);
-    var base = preview ? STAGING : PROD;
+    var previewProd = false;
+    if (preview) { try { previewProd = new URLSearchParams(location.search).get('smk_env') === 'production' || sessionStorage.getItem('smk_env') === 'production'; if (previewProd) sessionStorage.setItem('smk_env', 'production'); } catch (e) {} }
+    var base = preview && !previewProd ? STAGING : PROD;
     var KEY = 'smk_lp_visit';
     var IDLE = 30 * 60 * 1000;
     var CLICK = [['fbclid', 'fbclid'], ['gclid', 'gclid'], ['gbraid', 'gbraid'], ['wbraid', 'wbraid'], ['ttclid', 'ttclid'],
@@ -66,6 +69,7 @@
     } else if (incoming && incoming.test) {
       visit.att.test = true;
     }
+    if (previewProd) visit.att.test = true;
     save(visit);
 
     function send(event) {
@@ -90,7 +94,7 @@
       p.set('vid', visit.id);
       if (att.referrer_host) p.set('smk_ref', att.referrer_host); else p.delete('smk_ref');
       if (att.landing_page) p.set('smk_lp', att.landing_page);
-      a.href = (preview ? STAGING : PROD) + u.pathname + '?' + p.toString() + u.hash;
+      a.href = base + u.pathname + '?' + p.toString() + u.hash;
       return true;
     }
     function decorateAll() {
